@@ -1,3 +1,4 @@
+<%= image_tag @user.avatar_url(:thumb) if @user.avatar? %>
 <p><%= @user.first_name %> <%= @user.last_name %></p>
 <p><%= @user.company %></p>
 <p><%= @user.city %></p>

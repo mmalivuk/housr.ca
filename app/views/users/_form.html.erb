@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= form_for @user, :html => {:multipart => true} do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -33,6 +33,9 @@
 
   <p><%= f.label :about %> &nbsp
   <%= f.text_area :about, :cols => "30", :rows => "7", :class => "xxlarge" %></p>
+
+  <p>Avatar upload</p> &nbsp
+  <%= f.file_field :avatar %>
 
 
   <% if action_name == "new" %>

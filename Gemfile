@@ -11,9 +11,16 @@ gem 'devise'
 
 gem 'json'
 
+gem 'fog'
+
+gem 'carrierwave'
+
+gem 'rmagick'
+
+gem 'pg'
+
 group :production do
   gem 'therubyracer-heroku', '0.8.1.pre3' # you will need this too
-  gem 'pg'
 end
 
 # Gems used only for assets and not required

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>housr.ca</title>
+  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+      }
+    </style>
+</head>
+<body>
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="/">housr.ca</a>
+          <ul class="nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/find">Find an Agent</a></li>
+            <li><a href="/agents">Realtor's Section</a></li>
+			<li><a href="/about">About</a></li>
+			<li><a href="/contact">Contact</a></li>
+		  </ul>
+		
+		
+				<% if user_signed_in? %>
+					<ul class="nav secondary-nav">
+					            <li class="dropdown" data-dropdown="dropdown">
+					              <a href="#" class="dropdown-toggle"><%= current_user.email %></a>
+					              <ul class="dropdown-menu">
+					                <li><a href="/cpanel">Control Panel</a></li>
+					                <li><%= link_to "View My Profile", user_path(current_user) %></li>
+					                <li class="divider"></li>
+					                <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+					              </ul>
+					            </li>
+					          </ul>
+			  <% else %>
+			    <ul class="nav secondary-nav"><li><%= link_to "Sign Up", new_user_registration_path %></li> 
+			<li><%= link_to "Sign In", new_user_session_path %></li>
+				</ul>
+			  <% end %></p>
+			
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="hero-unit">
+        <%= yield %>
+      </div>
+	<br>
+	<br>
+	<br>
+	<br>
+      <footer>
+        <p>&copy; housr.ca 2011 by Milan Malivuk</p>
+      </footer>
+
+    </div>
+
+</body>
+</html>

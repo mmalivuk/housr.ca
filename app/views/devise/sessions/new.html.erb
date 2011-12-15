@@ -1,0 +1,15 @@
+<h2>Realtor Sign In</h2>
+<br>
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <div><%= f.label :email %>&nbsp
+  <%= f.email_field :email %></div><br>
+
+  <div><%= f.label :password %>&nbsp
+  <%= f.password_field :password %></div><br>
+
+  <div><p><%= f.label :remember_me, "Remember Me" %> &nbsp &nbsp<%= f.check_box :remember_me %></p></div>
+  
+  <div><%= f.submit "Sign in" %></div>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>

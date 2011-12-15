@@ -1,0 +1,50 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    
+
+
+  <p><%= f.label :first_name %> &nbsp
+  <%= f.text_field :first_name %></p>
+
+  <p><%= f.label :last_name %> &nbsp
+  <%= f.text_field :last_name %></p>
+
+  <p><%= f.label :city %> &nbsp
+  <%= f.text_field :city %></p>
+
+  <p><%= f.label :company %> &nbsp
+  <%= f.text_field :company %></p>
+
+  <p><%= f.label :email %> &nbsp
+  <%= f.email_field :email %></p>
+
+  <p><%= f.label :phone %> &nbsp
+  <%= f.text_field :phone %></p>
+
+  <p><%= f.label :about %> &nbsp
+  <%= f.text_area :about, :cols => "30", :rows => "7", :class => "xxlarge" %></p>
+
+
+  <% if action_name == "new" %>
+  <p><%= f.label :password, "New password" %> &nbsp
+  <%= f.password_field :password %></p>
+
+  <p><%= f.label :password_confirmation, "Confirm password" %> &nbsp
+  <%= f.password_field :password_confirmation %></p>
+  <% end %>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

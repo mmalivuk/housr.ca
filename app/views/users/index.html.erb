@@ -1,0 +1,34 @@
+<h1>All Realtors</h1>
+
+<table id="users" class="zebra-striped">
+	<thead>
+		<tr>
+			
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Company</th>
+			<th>City</th>
+
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @users.each do |user| %>
+		<tr>
+			
+			<th><%= user.first_name %></th>
+			<th><%= user.last_name %></th>
+			<th><%= user.company %></th>
+			<th><%= user.city %></th>
+			
+			<th><%= link_to "View", user_path(user) %></th>
+			<th><%= link_to "Edit", edit_user_path(user) %></th>
+			<th><%= link_to "Delete", user, :method => :delete, :confirm => "Are you sure?" %></th>
+		</tr>
+		<% end %>
+	</tbody>
+
+
+</table>

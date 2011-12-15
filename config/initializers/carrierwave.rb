@@ -3,7 +3,6 @@ CarrierWave.configure do |config|
     :provider               => 'AWS',
     :aws_access_key_id      => 'AKIAIQFDGFSWHSBAS3YQ',
     :aws_secret_access_key  => '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',
-    :region                 => 'eu-west-1'
   }
   config.fog_directory  = 'housr'
 end

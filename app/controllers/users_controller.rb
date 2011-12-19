@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  
+  before_filter :authenticate_user!, :except => [:show, :index]
+  
   # GET /users
   # GET /users.json
   def index
@@ -9,7 +12,6 @@ class UsersController < ApplicationController
       format.json { render :json => @users }
     end
   end
-
 
   # GET /users/1
   # GET /users/1.json
@@ -36,6 +38,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    render :layout => "cpanel"
   end
 
   # POST /users
@@ -68,6 +71,10 @@ class UsersController < ApplicationController
         format.json { render :json => @user.errors, :status => :unprocessable_entity }
       end
     end
+  end
+  
+  def cpanel
+    render :layout => "cpanel"
   end
 
   # DELETE /users/1

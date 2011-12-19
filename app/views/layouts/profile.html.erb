@@ -49,19 +49,40 @@
       </div>
     </div>
 
-    <div class="container">
+	<div class="container-fluid">
+	      <div class="sidebar">
+	        <div class="well">
+	          <h5>Menu</h5>
+	          <ul>
+	            <li><a href="#">Link</a></li>
+	            <li><a href="#">Link</a></li>
+	            <li><a href="#">Link</a></li>
+	            <li><a href="#">Link</a></li>
+	          </ul>
+	          <h5>Sidebar</h5>
+	          <ul>
+	            <li><a href="#">Link</a></li>
+	            <li><a href="#">Link</a></li>
+	            <li><a href="#">Link</a></li>
+	            <li><a href="#">Link</a></li>
+	            <li><a href="#">Link</a></li>
+	            <li><a href="#">Link</a></li>
+	          </ul>
+	          <h5>Sidebar</h5>
+	          <ul>
+	            <li><a href="#">Link</a></li>
+	            <li><a href="#">Link</a></li>
+	          </ul>
+	        </div>
+	      </div>
+	      <div class="content">
+	        
+	        <%= yield %>
 
-      <%= yield %>
-
-	<br>
-	<br>
-	<br>
-	<br>
-      <footer>
-        <p>&copy; housr.ca 2011 by Milan Malivuk</p>
-      </footer>
-
-    </div>
-
+	        <footer>
+	          <p>&copy; housr.ca 2011 by Milan Malivuk</p>
+	        </footer>
+	      </div>
+	</div>
 </body>
 </html>

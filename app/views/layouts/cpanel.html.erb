@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>housr.ca</title>
-  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
   <%= stylesheet_link_tag    "application" %>
+  <%= stylesheet_link_tag    "bootstrap" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
     <style type="text/css">
@@ -49,19 +49,40 @@
       </div>
     </div>
 
-    <div class="container">
+	<div class="container-fluid">
+	      <div class="sidebar">
+	        <div class="well">
+	          <h5>Menu</h5>
+	          <ul>
+	            <li><a href="/cpanel">Control Panel</a></li>
+	            <li><a href="<%= edit_user_path(current_user) %>">Edit Profile</a></li>
+	            <li><a href="<%= user_path(current_user) %>">View Profile</a></li>
+	            <li><a href="/help">Help</a></li>
+	          </ul>
+	          <h5>Listings</h5>
+	          <ul>
+	            <li><a href="#">Add a Listing</a></li>
+	            <li><a href="#">Manage my Listings</a></li>
+	          </ul>
+	          <h5>Leads</h5>
+	          <ul>
+	            <li><a href="#">Add a Lead</a></li>
+	            <li><a href="#">Manage my Leads</a></li>
+	          </ul>
+	        </div>
+	      </div>
+	      <div class="content">
+	        <!-- Main hero unit for a primary marketing message or call to action -->
+	        <div class="hero-unit">
+	        <%= yield %>
+	        </div>
 
-      <%= yield %>
 
-	<br>
-	<br>
-	<br>
-	<br>
-      <footer>
-        <p>&copy; housr.ca 2011 by Milan Malivuk</p>
-      </footer>
 
-    </div>
-
+	        <footer>
+	          <p>&copy; housr.ca 2011 by Milan Malivuk</p>
+	        </footer>
+	      </div>
+	</div>
 </body>
 </html>

@@ -27,6 +27,9 @@ Boot::Application.routes.draw do
   get "pages/agent"
   match "agents" => "pages#agent"
   
+  get "users/cpanel"
+  match "cpanel" => "users#cpanel"
+  
   get "users/index"
 
   # The priority is based upon order of creation:

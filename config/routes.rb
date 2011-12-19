@@ -28,7 +28,7 @@ Boot::Application.routes.draw do
   match "agents" => "pages#agent"
   
   get "users/cpanel"
-  match "cpanel" => "users#cpanel"
+  match "cpanel" => "users#cpanel", :as => 'user_root'
   
   get "users/index"
 

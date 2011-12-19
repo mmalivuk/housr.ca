@@ -2,9 +2,10 @@
 <html>
 <head>
   <title>housr.ca</title>
-  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "bootstrap-dropdown" %>
+  <%= javascript_include_tag "bootstrap-alert" %>
   <%= csrf_meta_tags %>
     <style type="text/css">
       body {
@@ -50,7 +51,12 @@
     </div>
 
     <div class="container">
-
+	  	<% if flash[:notice] %>
+			<div class="alert-message warning" data-alert="alert">
+			  <a class="close" href="#">×</a>
+			  <p><%= flash[:notice] %></p>
+			</div>
+		<% end %>
       <%= yield %>
 
 	<br>

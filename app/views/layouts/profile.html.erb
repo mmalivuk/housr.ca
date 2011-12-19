@@ -76,7 +76,12 @@
 	        </div>
 	      </div>
 	      <div class="content">
-	        
+	        <% if flash[:notice] %>
+				<div class="alert-message warning" data-alert="alert">
+				  <a class="close" href="#">×</a>
+				  <p><%= flash[:notice] %></p>
+				</div>
+			<% end %>
 	        <%= yield %>
 
 	        <footer>

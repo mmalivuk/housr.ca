@@ -5,6 +5,8 @@
   <%= stylesheet_link_tag    "application" %>
   <%= stylesheet_link_tag    "bootstrap" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "bootstrap-dropdown" %>
+  <%= javascript_include_tag "bootstrap-alert" %>
   <%= csrf_meta_tags %>
     <style type="text/css">
       body {
@@ -72,6 +74,12 @@
 	        </div>
 	      </div>
 	      <div class="content">
+			<% if flash[:notice] %>
+				<div class="alert-message warning" data-alert="alert">
+				  <a class="close" href="#">×</a>
+				  <p><%= flash[:notice] %></p>
+				</div>
+			<% end %>
 	        <!-- Main hero unit for a primary marketing message or call to action -->
 	        <div class="hero-unit">
 	        <%= yield %>

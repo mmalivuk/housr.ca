@@ -2,9 +2,10 @@
 <html>
 <head>
   <title>housr.ca</title>
-  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "bootstrap-dropdown" %>
+  <%= javascript_include_tag "bootstrap-alert" %>
   <%= csrf_meta_tags %>
     <style type="text/css">
       body {
@@ -50,11 +51,16 @@
     </div>
 
     <div class="container">
-
+		<% if flash[:notice] %>
+			<div class="alert-message warning" data-alert="alert">
+			  <a class="close" href="#">×</a>
+			  <p><%= flash[:notice] %></p>
+			</div>
+		<% end %>
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
         <h1>Find a Realtor!</h1><br>
-        <p>housr.ca gets you in touch with the best real estate agents in the Greater Toronto Area and the Kingston Area... <strong>FREE</strong>. Enter your information and have custom proposals from Realtors emailed right to you. Finding an agent shouldn't be difficult or a roll of the dice.  </p>
+        <p>housr.ca gets you in touch with the best real estate agents in the Greater Toronto Area and the Kingston Area... <strong>FREE</strong>. Enter your information and have custom proposals from Realtors emailed right to you. Finding an agent shouldn't be difficult or a roll of the dice. <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </p>
       </div>
 
       <!-- Example row of columns -->

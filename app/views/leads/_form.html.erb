@@ -14,34 +14,34 @@
   <div class="field">
     <%= f.label :first_name %>&nbsp
     <%= f.text_field :first_name %>
-  </div>
+  </div><br>
   <div class="field">
     <%= f.label :last_name %>&nbsp
     <%= f.text_field :last_name %>
-  </div>
+  </div><br>
   <div class="field">
     <%= f.label :status %>&nbsp
 	<%= f.select :status, [['Lead','Lead'],['Client','Client'],['Previous Client','Previous Client']] %>
-  </div>
+  </div><br>
   <div class="field">
     <%= f.label :phone %>&nbsp
     <%= f.text_field :phone %>
-  </div>
+  </div><br>
   <div class="field">
     <%= f.label :email %>&nbsp
     <%= f.text_field :email %>
-  </div>
+  </div><br>
   <div class="field">
     <%= f.label :looking_to %>&nbsp
 	<%= f.select :looking_to, [['Buy','Buy'],['Sell','Sell'],['Rent','Rent'],['Other','Other']] %>
-  </div>
+  </div><br>
   <div class="field">
     <%= f.label :notes %>&nbsp
     <%= f.text_area :notes, :class => "xxlarge", :rows => "7" %>
-  </div>
+  </div><br>
   <div class="field">
     <%= f.hidden_field :user_id, :value => current_user.id %>
-  </div>
+  </div><br>
   
     <%= f.submit %>
   

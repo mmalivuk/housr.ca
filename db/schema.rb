@@ -10,7 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111215205035) do
+ActiveRecord::Schema.define(:version => 20111219232650) do
+
+  create_table "leads", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "status"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "looking_to"
+    t.text     "notes"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false

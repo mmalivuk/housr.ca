@@ -1,0 +1,48 @@
+<%= form_for(@lead) do |f| %>
+  <% if @lead.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lead.errors.count, "error") %> prohibited this lead from being saved:</h2>
+
+      <ul>
+      <% @lead.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %>&nbsp
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %>&nbsp
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :status %>&nbsp
+    <%= f.text_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %>&nbsp
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :email %>&nbsp
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :looking_to %>&nbsp
+    <%= f.text_field :looking_to %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %>&nbsp
+    <%= f.text_area :notes, :class => "xxlarge", :rows => "7" %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  </div>
+  
+    <%= f.submit %>
+  
+<% end %>

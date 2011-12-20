@@ -1,4 +1,6 @@
 Boot::Application.routes.draw do
+  resources :leads
+
   devise_for :users
   
   resources :users

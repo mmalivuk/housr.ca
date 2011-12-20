@@ -11,34 +11,34 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <p><div class="field">
     <%= f.label :first_name %>&nbsp
     <%= f.text_field :first_name %>
-  </div><br>
-  <div class="field">
+  </div></p>
+  <p><div class="field">
     <%= f.label :last_name %>&nbsp
     <%= f.text_field :last_name %>
-  </div><br>
-  <div class="field">
+  </div></p>
+  <p><div class="field">
     <%= f.label :status %>&nbsp
 	<%= f.select :status, [['Lead','Lead'],['Client','Client'],['Previous Client','Previous Client']] %>
-  </div><br>
-  <div class="field">
+  </div></p>
+  <p><div class="field">
     <%= f.label :phone %>&nbsp
     <%= f.text_field :phone %>
-  </div><br>
-  <div class="field">
+  </div></p>
+  <p><div class="field">
     <%= f.label :email %>&nbsp
     <%= f.text_field :email %>
-  </div><br>
-  <div class="field">
+  </div></p>
+  <p><div class="field">
     <%= f.label :looking_to %>&nbsp
 	<%= f.select :looking_to, [['Buy','Buy'],['Sell','Sell'],['Rent','Rent'],['Other','Other']] %>
-  </div><br>
-  <div class="field">
+  </div></p>
+  <p><div class="field">
     <%= f.label :notes %>&nbsp
     <%= f.text_area :notes, :class => "xxlarge", :rows => "7" %>
-  </div><br>
+  </div></p>
   <div class="field">
     <%= f.hidden_field :user_id, :value => current_user.id %>
   </div><br>

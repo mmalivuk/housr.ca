@@ -33,6 +33,9 @@ Boot::Application.routes.draw do
   match "cpanel" => "users#cpanel", :as => 'user_root'
   
   get "users/index"
+  
+  get "leads/manage_leads"
+  match "manage_leads" => "leads#manage_leads"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

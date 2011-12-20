@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :status %>&nbsp
-    <%= f.text_field :status %>
+	<%= f.select :status, [['Lead','Lead'],['Client','Client'],['Previous Client','Previous Client']] %>
   </div>
   <div class="field">
     <%= f.label :phone %>&nbsp
@@ -33,7 +33,7 @@
   </div>
   <div class="field">
     <%= f.label :looking_to %>&nbsp
-    <%= f.text_field :looking_to %>
+	<%= f.select :looking_to, [['Buy','Buy'],['Sell','Sell'],['Rent','Rent'],['Other','Other']] %>
   </div>
   <div class="field">
     <%= f.label :notes %>&nbsp

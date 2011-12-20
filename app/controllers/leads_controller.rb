@@ -1,4 +1,5 @@
 class LeadsController < ApplicationController
+  before_filter :authenticate_user!
   # GET /leads
   # GET /leads.json
   def index
@@ -19,6 +20,9 @@ class LeadsController < ApplicationController
       format.html # show.html.erb
       format.json { render :json => @lead }
     end
+  end
+  
+  def manage_leads
   end
 
   # GET /leads/new

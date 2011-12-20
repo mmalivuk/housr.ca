@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <b>First name:</b>
   <%= @lead.first_name %>
@@ -34,12 +32,6 @@
   <b>Notes:</b>
   <%= @lead.notes %>
 </p>
-
-<p>
-  <b>User:</b>
-  <%= @lead.user_id %>
-</p>
-
 
 <%= link_to 'Edit', edit_lead_path(@lead) %> |
 <%= link_to 'Back', leads_path %>

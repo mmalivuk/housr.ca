@@ -1,9 +1,6 @@
 <div class="hero-unit">
-<%= image_tag @user.avatar_url(:thumb) if @user.avatar? %>
-<p><%= @user.first_name %> <%= @user.last_name %></p>
+<h1><%= @user.first_name %> <%= @user.last_name %></h1>
+<h3><%= @user.company %></h3>
 </div>
-<p><%= @user.company %></p>
-<p><%= @user.city %></p>
-<p><%= @user.phone %></p>
-<p><%= @user.email %></p>
+
 <p><%= @user.about %></p>

@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  street_number: MyString
+  street_name: MyString
+  city: MyString
+  building_type: MyString
+  mls_number: MyString
+  bedrooms: MyString
+  bathrooms: MyString
+  sq_ft: MyString
+  asking_price: MyString
+  price_sold: MyString
+  garage_space: MyString
+  storeys: 1
+  title: MyText
+  description: MyText
+  user_id: 1
+
+two:
+  street_number: MyString
+  street_name: MyString
+  city: MyString
+  building_type: MyString
+  mls_number: MyString
+  bedrooms: MyString
+  bathrooms: MyString
+  sq_ft: MyString
+  asking_price: MyString
+  price_sold: MyString
+  garage_space: MyString
+  storeys: 1
+  title: MyText
+  description: MyText
+  user_id: 1

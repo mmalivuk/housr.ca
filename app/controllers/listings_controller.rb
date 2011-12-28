@@ -68,6 +68,9 @@ class ListingsController < ApplicationController
       end
     end
   end
+  
+  def manage_listings
+  end
 
   # DELETE /listings/1
   # DELETE /listings/1.json

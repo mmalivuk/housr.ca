@@ -36,6 +36,9 @@ Boot::Application.routes.draw do
   
   get "users/index"
   
+  get "listings/manage_listings"
+  match "manage_listings" => "listings#manage_listings"
+  
   get "leads/manage_leads"
   match "manage_leads" => "leads#manage_leads"
 

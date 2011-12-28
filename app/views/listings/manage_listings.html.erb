@@ -1,0 +1,49 @@
+<h1>Listing listings</h1>
+
+<table>
+  <tr>
+    <th>Street number</th>
+    <th>Street name</th>
+    <th>City</th>
+    <th>Building type</th>
+    <th>Mls number</th>
+    <th>Bedrooms</th>
+    <th>Bathrooms</th>
+    <th>Sq ft</th>
+    <th>Asking price</th>
+    <th>Price sold</th>
+    <th>Garage space</th>
+    <th>Storeys</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @listings = Listing.where(:user_id => current_user.id) %>
+<% @listings.each do |listing| %>
+  <tr>
+    <td><%= listing.street_number %></td>
+    <td><%= listing.street_name %></td>
+    <td><%= listing.city %></td>
+    <td><%= listing.building_type %></td>
+    <td><%= listing.mls_number %></td>
+    <td><%= listing.bedrooms %></td>
+    <td><%= listing.bathrooms %></td>
+    <td><%= listing.sq_ft %></td>
+    <td><%= listing.asking_price %></td>
+    <td><%= listing.price_sold %></td>
+    <td><%= listing.garage_space %></td>
+    <td><%= listing.storeys %></td>
+    <td><%= listing.title %></td>
+    <td><%= listing.description %></td>
+    <td><%= link_to 'Show', listing %></td>
+    <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
+    <td><%= link_to 'Destroy', listing, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Listing', new_listing_path %>

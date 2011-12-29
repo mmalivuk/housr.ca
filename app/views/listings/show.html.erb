@@ -32,67 +32,29 @@
 
 <div class="row">
   <div class="span12">
-    Level 1 of column
+
     <div class="row">
       <div class="span6">
-        Level 2
+        <p>
+		<b>Building type:</b> <%= @listing.building_type %><br>
+		<b>Bedrooms:</b> <%= @listing.bedrooms %><br>
+		<b>Bathrooms:</b> <%= @listing.bathrooms %>
+		<b>Storeys:</b> <%= @listing.storeys %>
+		</p>
       </div>
       <div class="span6">
-        Level 2
+        <p>
+			<b>Mls number:</b> <%= @listing.mls_number %><br>
+			<b>Size:</b> <%= @listing.sq_ft %> sq. ft.<br>
+			<b>Garage space:</b> <%= @listing.garage_space %><br>
+		</p>
       </div>
     </div>
   </div>
 </div>
 
-
-
-
-
-
-
-
-
-<div class="row" align="center">
-	
-	<div class="span4">
-		<p>
-		  <b>Building type:</b> <%= @listing.building_type %><br>
-		 <b>Bedrooms:</b>
-		  <%= @listing.bedrooms %><br>
-		 <b>Bathrooms:</b>
-		  <%= @listing.bathrooms %>
-		</p>
-	</div>
-	
-	<div class="span4 offset2">
-		
-		  <b>Mls number:</b>
-		  <%= @listing.mls_number %>
-		
-	</div> 	
-</div>
-
-
-
-
-
-<p>
-  <b>Sq ft:</b>
-  <%= @listing.sq_ft %>
-</p>
-
-<p>
-  <b>Garage space:</b>
-  <%= @listing.garage_space %>
-</p>
-
-<p>
-  <b>Storeys:</b>
-  <%= @listing.storeys %>
-</p>
-
-<p>
-  <b>Description:</b>
+<p><br>
+  <b>Description:</b><br>
   <%= @listing.description %>
 </p>
 

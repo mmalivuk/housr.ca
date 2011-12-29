@@ -1,52 +1,84 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Title:</b>
+<h2 align="center">
   <%= @listing.title %>
-</p>
+</h2>
+<br>
+<div class="hero-unit">
+	<div class="row">
+		<div class="span4"><p>image here</p>
+		</div>
+		
+		<div class="span5">
+<h3>
+  <strong><%= @listing.street_number %> <%= @listing.street_name %></strong>
+</h3>
 
 <p>
-  <%= @listing.street_number %> <%= @listing.street_name %>
+  <%= @listing.city %>, ON
 </p>
+		</div>
+		
+		<div class="span4" align="right">
+			<h3>
+			$ <%= @listing.asking_price %><br>
+			
+			</h3>
+		</div>
+		
+	</div>
+	
+	
+</div>
 
-<p>
-  <b>City:</b>
-  <%= @listing.city %>
-</p>
 
-<p>
-  <b>Building type:</b>
-  <%= @listing.building_type %>
-</p>
+<div class="row">
+  <div class="span12">
+    Level 1 of column
+    <div class="row">
+      <div class="span6">
+        Level 2
+      </div>
+      <div class="span6">
+        Level 2
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <b>Mls number:</b>
-  <%= @listing.mls_number %>
-</p>
 
-<p>
-  <b>Bedrooms:</b>
-  <%= @listing.bedrooms %>
-</p>
 
-<p>
-  <b>Bathrooms:</b>
-  <%= @listing.bathrooms %>
-</p>
+
+
+
+
+
+
+<div class="row" align="center">
+	
+	<div class="span4">
+		<p>
+		  <b>Building type:</b> <%= @listing.building_type %><br>
+		 <b>Bedrooms:</b>
+		  <%= @listing.bedrooms %><br>
+		 <b>Bathrooms:</b>
+		  <%= @listing.bathrooms %>
+		</p>
+	</div>
+	
+	<div class="span4 offset2">
+		
+		  <b>Mls number:</b>
+		  <%= @listing.mls_number %>
+		
+	</div> 	
+</div>
+
+
+
+
 
 <p>
   <b>Sq ft:</b>
   <%= @listing.sq_ft %>
-</p>
-
-<p>
-  <b>Asking price:</b>
-  <%= @listing.asking_price %>
-</p>
-
-<p>
-  <b>Price sold:</b>
-  <%= @listing.price_sold %>
 </p>
 
 <p>
@@ -64,10 +96,6 @@
   <%= @listing.description %>
 </p>
 
-<p>
-  <b>User:</b>
-  <%= @listing.user_id %>
-</p>
 
 
 <%= link_to 'Edit', edit_listing_path(@listing) %> |

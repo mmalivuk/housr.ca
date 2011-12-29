@@ -1,3 +1,4 @@
+<br><br>
 <%= form_for(@listing) do |f| %>
   <% if @listing.errors.any? %>
     <div id="error_explanation">
@@ -26,18 +27,18 @@
   <div class="field">
     <%= f.label :city %> &nbsp
     <%= f.text_field :city %>
-  </div> <br>
+  </div> <hr>
   <div class="field">
     <%= f.label :mls_number %> &nbsp
     <%= f.text_field :mls_number %>
   </div> <br>
   <div class="field">
     <%= f.label :building_type %> &nbsp
-    <%= f.text_field :building_type %>
+	<%= f.select :building_type, [['Detached','Detached'],['Semi-Detached','Semi-Detached'],['Townhome','Townhome'],['Apartment','Apartment'],['Other','Other']] %>
   </div> <br>
   <div class="field">
     <%= f.label :bedrooms %> &nbsp
-    <%= f.text_field :bedrooms %>
+    <%= f.number_field :bedrooms, :class => 'small' %>
   </div> <br>
   <div class="field">
     <%= f.label :bathrooms %> &nbsp
@@ -57,11 +58,11 @@
   </div> <br>
   <div class="field">
     <%= f.label :garage_space %> &nbsp
-    <%= f.text_field :garage_space %>
+    <%= f.number_field :garage_space, :class => 'small' %>
   </div> <br>
   <div class="field">
     <%= f.label :storeys %> &nbsp
-    <%= f.number_field :storeys %>
+    <%= f.number_field :storeys, :class => 'small' %>
   </div> <br>
   <div class="field">
     <%= f.label :description %> &nbsp

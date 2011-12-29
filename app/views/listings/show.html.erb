@@ -1,12 +1,13 @@
-<h2 align="center">
-  <%= @listing.title %>
-</h2>
 <br>
 <div class="hero-unit">
 	<div class="row">
-		<div class="span4"><p>image here</p>
-		</div>
 		
+		<div class="span4"><a href="<%= @listing.img_url %>"><%= image_tag @listing.img_url(:thumb) if @listing.img? %></a>
+		</div>
+		<div class="row">
+			<h2 class="span10" align="center">
+			  <%= @listing.title %>
+			</h2>
 		<div class="span5">
 <h3>
   <strong><%= @listing.street_number %> <%= @listing.street_name %></strong>
@@ -18,10 +19,13 @@
 		</div>
 		
 		<div class="span4" align="right">
-			<h3>
+			<h3><br>
 			$ <%= @listing.asking_price %><br>
 			
 			</h3>
+		</div>
+		
+		
 		</div>
 		
 	</div>
@@ -34,7 +38,7 @@
   <div class="span12">
 
     <div class="row">
-      <div class="span6">
+      <div class="span4">
         <p>
 		<b>Building type:</b> <%= @listing.building_type %><br>
 		<b>Bedrooms:</b> <%= @listing.bedrooms %><br>
@@ -42,9 +46,9 @@
 		<b>Storeys:</b> <%= @listing.storeys %>
 		</p>
       </div>
-      <div class="span6">
+      <div class="span4">
         <p>
-			<b>Mls number:</b> <%= @listing.mls_number %><br>
+			<b>MLS number:</b> <%= @listing.mls_number %><br>
 			<b>Size:</b> <%= @listing.sq_ft %> sq. ft.<br>
 			<b>Garage space:</b> <%= @listing.garage_space %><br>
 		</p>
@@ -54,7 +58,6 @@
 </div>
 
 <p><br>
-  <b>Description:</b><br>
   <%= @listing.description %>
 </p>
 

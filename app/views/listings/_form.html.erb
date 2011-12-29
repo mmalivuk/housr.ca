@@ -1,5 +1,5 @@
 <br><br>
-<%= form_for(@listing) do |f| %>
+<%= form_for @listing, :html => {:multipart => true} do |f| %>
   <% if @listing.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
@@ -27,7 +27,16 @@
   <div class="field">
     <%= f.label :city %> &nbsp
     <%= f.text_field :city %>
-  </div> <hr>
+  </div> 
+
+<hr>
+
+	<div class="field">
+ 	 <%= f.label :img, "Photo upload" %> &nbsp
+ 	 <%= f.file_field :img %>
+	</div>
+<hr>
+
   <div class="field">
     <%= f.label :mls_number %> &nbsp
     <%= f.text_field :mls_number %>

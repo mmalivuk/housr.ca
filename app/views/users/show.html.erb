@@ -4,3 +4,29 @@
 </div>
 
 <p><%= @user.about %></p>
+
+<h4>Listings</h4>
+<table>
+  <tr>
+	<th></th>
+    <th>Street number</th>
+    <th>Street name</th>
+    <th>Title</th>
+    <th>City</th>
+    <th>Asking price</th>
+    <th></th>
+  </tr>
+<% @user = User.find(params[:id]) %>
+<% @listings = @user.listings %>
+<% @listings.each do |listing| %>
+  <tr>
+	<td><%= image_tag listing.img_url(:thumb), :height => "50%" %></td>
+    <td><%= listing.street_number %></td>
+    <td><%= listing.street_name %></td>
+    <td><%= listing.title %></td>
+    <td><%= listing.city %></td>
+    <td><%= listing.asking_price %></td>
+    <td><%= link_to 'Show', listing %></td>
+  </tr>
+<% end %>
+</table>

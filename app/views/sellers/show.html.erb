@@ -1,0 +1,85 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>First name:</b>
+  <%= @seller.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @seller.last_name %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @seller.phone %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @seller.email %>
+</p>
+
+<p>
+  <b>Property type:</b>
+  <%= @seller.property_type %>
+</p>
+
+<p>
+  <b>Min price:</b>
+  <%= @seller.min_price %>
+</p>
+
+<p>
+  <b>Max price:</b>
+  <%= @seller.max_price %>
+</p>
+
+<p>
+  <b>Bedrooms:</b>
+  <%= @seller.bedrooms %>
+</p>
+
+<p>
+  <b>Bathrooms:</b>
+  <%= @seller.bathrooms %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @seller.city %>
+</p>
+
+<p>
+  <b>Timeframe:</b>
+  <%= @seller.timeframe %>
+</p>
+
+<p>
+  <b>More info:</b>
+  <%= @seller.more_info %>
+</p>
+
+<p>
+  <b>Street number:</b>
+  <%= @seller.street_number %>
+</p>
+
+<p>
+  <b>Street name:</b>
+  <%= @seller.street_name %>
+</p>
+
+<p>
+  <b>Postal code:</b>
+  <%= @seller.postal_code %>
+</p>
+
+<p>
+  <b>Times forwarded:</b>
+  <%= @seller.times_forwarded %>
+</p>
+
+
+<%= link_to 'Edit', edit_seller_path(@seller) %> |
+<%= link_to 'Back', sellers_path %>

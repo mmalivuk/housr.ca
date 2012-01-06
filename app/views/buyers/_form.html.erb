@@ -1,0 +1,79 @@
+<%= form_for(@buyer) do |f| %>
+  <% if @buyer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@buyer.errors.count, "error") %> prohibited this buyer from being saved:</h2>
+
+      <ul>
+      <% @buyer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %>&nbsp
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %>&nbsp
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %>&nbsp
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :email %>&nbsp
+    <%= f.email_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :property_type %>&nbsp
+    <%= f.text_field :property_type %>
+  </div>
+  <div class="field">
+    <%= f.label :min_price %>&nbsp
+    <%= f.text_field :min_price %>
+  </div>
+  <div class="field">
+    <%= f.label :max_price %>&nbsp
+    <%= f.text_field :max_price %>
+  </div>
+  <div class="field">
+    <%= f.label :bedrooms, "Minimum bedrooms" %>&nbsp
+    <%= f.number_field :bedrooms, :class=>"small" %>
+  </div>
+  <div class="field">
+    <%= f.label :bathrooms, "Minimum bathrooms" %>&nbsp
+    <%= f.text_field :bathrooms, :class=>"small" %>
+  </div>
+  <div class="field">
+    <%= f.label :street_number %>&nbsp
+    <%= f.number_field :street_number, :class=>"small" %>
+  </div>
+  <div class="field">
+    <%= f.label :street_name %>&nbsp
+    <%= f.text_field :street_name %>
+  </div>
+  <div class="field">
+    <%= f.label :postal_code %>&nbsp
+    <%= f.text_field :postal_code %>
+  </div>
+  <div class="field">
+    <%= f.label :city %>&nbsp
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :timeframe, "I'm buying in" %>&nbsp
+    <%= f.text_field :timeframe %>
+  </div>
+  <div class="field">
+    <%= f.label :more_info %>&nbsp
+    <%= f.text_area :more_info, :class=>"xxlarge", :rows=>"6" %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

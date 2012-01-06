@@ -1,0 +1,53 @@
+<h1>Listing buyers</h1>
+
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Property type</th>
+    <th>Min price</th>
+    <th>Max price</th>
+    <th>Bedrooms</th>
+    <th>Bathrooms</th>
+    <th>City</th>
+    <th>Timeframe</th>
+    <th>More info</th>
+    <th>Street number</th>
+    <th>Street name</th>
+    <th>Postal code</th>
+    <th>Times forwarded</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @buyers.each do |buyer| %>
+  <tr>
+    <td><%= buyer.first_name %></td>
+    <td><%= buyer.last_name %></td>
+    <td><%= buyer.phone %></td>
+    <td><%= buyer.email %></td>
+    <td><%= buyer.property_type %></td>
+    <td><%= buyer.min_price %></td>
+    <td><%= buyer.max_price %></td>
+    <td><%= buyer.bedrooms %></td>
+    <td><%= buyer.bathrooms %></td>
+    <td><%= buyer.city %></td>
+    <td><%= buyer.timeframe %></td>
+    <td><%= buyer.more_info %></td>
+    <td><%= buyer.street_number %></td>
+    <td><%= buyer.street_name %></td>
+    <td><%= buyer.postal_code %></td>
+    <td><%= buyer.times_forwarded %></td>
+    <td><%= link_to 'Show', buyer %></td>
+    <td><%= link_to 'Edit', edit_buyer_path(buyer) %></td>
+    <td><%= link_to 'Destroy', buyer, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Buyer', new_buyer_path %>

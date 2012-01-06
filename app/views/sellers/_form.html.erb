@@ -1,0 +1,81 @@
+<%= form_for(@seller) do |f| %>
+  <% if @seller.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@seller.errors.count, "error") %> prohibited this seller from being saved:</h2>
+
+      <ul>
+      <% @seller.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :property_type %><br />
+    <%= f.text_field :property_type %>
+  </div>
+  <div class="field">
+    <%= f.label :min_price %><br />
+    <%= f.text_field :min_price %>
+  </div>
+  <div class="field">
+    <%= f.label :max_price %><br />
+    <%= f.text_field :max_price %>
+  </div>
+  <div class="field">
+    <%= f.label :bedrooms %><br />
+    <%= f.number_field :bedrooms %>
+  </div>
+  <div class="field">
+    <%= f.label :bathrooms %><br />
+    <%= f.text_field :bathrooms %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :timeframe %><br />
+    <%= f.text_field :timeframe %>
+  </div>
+  <div class="field">
+    <%= f.label :more_info %><br />
+    <%= f.text_field :more_info %>
+  </div>
+  <div class="field">
+    <%= f.label :street_number %><br />
+    <%= f.number_field :street_number %>
+  </div>
+  <div class="field">
+    <%= f.label :street_name %><br />
+    <%= f.text_field :street_name %>
+  </div>
+  <div class="field">
+    <%= f.label :postal_code %><br />
+    <%= f.text_field :postal_code %>
+  </div>
+  <div class="field">
+    <%= f.label :times_forwarded %><br />
+    <%= f.number_field :times_forwarded %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

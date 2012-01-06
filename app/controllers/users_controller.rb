@@ -11,6 +11,7 @@ class UsersController < ApplicationController
       format.html # index.html.erb
       format.json { render :json => @users }
     end
+    @title = "index realtors"
   end
 
   # GET /users/1
@@ -19,6 +20,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     render :layout => 'profile'
+    @title = "realtor profile"
   end
 
   # GET /users/new
@@ -30,12 +32,14 @@ class UsersController < ApplicationController
       format.html # new.html.erb
       format.json { render :json => @user }
     end
+    @title = "register"
   end
 
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
     render :layout => "cpanel"
+    @title = "edit profile"
   end
 
   # POST /users
@@ -72,6 +76,7 @@ class UsersController < ApplicationController
   
   def cpanel
     render :layout => "cpanel"
+    @title = "Realtor Control Panel"
   end
 
   # DELETE /users/1

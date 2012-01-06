@@ -1,4 +1,10 @@
 Boot::Application.routes.draw do
+  resources :sellers
+
+  resources :buyers
+
+  resources :clients
+
   resources :listings
 
   resources :leads

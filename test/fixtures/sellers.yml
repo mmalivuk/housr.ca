@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  phone: MyString
+  email: MyString
+  property_type: MyString
+  min_price: MyString
+  max_price: MyString
+  bedrooms: 1
+  bathrooms: MyString
+  city: MyString
+  timeframe: MyString
+  more_info: MyString
+  street_number: 1
+  street_name: MyString
+  postal_code: MyString
+  times_forwarded: 1
+
+two:
+  first_name: MyString
+  last_name: MyString
+  phone: MyString
+  email: MyString
+  property_type: MyString
+  min_price: MyString
+  max_price: MyString
+  bedrooms: 1
+  bathrooms: MyString
+  city: MyString
+  timeframe: MyString
+  more_info: MyString
+  street_number: 1
+  street_name: MyString
+  postal_code: MyString
+  times_forwarded: 1

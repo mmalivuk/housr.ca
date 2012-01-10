@@ -31,5 +31,4 @@ class PagesController < ApplicationController
   def agent
     @title = "realtor's section"
   end
-
 end

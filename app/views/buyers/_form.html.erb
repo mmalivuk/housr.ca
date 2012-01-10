@@ -29,15 +29,15 @@
   </div>
   <div class="field">
     <%= f.label :property_type %>&nbsp
-    <%= f.text_field :property_type %>
+    <%= f.select :property_type, [['Detached house','Detached House'],['Townhouse','Townhouse'],['Apartment/Condo','Apartment/Condo'],['Rental','Rental'],['Vacation','Vacation'],['Other','Other']] %>
   </div>
   <div class="field">
     <%= f.label :min_price %>&nbsp
-    <%= f.text_field :min_price %>
+    <%= f.select :min_price, [['$50,000','$50,000'],['$100,000','$100,000'],['$200,000','$200,000'],['$300,000','$300,000'],['$400,000','$400,000'],['$500,000','$500,000'],['$600,000','$600,000'],['$700,000','$700,000'],['$800,000','$800,000'],['$900,000','$900,000']] %>
   </div>
   <div class="field">
     <%= f.label :max_price %>&nbsp
-    <%= f.text_field :max_price %>
+    <%= f.select :max_price, [['$200,000','$200,000'],['$300,000','$300,000'],['$400,000','$400,000'],['$500,000','$500,000'],['$600,000','$600,000'],['$700,000','$700,000'],['$800,000','$800,000'],['$900,000','$900,000'],['$1,000,000','$1,000,000'],['$1,250,000','$1,250,000'],['$1,500,000+','$1,500,000']] %>
   </div>
   <div class="field">
     <%= f.label :bedrooms, "Minimum bedrooms" %>&nbsp
@@ -45,7 +45,7 @@
   </div>
   <div class="field">
     <%= f.label :bathrooms, "Minimum bathrooms" %>&nbsp
-    <%= f.text_field :bathrooms, :class=>"small" %>
+    <%= f.number_field :bathrooms, :class=>"small" %>
   </div>
   <div class="field">
     <%= f.label :street_number %>&nbsp
@@ -64,8 +64,8 @@
     <%= f.text_field :city %>
   </div>
   <div class="field">
-    <%= f.label :timeframe, "I'm buying in" %>&nbsp
-    <%= f.text_field :timeframe %>
+    <%= f.label :timeframe, "I'm buying" %>&nbsp
+	<%= f.select :timeframe, [['As soon as possible','As soon as possible'],['Within 2 weeks','Within 2 weeks'],['Within 3-4 weeks','Within 3-4 weeks'],['Within 5-7 weeks','Within 5-7 weeks'],['Within 2-4 months','Within 2-4 months'],['More than 5 months from now','More than 5 months from now']] %>
   </div>
   <div class="field">
     <%= f.label :more_info %>&nbsp

@@ -1,9 +1,9 @@
 Boot::Application.routes.draw do
   resources :sellers
-
+  match "sell" => "sellers#new"
+  
   resources :buyers
-
-  resources :clients
+  match "buy" => "buyers#new"
 
   resources :listings
 

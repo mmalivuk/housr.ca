@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= stylesheet_link_tag "bootstrap" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "bootstrap-alert" %>
+  <%= csrf_meta_tags %>
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+      }
+    </style>
+</head>
+<body>
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="/">housr.ca</a>
+          <ul class="nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/find">Find an Agent</a></li>
+            <li><a href="/agents">Realtor's Section</a></li>
+			<li><a href="/about">About</a></li>
+			<li><a href="/contact">Contact</a></li>
+		  </ul>
+		
+		
+				<% if user_signed_in? %>
+					<ul class="nav secondary-nav">
+					            <li class="dropdown" data-dropdown="dropdown">
+					              <a href="#" class="dropdown-toggle"><%= current_user.email %></a>
+					              <ul class="dropdown-menu">
+					                <li><a href="/cpanel">Control Panel</a></li>
+					                <li><%= link_to "View My Profile", user_path(current_user) %></li>
+					                <li class="divider"></li>
+					                <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+					              </ul>
+					            </li>
+					          </ul>
+			  <% else %>
+			    <ul class="nav secondary-nav"><li><%= link_to "Sign Up", new_user_registration_path %></li> 
+			<li><%= link_to "Sign In", new_user_session_path %></li>
+				</ul>
+			  <% end %></p>
+			
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+		<% if flash[:notice] %>
+			<div class="alert-message warning" data-alert="alert">
+			  <a class="close" href="#">×</a>
+			  <p><%= flash[:notice] %></p>
+			</div>
+		<% end %>
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <h1>Find a Realtor!</h1><br>
+        <p>housr.ca gets you in touch with the best real estate agents in the Greater Toronto Area and the Kingston Area... <strong>FREE</strong>. Enter your information and have custom proposals from Realtors emailed right to you. Finding an agent shouldn't be difficult or a roll of the dice. <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </p>
+      </div>
+
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="span5">
+          <h2>I'm buying a home</h2>
+          <p>Need a real estate agent to buy a house with? Enter as much information as you can on the type of home you want and we'll do all the leg work. We'll find the best agents for you and you decide which one you want to use. Don't worry, there's no catch, it's all free!</p>
+          <p><a class="btn primary" href="/buy">Buy a home &raquo;</a></p>
+        </div>
+        <div class="span6">
+          <h2>I'm selling my home</h2>
+           <p>Thinking of putting your home on the market? You need the right Realtor to make it a smooth and painless process. Get proposals from agents that have experience in your neighbourhood to make sure you get the best price for your home. </p><br>
+          <p><a class="btn primary" href="/sell">Sell my home &raquo;</a></p>
+       </div>
+        <div class="span5">
+          <h2>Are you a Realtor?</h2>
+          <p>Learn about the different ways housr.ca can help you expand your business and manage your clients. Finally a way to keep all of your business organized. housr.ca provides FREE agent profiles in addition to offering services that let you focus on what you do best.</p>
+          <p><a class="btn primary" href="/agents">View details &raquo;</a></p>
+        </div>
+      </div>
+<br>
+<br>
+<br>
+<br>
+      <footer>
+        <p>&copy; housr.ca 2011 by Milan Malivuk</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+</body>
+</html>

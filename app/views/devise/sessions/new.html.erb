@@ -1,15 +1,42 @@
-<h2>Realtor Sign In</h2>
-<br>
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %>&nbsp
-  <%= f.email_field :email %></div><br>
+<div class="loginRegister">
+	
+	<div class="login">
 
-  <div><%= f.label :password %>&nbsp
-  <%= f.password_field :password %></div><br>
+        <h1>login</h1>
 
-  <div><p><%= f.label :remember_me, "Remember Me" %> &nbsp &nbsp<%= f.check_box :remember_me %></p></div>
-  
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
+        <h3>already have an account?</h3>
 
-<%= render :partial => "devise/shared/links" %>
+        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "loginForm"}) do |f| %>
+            <p>
+            <label for="email">Email<span class="asterisk">*</span></label><br /> 
+            <%= f.email_field :email %>
+            </p>
+
+            <p>
+            <label for="password">Password<span class="asterisk">*</span></label><br /> 
+            <%= f.password_field :password %>
+            </p>
+
+
+            <p>
+			<%= submit_tag 'Sign in NOW!', :name => "name", :class => "signIn" %>
+
+			<%= check_box_tag :remember_me, 1, params[:remember_me], :name => "remember", :id => "remember" %>
+            <label for="remember" class="remember">Keep me signed in</label>
+            </p>                 
+
+        <% end %>
+        <br />
+		<p><a href="<%= new_password_path(resource_name) %>">"Forgot your password? Click Here"</a></p>
+
+     <br class="clearfloat" />
+
+    </div>
+
+	<div class="register">
+<br><br><br><br><a href="<%= new_user_registration_path %>#content"><br><br><br><br><br><br>
+<h1>don't have an account?<br>
+click here to sign up.<br>
+(it's free)</h1>
+<br><br><br><br><br><br><br><br><br><br><br></a><br><br><br><br><br><br><br><br>
+</div>

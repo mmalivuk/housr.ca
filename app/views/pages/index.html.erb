@@ -1,95 +1,459 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title><%= title %></title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= stylesheet_link_tag "bootstrap" %>
-  <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag "bootstrap-alert" %>
-  <%= csrf_meta_tags %>
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-      }
-    </style>
+<%= csrf_meta_tag %>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="author" content="" />
+<meta name="copyright" content="" />
+
+<title><%= title %></title>
+
+
+<!-- style: CANDY -->
+<%= stylesheet_link_tag "candy" %>
+
+
+<!--[if lt IE 8]>
+<script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE8.js" type="text/javascript"></script>
+<![endif]-->
+
 </head>
 <body>
-    <div class="topbar">
-      <div class="fill">
-        <div class="container">
-          <a class="brand" href="/">housr.ca</a>
-          <ul class="nav">
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="/find">Find an Agent</a></li>
-            <li><a href="/agents">Realtor's Section</a></li>
-			<li><a href="/about">About</a></li>
-			<li><a href="/contact">Contact</a></li>
-		  </ul>
-		
-		
+
+	<!-- /////////////////////////////////////////this one goes out to all my non-javascript peeps out there. get your script on people. its the two-thousands here ////////////////////////// -->
+	<noscript>
+	  <div class="wrapper" id="no-js">
+	    <div class="javaDouche">
+	        <strong class="ayo"><br />A yo! Your browser has javascript disabled.</strong><br/>
+	        This site absolutely <span class="ayo">&hearts;</span> javascript. So, ga'head and turn it back on. Seriously! Before we send goons after you.
+	        Here are Microsoft's instructions about <a href="http://support.microsoft.com/gp/howtoscript" title="How to enable scripting in your browser">enabling javascript</a>.
+	        For all my Safari peeps out there, just go to "Preferences", then "Security", and check "Enable Javascript". <br /><br />Now, get your NOM! on.<br /><br />
+	    </div>
+	  </div>
+	</noscript>
+
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+<div class="wrapper everything">
+
+
+	<!-- ============================================== -->	
+	<!-- !   company name/ logo 	main navigation     -->
+	<!-- ============================================== -->
+	<div class="wrapper header">
+		<div id="header">
+
+	        <h1><a href="/" title="housr - Find a Realtor or Real Estate agent in the Greater Toronto Area"><strong>housr</strong><light>.ca</light></a></h1>
+
+	        <ul class="mainNav">
+	            <li><a href="/" class="active" >Home</a></li>
+	            <li><a href="/find">Find an Agent</a></li>
+	            <li><a href="/about">About</a></li>
+				<% unless user_signed_in? %>
+	            <li><a href="/realtors">Realtors</a></li>
+				<% end %>
+	            <li><a href="/contact">Contact</a></li>
+
 				<% if user_signed_in? %>
-					<ul class="nav secondary-nav">
-					            <li class="dropdown" data-dropdown="dropdown">
-					              <a href="#" class="dropdown-toggle"><%= current_user.email %></a>
-					              <ul class="dropdown-menu">
-					                <li><a href="/cpanel">Control Panel</a></li>
-					                <li><%= link_to "View My Profile", user_path(current_user) %></li>
-					                <li class="divider"></li>
-					                <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-					              </ul>
-					            </li>
-					          </ul>
-			  <% else %>
-			    <ul class="nav secondary-nav"><li><%= link_to "Sign Up", new_user_registration_path %></li> 
-			<li><%= link_to "Sign In", new_user_session_path %></li>
-				</ul>
-			  <% end %></p>
-			
-          
-        </div>
-      </div>
-    </div>
 
-    <div class="container">
-		<% if flash[:notice] %>
-			<div class="alert-message warning" data-alert="alert">
-			  <a class="close" href="#">×</a>
-			  <p><%= flash[:notice] %></p>
-			</div>
-		<% end %>
-      <!-- Main hero unit for a primary marketing message or call to action -->
-      <div class="hero-unit">
-        <h1>Find a Realtor!</h1><br>
-        <p>housr.ca gets you in touch with the best real estate agents in the Greater Toronto Area and the Kingston Area... <strong>FREE</strong>. Enter your information and have custom proposals from Realtors emailed right to you. Finding an agent shouldn't be difficult or a roll of the dice. <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </p>
-      </div>
+	            <!-- login and register links -->
+	            <li>
+	            	<ul>
+	                	<li class="signinLink"><a class="quickLogin" href="/cpanel" title="Control Panel">Control Panel</a></li>
+	                	<li class="registerLink"><%= link_to "Sign out", destroy_user_session_path %></li>
+	                </ul>
+	            </li>
+	            <!-- end login and register links -->
+				
+				<% else %>
+				
+				<li>
+	            	<ul>
+	                	<li class="signinLink"><a class="quickLogin" href="<%= new_user_session_path %>#content" title="Login to Your Account">Sign In</a></li>
+	                	<li class="registerLink"><a href="/users/sign_up#content">Register</a></li>
+	                </ul>
+	            </li>
+				
+				
+				<% end %>
+	        </ul>
 
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="span5">
-          <h2>I'm buying a home</h2>
-          <p>Need a real estate agent to buy a house with? Enter as much information as you can on the type of home you want and we'll do all the leg work. We'll find the best agents for you and you decide which one you want to use. Don't worry, there's no catch, it's all free!</p>
-          <p><a class="btn primary" href="/buy">Buy a home &raquo;</a></p>
-        </div>
-        <div class="span6">
-          <h2>I'm selling my home</h2>
-           <p>Thinking of putting your home on the market? You need the right Realtor to make it a smooth and painless process. Get proposals from agents that have experience in your neighbourhood to make sure you get the best price for your home. </p><br>
-          <p><a class="btn primary" href="/sell">Sell my home &raquo;</a></p>
-       </div>
-        <div class="span5">
-          <h2>Are you a Realtor?</h2>
-          <p>Learn about the different ways housr.ca can help you expand your business and manage your clients. Finally a way to keep all of your business organized. housr.ca provides FREE agent profiles in addition to offering services that let you focus on what you do best.</p>
-          <p><a class="btn primary" href="/agents">View details &raquo;</a></p>
-        </div>
-      </div>
-<br>
-<br>
-<br>
-<br>
-      <footer>
-        <p>&copy; housr.ca 2011 by Milan Malivuk</p>
-      </footer>
+	    </div><!-- /#header -->
+	</div><!-- END: wrapper.header -->
 
-    </div> <!-- /container -->
+
+
+<!-- ============================================== -->	
+<!-- !   product image tagline and brief quote     -->
+<!-- ============================================== -->
+<div class="wrapper topSection">
+	<div id="topSection">
+    
+    
+    
+    	<div class="leftCol">
+        	
+            <!-- main product image or slideshow -->
+        	<img src="/assets/content/fruit.png" alt="housr - Find a Realt Estate Agent in the Greater Toronto Area" />
+            
+        </div><!-- /leftCol -->
+        
+        
+        
+        <div class="rightCol">
+        
+        	<!-- main tagline -->
+        	<h2>Find a Real Estate Agent in the GTA FREE!</h2>
+            
+            <!-- purpose message -->
+            <p>
+                Browse for the perfect Realtor in your neighbourhood and checkout their profile to make sure you're getting the right person for the job. Or use our service to be put into contact with 5 of the best fits for you in your area and get proposals sent to you. Don't worry, it's all <strong>free</strong>.
+            </p>
+            
+        </div><!-- /rightCol -->
+        
+        
+    
+    </div><!-- /#topSection -->
+</div><!-- END: wrapper.topSection -->
+
+
+
+<!-- ============================================== -->	
+<!-- !                MID CONTENT                  -->
+<!-- ============================================== -->
+<div class="wrapper midSection">
+	<div id="midSection">
+    
+    
+    	<div class="topNode">
+        
+            <p>
+                <a href="/buy" class="bigSignUp">I'm Buying</a>
+                
+                <span>- or -</span>
+                
+                <a href="/sell" class="bigArrow">I'm Selling</a>
+                
+             </p>
+        
+        </div><!-- /topNode -->
+        
+        
+        <br class="clearfloat" />
+        
+
+		<!--  ===============  -->
+		<!-- !  main features  -->
+		<!--  ===============  -->
+		<ul class="mainFeatures">
+
+		    <!-- main feature 1 -->
+			<li>
+		    	<img src="/assets/content/mainFeature1.png" alt="feature icon" />
+		    	<h3>fill out your information</h3>
+		        <p>
+		        	State your location, type of house and other relevant information so that we can match you up to the perfect agents.
+		        </p>
+		    </li>
+
+		    <!-- main feature 2 -->
+			<li class="middleFeature">
+		    	<img src="/assets/content/mainFeature2.png" alt="feature icon" />
+		    	<h3>Review Proposals</h3>
+		        <p>
+		        	Realtors will respond with proposals based on your criteria and you pick the one that you like best.
+		        </p>
+		    </li>
+
+		    <!-- main feature 3 -->
+			<li>
+		    	<img src="/assets/content/mainFeature3.png" alt="feature icon" />
+		    	<h3>Select your realtor</h3>
+		        <p>
+		        	Once you've chosen your realtor, enjoy the buying or selling process knowing you've got the best agent!
+		        </p>
+		    </li>
+
+		</ul><!-- /mainFeatures -->
+    
+    
+
+    </div><!-- /#midSection -->
+</div><!-- END: wrapper.midSection -->
+
+<div class="wrapper midSectionBottom"><!-- no content here | bottom ribbon --></div>
+<!-- END: wrapper.midSectionBottom -->
+
+
+
+
+
+
+
+<!-- ============================================== -->	
+<!-- !                MAIN CONTENT                  -->
+<!-- ============================================== -->
+<div class="wrapper content">
+	<div id="content">
+    
+
+
+        <div id="features">
+        
+        
+           <div class="featureList">
+            
+                <div class="feature">
+                    <a href="/buy" title="Find a Realtor to help me buy a house"><img src="/assets/content/triworks_abstract38.jpg" alt="Find a Realtor to help me buy a house" /></a>
+                    <h3>Home Buyers</h3>
+                    <p>If you need an agent to buy a home with get proposals from Realtors who buy homes in the area you are looking at and get the local knowledge you need.</p>
+                </div>
+                
+                <div class="feature">
+                    <a href="/sell" title="Find a Real Estate Agent to sell my home"><img src="/assets/content/triworks_abstract4.jpg" alt="Find a Real Estate Agent to sell my home" /></a>
+                    <h3>Home Sellers</h3>
+                    <p>Sell your home with a Realtor who specializes in your area and knows the market in your neighbourhood for the best selling experience and a quick sale.</p>
+                </div>
+                
+                <div class="feature">
+                    <a href="/rent" title="I need an agent to help me find a place to rent"><img src="/assets/content/triworks_abstract13.jpg" alt="I need an agent to help me find a place to rent" /></a>
+                    <h3>Home Renters</h3>
+                    <p>If you need to find a place to rent, a Realtor can help you find the perfect house or apartment in your budget and get you the best deal possible.</p>
+                </div>
+                
+                <div class="feature">
+                    <a href="/agents" title="Go to the section for Realtors"><img src="/assets/content/triworks_abstract14.jpg" alt="Go to the section for Realtors" /></a>
+                    <h3>Realtors Area</h3>
+                    <p>Learn more about how <strong>housr</strong> can help get you in touch with clients local to you and who need your unique expertise.</p>
+                </div>
+                
+
+
+                
+            <br class="cleafloat" />
+            </div><!-- /featureList -->
+    
+        </div><!-- /#features -->
+        
+        
+        
+        <br />       
+        <br class="clearfloat" />
+        
+        
+        <a href="find"><img src="/assets/content/bannerFull_width.png" alt="Find an Agent" /></a>
+        
+        
+        <br class="clearfloat" />
+        <br />
+        <br />
+        <br />
+        
+        
+        <div class="leftCol">
+        
+            <h3>It doesn't have to be a bother</h3>
+            
+            <p>
+            Finding a Real Estate Agent doesn't have to boil down to choosing the first Realtor who contacts you or relying on flyers. You should be able to select your agent based on their location, expertise and feedback from other buyers, sellers or renters who have dealt with them before. The right agent makes a world of difference in what is a huge transaction and will make it a pleasant experience.
+            </p>
+            
+            <blockquote>Don't settle for the first Realtor at your door, pick the perfect agent for you using <strong>housr</strong>.
+            </blockquote>
+            
+            <p>
+            Best of all, this service is provided to you for absolutely no money at all. <strong>housr</strong> is a free service that gets you introduced to the Realtor that will work with you to make your dream home a reality.
+            </p>
+        
+        </div><!-- /leftCol -->
+
+
+        <div class="rightCol fltlft">
+        
+            <p>
+            	<!-- 
+                link to an external html file where the embed code is.
+                you can paste the embed code directly here but then your
+                page won't validate. Also, the colorbox (lightbox) is 
+                quite sexy!
+                 -->
+                <a class="embed" href="videos/embed1.html" title="Vimeo | Embeded Video"><img src="/assets/content/screenshot.png" alt="candyShoppe video" /></a>
+            </p>
+        
+        </div><!-- /leftCol -->
+
+
+
+
+    
+    </div><!-- /#content -->
+</div><!-- END: wrapper.content -->
+
+
+
+
+<!-- ============================================== -->	
+<!-- !       ....aaaaaand we're done here           -->
+<!-- ============================================== -->
+
+<div class="wrapper footer">
+	<div id="footer">
+
+
+
+        <div class="leftCol">
+        
+        <!-- ========================== -->	
+        <!-- !LATEST TWEETS OUTPUT HERE -->
+        <!-- ========================== -->	
+        <div class="tweet"><span class="indicate"></span></div>
+        
+        </div><!-- /leftCol -->
+        
+        
+
+
+        <div class="rightCol">
+        
+            <form class="newsletter" action="" method="post">
+            
+                <p><img class="logo" src="/assets/content/logo_small.png" alt="candyShoppe" /></p> 
+                
+                <label for="newsletterEmail" class="label">sign up for updates</label>
+                
+                <input class="input" type="text" id="newsletterEmail" name="newsletterEmail"/>
+
+                <input class="submit" type="submit" value="submit" />
+                <br class="clearfloat" />
+                <br />
+                 <p class="footerPrivacy">
+                    your information will only be used for the <a href="/" title="housr - Find a realtor in the Greater Toronto Area, free!">housr</a> newsletter. view our <a class="legalPrivacy" href="legal/privacy.html" title="Privacy Policy">privacy policy.</a>			
+                 </p>
+        
+            </form><br class="clearfloat" />
+        </div><!-- /rightCol -->
+
+
+
+        <br class="clearfloat" />
+
+
+
+
+        <div class="footerLinks">
+        	<ul>
+            	<li class="footerNow">
+                	<a href="find">find your realtor with<br /> housr <strong class="cap">now</strong></a>
+                </li>
+            	<li class="footerCreds">
+                	<p>
+                    	<a href="http://housr.ca" title="Milan Malivuk"><strong>housr</strong> copyright &copy; 2011 <br /> by Milan Malivuk</a> 
+                                           
+                    </p>
+                </li>
+            </ul>
+            
+        	<ul>
+            	<li><a href="about">About</a></li>
+            	<li><a href="contact">Contact</a></li>
+            	<li><a href="#">FAQ</a></li>
+            	<li><a href="register#content">Realtor Sign-in</a></li>
+            </ul>
+            
+        	<ul>
+            	<li><a class="legalTerms" href="legal/terms.html" title="Terms &amp; Conditions">Terms &amp; Conditions (colorbox)</a></li>
+            	<li><a class="legalPrivacy" href="legal/privacy.html" title="Privacy Policy">Privacy Policy (colorbox)</a></li>
+            	<li><a href="legal/privacy.html" target="_blank">Privacy Policy  (actual page)</a></li>
+            	<li><a href="legal/terms.html" target="_blank">Terms &amp; Conditions (actual page)</a></li>
+            </ul>
+            
+        	<ul>
+            	<li><a href="#">Some Thing</a></li>
+            	<li><a href="#">Other Thing</a></li>
+            	<li><a href="#">Yet Another Thing</a></li>
+            	<li><a href="#">Another Cool Link</a></li>
+            </ul>
+        <br class="clearfloat" />
+  		</div><!-- END: footerLInks -->
+
+
+
+
+        
+    </div><!-- /#footer -->
+</div><!-- END: wrapper.footer -->
+
+
+
+
+
+
+
+
+</div><!-- END: .everything -->
+
+
+
+
+
+
+
+<!-- ============================================== -->	
+<!-- !         tracking and analytics               -->
+<!-- ============================================== -->
+
+
+<!-- scripts -->
+<script type="text/javascript" src="/assets/jquery.validate.pack.js"></script>
+<script type="text/javascript" src="/assets/js.js"></script>
+<script type="text/javascript" src="/assets/jquery.tweet.js"></script>
+<script type="text/javascript" src="/assets/jquery.colorbox.js"></script>
+
+<!--
+==========
+twitter
+function
+==========
+-->
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+	$(".tweet").tweet({
+	//enter you twitter username
+	username: "mmalivuk",
+	join_text: "auto",
+	//uncomment below line to un-suppress avatar
+	//avatar_size: 32,
+	//line below limits the tweets to 1 tweet
+	count: 1,
+	auto_join_text_default: "i said ", 
+	auto_join_text_ed: "i",
+	auto_join_text_ing: "i was ",
+	auto_join_text_reply: "i replied to ",
+	auto_join_text_url: "i was checking out ",
+	loading_text: "loading tweets..."
+});
+});
+</script>
+
+
+<!--
+==========
+quickLogin
+validations
+==========
+-->
+<script type="text/javascript">
+$(document).ready(function($){
+	//validate hidden login (lightbox)	
+	$("#hiddenLogin").validate();		
+});
+</script>
+
 
 </body>
 </html>

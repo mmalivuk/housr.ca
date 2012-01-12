@@ -1,73 +1,349 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title><%= title %></title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= stylesheet_link_tag "bootstrap" %>
-  <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag "bootstrap-alert" %>
-  <%= csrf_meta_tags %>
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-      }
-    </style>
+<%= csrf_meta_tag %>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="author" content="" />
+<meta name="copyright" content="" />
+
+<title><%= title %></title>
+
+<!-- styles -->
+
+<!-- style: CANDY -->
+<%= stylesheet_link_tag "candy" %>
+
+
+<!--[if lt IE 8]>
+<script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE8.js" type="text/javascript"></script>
+<![endif]-->
+
 </head>
 <body>
-    <div class="topbar">
-      <div class="fill">
-        <div class="container">
-          <a class="brand" href="/">housr.ca</a>
-          <ul class="nav">
-            <li class="active"><a href="/">Home</a></li>
+	<!-- /////////////////////////////////////////this one goes out to all my non-javascript peeps out there. get your script on people. its the two-thousands here ////////////////////////// -->
+	<noscript>
+	  <div class="wrapper" id="no-js">
+	    <div class="javaDouche">
+	        <strong class="ayo"><br />A yo! Your browser has javascript disabled.</strong><br/>
+	        This site absolutely <span class="ayo">&hearts;</span> javascript. So, ga'head and turn it back on. Seriously! Before we send goons after you.
+	        Here are Microsoft's instructions about <a href="http://support.microsoft.com/gp/howtoscript" title="How to enable scripting in your browser">enabling javascript</a>.
+	        For all my Safari peeps out there, just go to "Preferences", then "Security", and check "Enable Javascript". <br /><br />Now, get your NOM! on.<br /><br />
+	    </div>
+	  </div>
+	</noscript>
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+<div class="wrapper everything">
+
+
+<!-- ============================================== -->	
+<!-- !   company name/ logo 	main navigation     -->
+<!-- ============================================== -->
+
+<!-- ============================================== -->	
+<!-- !   company name/ logo 	main navigation     -->
+<!-- ============================================== -->
+<div class="wrapper header">
+	<div id="header">
+    
+        <h1><a href="/" title="housr - Find a Realtor or Real Estate agent in the Greater Toronto Area"><strong>housr</strong><light>.ca</light></a></h1>
+        
+        <ul class="mainNav">
+            <li><a href="/" class="active" >Home</a></li>
             <li><a href="/find">Find an Agent</a></li>
-            <li><a href="/agents">Realtor's Section</a></li>
-			<li><a href="/about">About</a></li>
-			<li><a href="/contact">Contact</a></li>
-		  </ul>
-		
-		
-				<% if user_signed_in? %>
-					<ul class="nav secondary-nav">
-					            <li class="dropdown" data-dropdown="dropdown">
-					              <a href="#" class="dropdown-toggle"><%= current_user.email %></a>
-					              <ul class="dropdown-menu">
-					                <li><a href="/cpanel">Control Panel</a></li>
-					                <li><%= link_to "View My Profile", user_path(current_user) %></li>
-					                <li class="divider"></li>
-					                <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-					              </ul>
-					            </li>
-					          </ul>
-			  <% else %>
-			    <ul class="nav secondary-nav"><li><%= link_to "Sign Up", new_user_registration_path %></li> 
-			<li><%= link_to "Sign In", new_user_session_path %></li>
-				</ul>
-			  <% end %></p>
+            <li><a href="/about">About</a></li>
+            <% unless user_signed_in? %>
+            <li><a href="/realtors">Realtors</a></li>
+			<% end %>
+            <li><a href="/contact">Contact</a></li>
+            
+            <% if user_signed_in? %>
+
+            <!-- login and register links -->
+            <li>
+            	<ul>
+                	<li class="signinLink"><a class="quickLogin" href="/cpanel" title="Control Panel">Control Panel</a></li>
+                	<li class="registerLink"><%= link_to "Sign out", destroy_user_session_path %></li>
+                </ul>
+            </li>
+            <!-- end login and register links -->
 			
-          
-        </div>
-      </div>
-    </div>
+			<% else %>
+			
+			<li>
+            	<ul>
+                	<li class="signinLink"><a class="quickLogin" href="<%= new_user_session_path %>#content" title="Login to Your Account">Sign In</a></li>
+                	<li class="registerLink"><a href="/users/sign_up">Register</a></li>
+                </ul>
+            </li>
+			
+			
+			<% end %>
+        </ul>
 
-    <div class="container">
-	  	<% if flash[:notice] %>
-			<div class="alert-message warning" data-alert="alert">
-			  <a class="close" href="#">×</a>
-			  <p><%= flash[:notice] %></p>
-			</div>
-		<% end %>
-      <%= yield %>
+    </div><!-- /#header -->
+</div><!-- END: wrapper.header -->
 
-	<br>
-	<br>
-	<br>
-	<br>
-      <footer>
-        <p>&copy; housr.ca 2011 by Milan Malivuk</p>
-      </footer>
 
-    </div>
+
+
+
+<!-- ============================================== -->	
+<!-- !   product image tagline and brief quote     -->
+<!-- ============================================== -->
+<div class="wrapper topSection">
+	<div id="topSection">
+    
+    
+    
+    	<div class="leftCol">
+        	
+    	<h2 class="pageTitle"><%= @tag %></h2>
+            
+        </div><!-- /leftCol -->
+        
+        
+        
+        <div class="rightCol">
+        
+            
+        </div><!-- /rightCol -->
+        
+        
+    
+    </div><!-- /#topSection -->
+</div><!-- END: wrapper.topSection -->
+
+
+
+<!-- ============================================== -->	
+<!-- !                MID CONTENT                  -->
+<!-- ============================================== -->
+<div class="wrapper midSection">
+	<div id="midSection">
+    
+    
+    	<div class="topNode">
+
+                <p>
+	                <a href="/buy" class="bigSignUp">I'm Buying</a>
+
+	                <span>- or -</span>
+
+	                <a href="/sell" class="bigArrow">I'm Selling</a>
+
+	             </p>
+
+        
+        </div><!-- /topNode -->
+        
+        
+        <br class="clearfloat" />
+        
+        
+
+    </div><!-- /#midSection -->
+</div><!-- END: wrapper.midSection -->
+<br>
+
+
+
+<!-- ============================================== -->	
+<!-- !                MAIN CONTENT                  -->
+<!-- ============================================== -->
+<div class="wrapper content" id="featureTour">
+	<div id="content">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+
+
+
+
+<%= yield %>
+
+
+
+
+
+<!-- ============================================================================================================================= -->            
+            
+            
+            
+
+        
+        <br class="clearfloat" />
+        </div><!-- END: mainContent -->
+            
+       
+
+    
+    </div><!-- /#content -->
+</div><!-- END: wrapper.content -->
+
+
+
+
+<!-- ============================================== -->	
+<!-- !       ....aaaaaand we're done here           -->
+<!-- ============================================== -->
+
+<div class="wrapper footer">
+	<div id="footer">
+
+
+
+        <div class="leftCol">
+        
+        <!-- ========================== -->	
+        <!-- !LATEST TWEETS OUTPUT HERE -->
+        <!-- ========================== -->	
+        <div class="tweet"><span class="indicate"></span></div>
+        
+        </div><!-- /leftCol -->
+        
+        
+
+
+        <div class="rightCol">
+        
+            <form class="newsletter" action="" method="post">
+            
+                <p><img class="logo" src="/assets/content/logo_small.png" alt="candyShoppe" /></p> 
+                
+                <label for="newsletterEmail" class="label">sign up for updates</label>
+                
+                <input class="input" type="text" id="newsletterEmail" name="newsletterEmail"/>
+
+                <input class="submit" type="submit" value="submit" />
+                <br class="clearfloat" />
+                <br />
+                 <p class="footerPrivacy">
+                    your information will only be used for the <a href="/" title="housr - Find a realtor in the Greater Toronto Area, free!">housr</a> newsletter. view our <a class="legalPrivacy" href="legal/privacy.html" title="Privacy Policy">privacy policy.</a>			
+                 </p>
+        
+            </form><br class="clearfloat" />
+        </div><!-- /rightCol -->
+
+
+
+        <br class="clearfloat" />
+
+
+
+
+        <div class="footerLinks">
+        	<ul>
+            	<li class="footerNow">
+                	<a href="find">find your realtor with<br /> housr <strong class="cap">now</strong></a>
+                </li>
+            	<li class="footerCreds">
+                	<p>
+                    	<a href="http://housr.ca" title="Milan Malivuk"><strong>housr</strong> copyright &copy; 2011 <br /> by Milan Malivuk</a> 
+                                           
+                    </p>
+                </li>
+            </ul>
+            
+        	<ul>
+            	<li><a href="about">About</a></li>
+            	<li><a href="contact">Contact</a></li>
+            	<li><a href="#">FAQ</a></li>
+            	<li><a href="register#content">Realtor Sign-in</a></li>
+            </ul>
+            
+        	<ul>
+            	<li><a class="legalTerms" href="legal/terms.html" title="Terms &amp; Conditions">Terms &amp; Conditions (colorbox)</a></li>
+            	<li><a class="legalPrivacy" href="legal/privacy.html" title="Privacy Policy">Privacy Policy (colorbox)</a></li>
+            	<li><a href="legal/privacy.html" target="_blank">Privacy Policy  (actual page)</a></li>
+            	<li><a href="legal/terms.html" target="_blank">Terms &amp; Conditions (actual page)</a></li>
+            </ul>
+            
+        	<ul>
+            	<li><a href="#">Some Thing</a></li>
+            	<li><a href="#">Other Thing</a></li>
+            	<li><a href="#">Yet Another Thing</a></li>
+            	<li><a href="#">Another Cool Link</a></li>
+            </ul>
+        <br class="clearfloat" />
+  		</div><!-- END: footerLInks -->
+
+
+
+
+        
+    </div><!-- /#footer -->
+</div><!-- END: wrapper.footer -->
+
+
+
+
+
+
+
+
+</div><!-- END: .everything -->
+
+
+
+
+
+
+
+
+
+<!-- ============================================== -->	
+<!-- !         tracking and analytics               -->
+<!-- ============================================== -->
+<!-- scripts -->
+<script type="text/javascript" src="/assets/jquery.validate.pack.js"></script>
+<script type="text/javascript" src="/assets/js.js"></script>
+<script type="text/javascript" src="/assets/jquery.tweet.js"></script>
+<script type="text/javascript" src="/assets/jquery.colorbox.js"></script>
+
+<!--
+==========
+twitter
+function
+==========
+-->
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+	$(".tweet").tweet({
+	//enter you twitter username
+	username: "mmalivuk",
+	join_text: "auto",
+	//uncomment below line to un-suppress avatar
+	//avatar_size: 32,
+	//line below limits the tweets to 1 tweet
+	count: 1,
+	auto_join_text_default: "i said ", 
+	auto_join_text_ed: "i",
+	auto_join_text_ing: "i was ",
+	auto_join_text_reply: "i replied to ",
+	auto_join_text_url: "i was checking out ",
+	loading_text: "loading tweets..."
+});
+});
+</script>
+
+
+<!--
+==========
+quickLogin
+validations
+==========
+-->
+<script type="text/javascript">
+$(document).ready(function($){
+	//validate hidden login (lightbox)	
+	$("#hiddenLogin").validate();		
+});
+</script>
 
 </body>
 </html>

@@ -1,0 +1,849 @@
+@charset "UTF-8";
+/*
+Theme Name:     peachGrid Freelance resume
+Theme URI:      http://danjoedesign.com/
+Description:    (PEACH) freelancer resume template
+Version:        1.0
+Last Updated:	May 11, 2010
+Copyright:		(c) 2010 Joe Nyaggah. All rights reserved.
+Author:         Joe Nyaggah.
+Author URI:     http://danjoedesign.com/
+*/
+@import url('resets.css');
+/*
+============================================== 	
+my sexy body							
+============================================== 
+*/
+body {
+	font: 12px "HelveticaNeue-Light", HelveticaNeue, "Helvetica Neue", Helvetica, Verdana, Arial, sans-serif;
+	background: #834C00;
+	margin: 0;
+	padding: 0;
+	text-align: center; 
+	color: #4B4D4F;
+}
+/*
+============================================== 	
+wrapper and its classes							
+============================================== 
+*/
+.wrapper {
+	text-align: left;
+	margin: 0 auto;
+	padding: 0;
+	width: 100%;
+	min-width: 1000px;
+}
+.everything {
+	background: #FBF3DE url(/assets/peach/peachGrid.png);
+	border-top: 10px solid #955803;
+	padding-bottom: 30px;
+}
+.mainContent {
+}
+.footer {
+	background: url(/assets/peach/footer_bg.png) top repeat-x;
+}
+/*
+============================================== 	
+structure (IDs named for wrapper classes)							
+============================================== 
+*/
+#header, #moreContent, #footer {
+	display: table;
+	width: 960px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+#header {
+	padding-bottom:30px;
+}
+#moreContent {
+	padding: 40px 0;
+}
+#footer {
+	position: relative;
+	color: #FBF3DE;
+	padding-top: 20px;
+}
+#footer .leftCol {
+	padding-left: 0!important;
+}
+/*
+============================================== 	
+main nav							
+============================================== 
+*/
+ul.mainNav {
+	float: right;
+	margin-top: 25px;
+}
+ul.mainNav li, ul.mainNav li form {
+	display: inline;
+	float: left;
+	margin-left: 10px;
+	text-align: center;
+}
+ul.mainNav li a, ul.mainNav li form input.printIt  {
+	width: 80px;
+	background: #C7BA91;
+	color: #FFF;
+	display: block;
+	text-transform: uppercase;
+	-webkit-border-radius:3px; 
+	-moz-border-radius:3px; 
+	border-radius:3px;
+	padding: 10px 0;
+	transition: all 0.3s ease-in-out; 
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out;
+}
+ul.mainNav li a:hover, ul.mainNav li.current a, ul.mainNav li form input.printIt:hover {
+	-webkit-transition-timing-function: ease-out;
+	background: #834C00;
+}
+
+ul.mainNav li form input.printIt {
+	border: none;
+	cursor: pointer;
+}
+/*
+============================================== 	
+main content							
+============================================== 
+*/
+.contentTop {
+	width: 960px;
+	min-height: 150px;
+	margin: 0 auto;
+	padding: 0 20px;
+	background: url(/assets/peach/contentTop_bg.png) top center no-repeat;
+}
+.contentMiddle {
+	width: 960px;
+	margin: 0 auto;
+	padding: 20px 20px 0 20px;
+	min-height: 200px;
+	background: url(/assets/peach/contentMiddle_bg.png) top center repeat-y;
+}
+.contentBottom {
+	width: 960px;
+	margin: 0 auto;
+	min-height: 20px;
+	padding: 0 20px;
+	background: url(/assets/peach/contentBottom_bg.png) bottom center no-repeat;
+}
+.quoteAvail {
+	padding: 25px 0 0 0;
+}
+.midSection {
+	padding: 50px 50px;
+	margin: 0 -50px;
+}
+.infoBlock {
+	-webkit-border-radius:10px; 
+	-moz-border-radius:10px; 
+	border-radius:10px;
+	margin-bottom: 10px;
+	padding: 20px;
+}
+.light {
+	background: #FBF3DE;
+}
+.brown {
+	background: #834C00;
+	color: #E3DABF!important;
+}
+
+
+a.vCardDl {
+	background: url(/assets/peach/vcardDl.png) no-repeat;
+	background-position: 0 0;
+	width: 330px;
+	height: 110px;
+	overflow: hidden;
+	display: block;
+	text-indent: -999999px;
+	margin: -50px 0 10px 0;
+}
+a.vCardDl:hover {
+	background-position: 0 -110px;
+}
+ul.contactInfo {
+}
+
+ul.contactInfo li {
+	min-height: 20px;
+	padding: 5px 0 5px 30px;
+}
+.phone {
+	background: url(/assets/peach/phone_bg.png) left top no-repeat;
+}
+.email {
+	background: url(/assets/peach/email_bg.png) left top no-repeat;
+}
+.website {
+	background: url(/assets/peach/website_bg.png) left top no-repeat;
+}
+.address {
+	background: url(/assets/peach/address_bg.png) left top no-repeat;
+}
+/*
+============================================== 	
+search block							
+============================================== 
+*/
+.searchBlock {
+	display: block;
+	margin: 0 20px 10px;
+	padding: 10px 20px 35px 0;
+}
+.searchBlock .leftCol {
+	margin-top: 0;
+	padding-left: 0;
+}
+.searchBlock .rightCol {
+	margin-top: 0;
+}
+#searchForm {
+	background: #FBF3DE;
+	width: 475px;
+	display: table;
+	border: 2px solid #834C00;
+}
+#searchForm input[type="text"] {
+	float: left;
+	background: #FBF3DE;
+	border: none;
+	color: #834C00;
+	font-size: 20px;
+	font-style: italic;
+	font-weight: bold;
+	width: 380px;
+	padding: 0 5px;
+	height:32px;
+}
+#searchForm input[type="submit"] {
+	float: right;
+	background: #834C00 url(/assets/peach/searchBtn_bg.png) center no-repeat;
+	border: none;
+	width: 78px;
+	height:35px;
+	text-indent: -999999px;
+	transition: all 0.3s ease-in-out; 
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out;
+}
+#searchForm input[type="submit"]:hover {
+	-webkit-transition-timing-function: ease-out;
+	background-color: #C55419;
+}
+#searchForm.focusedField {
+	border-color: #C55419!important;
+}
+#searchForm input[type="submit"].focusedField {
+	background-color: #C55419!important;
+}
+/*
+============================================== 	
+general contact and proposal form styles							
+============================================== 
+*/
+form.genContact,
+form.propForm {
+	width:475px;
+}
+form.genContact input[type="text"], form.genContact textarea,  
+form.propForm input[type="text"], form.propForm textarea  {
+	border: 1px solid #D7B899;	
+	width:465px;
+	max-width:465px!important;
+	min-height: 43px;
+	color: #834C00;
+	line-height: 18px;
+	background: #FFF;
+	margin-bottom: 20px;
+	padding: 0 5px;
+}
+form p.halfSize  input[type="text"], form p.halfSize  textarea {
+	width: 95%!important;
+}
+form.genContact input:focus, form.genContact textarea:focus, 
+form.propForm input:focus, form.propForm textarea:focus {
+	border: 1px solid #636467;
+}
+form.genContact textarea, 
+form.propForm textarea {
+	font: 12px "HelveticaNeue-Light", HelveticaNeue, "Helvetica Neue", Helvetica, Verdana, Arial, sans-serif;
+	color: #834C00;
+	font-weight: lighter;
+	min-height: 100px!important;
+	padding-top: 5px!important;
+}
+form.genContact input[type="submit"], 
+form.propForm input[type="submit"] {
+	color: #FBF3DE;
+	font-weight: bold;
+	font-size: 22px;
+	display: block;
+	text-transform: uppercase;
+	padding: 10px 0;
+	width: 100%;
+	background: #955803;
+	border: 2px solid #834C00;
+	-webkit-border-radius:5px; 
+	-moz-border-radius:5px; 
+	border-radius:5px;
+	transition: all 0.3s ease-in-out; 
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out;
+}
+form.genContact input[type="submit"]:hover, 
+form.propForm input[type="submit"]:hover {
+	-webkit-transition-timing-function: ease-out;
+	background: #F26622;
+	border-color: #C55419;
+}
+form.genContact select, 
+form.propForm select {
+	width: 100%;
+	margin-bottom: 20px;
+}
+form.genContact label, 
+form.propForm label {
+	color: #834C00;
+	display: block;
+	/*float: left;*/
+}
+form input[type="checkbox"] {
+	float: left;
+	margin-right: 20px;
+}
+form.genContact p.halfSize label, 
+form.propForm p.halfSize label {
+	color: #834C00;
+	display: block;
+	margin-bottom: 5px;
+}
+/*------------------firefox specific hack - hacks are wack
+/*========================================================
+for some reason the input, textarea and submit elements 
+don't line up in firefox so we hack em up a bit to match
+==========================================================
+--------------------------------------------------------*/
+@-moz-document url-prefix() { 
+	form.genContact input[type="submit"],
+	form.propForm input[type="submit"] {
+		width: 480px;  
+		margin: 0;
+	}
+	form.genContact input[type="text"], form.genContact textarea,
+	form.propForm input[type="text"], form.propForm textarea  {
+		width:480px;
+		max-width:480px!important;
+		padding-top: 11px!important;
+		min-height: 33px;
+	}
+	form.genContact textarea,
+	form.propForm textarea  {
+		padding-top: 5px!important;
+	}
+	form p.halfSize  input[type="text"], form p.halfSize  textarea {
+	width: 97%!important;
+}
+}
+/*-------------------------end of firefox specific hack*/
+#reveal-proposal {
+	background: #FBF3DE;
+	width: 360px;
+	display: block;
+	float: right;
+	font-weight: bolder;
+	font-size: 20px;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 10px 0;
+	margin-right: -30px;
+	-webkit-border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	transition: all 0.3s ease-in-out; 
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out;
+}
+#reveal-proposal:hover {
+	-webkit-transition-timing-function: ease-out;
+	background: #955803;
+	color: #FBF3DE;
+}
+
+
+/*error classes*/
+
+label.error {
+	color:#FF0000!important;
+	margin-bottom: 10px;
+}
+input.required.error,
+textarea.required.error {
+	border-color:#FF0000!important;
+}
+/*
+============================================== 	
+tell-a-friend form styles							
+============================================== 
+*/
+form.tellBuddies {
+	display: table;
+}
+form.tellBuddies input[type="text"]{
+	border: 1px solid #D7B899;	
+	color: #834C00;
+	line-height: 18px;
+	background: #FFF;
+	margin-bottom: 20px;
+	padding: 5px;
+}
+form.tellBuddies input[type="button"] {
+	color: #FBF3DE;
+	font-weight: bold;
+	font-size: 22px;
+	display: block;
+	text-transform: uppercase;
+	padding: 10px 0;
+	width: 100%;
+	background: #955803;
+	border: 2px solid #834C00;
+	-webkit-border-radius:5px; 
+	-moz-border-radius:5px; 
+	border-radius:5px;
+	transition: all 0.3s ease-in-out; 
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out;
+	cursor: pointer;
+}
+form.tellBuddies input[type="button"]:hover {
+	-webkit-transition-timing-function: ease-out;
+	background: #F26622;
+	border-color: #C55419;
+}
+
+/*
+============================================== 	
+categories nav							
+============================================== 
+*/
+ul.categories {
+	display: table;
+	width: 100%;
+	padding-left: 10px;
+}
+ul.categories li {
+	width: 80px;
+	float: left;
+	margin-left: 10px;
+	text-align: center;
+	text-transform: uppercase;
+}
+ul.categories li a {
+	background: #F58220;
+	color: #FFF;
+	display: block;
+	padding: 10px 0;
+	-webkit-border-radius: 3px; 
+	-moz-border-radius: 3px; 
+	border-radius: 3px;
+	transition: all 0.3s ease-in-out; 
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out;
+}
+ul.categories li a:hover, ul.categories li a.active {
+	-webkit-transition-timing-function: ease-out;
+	background: #67C1BF;
+}
+/*
+============================================== 	
+portfolio styles							
+============================================== 
+*/
+.catWrapper {
+	display: block;
+}
+.category {
+	width: 100%;
+	display: table;
+	padding: 0 20px;
+}
+.project {
+	display: table;
+	width: 920px;
+	padding: 10px 0;
+	border-bottom: 1px dashed #834C00;
+
+}
+.project .rightCol {
+	padding-right: 0!important;
+}
+.project .leftCol {
+	padding-left: 0!important;
+}
+/*
+============================================== 	
+footer nav							
+============================================== 
+*/
+ul.footerNav {
+	float: right;
+}
+ul.footerNav li {
+	float: left;
+	display: inline;
+	margin-left: 20px;
+	text-transform: uppercase;
+}
+ul.footerNav li a {
+	display: block;
+}
+/*
+============================================== 	
+img styles						
+============================================== 
+*/ 
+img, .projectWrapper  {
+	border: 5px solid #E3DABF;
+	-webkit-border-radius:5px; 
+	-moz-border-radius:5px; 
+	border-radius:5px;
+	padding: 4px;
+}
+.projectWrapper {
+	text-align: center;
+	padding: 5px;
+	display: table;
+}
+/*
+============================================== 	
+general links						
+============================================== 
+*/
+a:link, a:visited  { 
+	color: #4A2706;
+	text-decoration: none;
+}
+a:hover, a:active { 
+	color: #D84923;
+	text-decoration: none;
+}
+#footer a {
+	color: #FBF3DE!important;
+	transition: all 0.3s ease-in-out; 
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out;
+}
+#footer a:hover {
+	-webkit-transition-timing-function: ease-out;
+	color: #FDB913!important;
+}
+/*
+============================================== 	
+buttons							
+============================================== 
+*/
+btn, input[type="submit"] {
+	cursor: pointer;
+}
+
+/*
+============================================== 	
+general classes 						
+============================================== 
+*/
+.leftCol {
+	float: left;
+	margin-top: 10px;
+	padding-left: 20px;
+	width: 500px;
+}
+.rightCol {
+	float: right;
+	margin-top: 10px;
+	padding-right: 20px;
+	width: 370px;
+}
+.dashed {
+	padding: 10px 0;
+	border-top: 1px dashed #834C00;
+	border-bottom: 1px dashed #834C00;
+}
+.topDashed {
+	margin-top: 10px;
+	padding-top: 10px;
+	border-top: 1px dashed #834C00;
+}
+.botDashed {
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px dashed #834C00;
+}
+.brown .botDashed, .brown .topDashed, .brown .dashed  {
+	border-color: #E3DABF!important;
+}
+.fltrt {
+	float: right!important;
+	margin-left: 30px;
+}
+.fltlft { 
+	float: left!important;
+	margin-right: 30px;
+}
+.clearfloat {
+	clear:both;
+    height:0;
+    font-size: 1px;
+    line-height: 0px;
+}
+.hidden {
+	display: none!important;
+}
+.reveal {
+	display: block!important;
+}
+/*
+============================================== 	
+shout out to all my non js peeps!! 						
+============================================== 
+*/
+#no-js{ z-index:999999;padding:0;background:#FFFF00;width:100%!important;min-width:1000px;margin:auto;}
+.javaDouche{width:830px;margin:0 auto;font-size:20px;padding:10px;}
+.javaDouche a, .ayo{color:#F26622;border-bottom:1px dashed #000;}
+.javaDouche a:hover{color:#000;border-bottom:1px dashed #F26622;}
+.ayo{border-bottom:none;}
+/*	
+peachGrid		typography
+------------------------------------------------
+Author:			Joe Nyaggah
+Version: 		1.0
+Last Updated:	May 10, 2010
+Author URI: 	http://danjoedesign.com/
+------------------------------------------------
+*/
+/*
+============================================== 	
+name (or logo)						
+============================================== 
+*/
+h1 {
+	width: 560px;
+	float: left;
+}
+h1 a {
+	font-size: 60px;
+	font-weight: bold;
+	text-transform: capitalize;
+	color: #4B4D4F!important;
+	text-shadow: #FFF 1px 1px 0;
+	display: block;
+	transition: all 0.3s ease-in-out; 
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out;
+}
+h1 a:hover {
+	-webkit-transition-timing-function: ease-out;
+	color: #955803!important;
+}
+h1 a span {
+	font-size: 25px;
+	font-weight: lighter;
+	font-weight: 100;
+	text-transform: lowercase;
+	color: #955803;
+}
+/*
+============================================== 	
+headings						
+============================================== 
+*/
+h2 {
+	color: #834C00;
+	font-size: 16px;
+	font-weight: lighter;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	text-shadow: #FFF 1px 1px 0;
+	border-bottom: 1px dashed #834C00;
+}
+.leftCol h2 {
+	margin-top: 20px;
+}
+.brown h2 {
+	text-shadow: none;
+	color: #FFF;
+	border-bottom: 1px dashed #E3DABF;
+}
+h3 {
+	color: #4B4D4F;
+	text-shadow: #FFF 1px 1px 0;
+	text-transform: uppercase;
+	font-weight: bolder;
+	padding-top: 15px;
+}
+.brown h3 {
+	text-shadow: none;
+	color: #FFF;
+}
+h4 {
+}
+h5 {
+	float: left;
+}
+h5 a {
+	font-size: 15px;
+	font-weight: bold;
+}
+h5 a span {
+	font-size: 12px;
+	font-weight: lighter;
+	font-weight: 100;
+}
+/*
+============================================== 	
+paragraphs 						
+============================================== 
+*/
+p {
+	/*color: #5E6062;*/
+	line-height: 18px;
+}
+p.quote {
+	float: left;
+	background: url(/assets/peach/quote_bg.png) left no-repeat;
+	margin-left: 20px;
+	padding-left: 40px;
+	color: #955803;
+	font-size: 13px;
+	font-weight: lighter;
+	line-height: 20px;
+	width: 435px;
+}
+p.notAvailable, p.available {
+	width: 320px;
+	float: right;
+	text-align: center;
+	margin: 15px 35px 0 0;
+}
+p.notAvailable a, p.available a {
+	color: #FBF3DE;
+	font-weight: bold;
+	font-size: 22px;
+	display: block;
+	text-transform: uppercase;
+	padding: 10px 5px;
+	transition: all 0.3s ease-in-out; 
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out;
+}
+p.notAvailable a:hover, p.available a:hover {
+	-webkit-transition-timing-function: ease-out;
+}
+p.notAvailable a span, p.available a span {
+	font-weight: lighter;
+	font-size: 12px;
+}
+p.notAvailable a {
+	background: #955803;
+	border: 2px solid #834C00;
+	-webkit-border-radius:5px; 
+	-moz-border-radius:5px; 
+	border-radius:5px;
+}
+p.notAvailable a:hover {
+	background: #F26622;
+	border-color: #C55419;
+}
+p.available a {
+	background: #319F8F;
+	border: 2px solid #1C8779;
+	-webkit-border-radius:5px; 
+	-moz-border-radius:5px; 
+	border-radius:5px;
+}
+p.available a:hover {
+	background: #1C8779;
+	border-color: #00786E;
+}
+p.reveal {
+	margin: 20px 0;
+}
+p.reveal a {
+	display: block;
+	padding: 5px 0;
+	padding-left: 35px;
+	background: #FBF3DE url(/assets/peach/reveal_bg.png) left no-repeat;
+	background-position: 0 0;
+	-webkit-border-radius:5px; 
+	-moz-border-radius:5px; 
+	border-radius:5px;
+	overflow: hidden;
+}
+p.reveal a:hover {
+	background-position: 0 -30px;
+}
+p.highlight {
+	background: url(/assets/peach/highlight_bg.png) left no-repeat;
+	color: #F58220;
+	margin-bottom: 15px;
+	padding-left: 25px;
+}
+p.highlight a {
+	color: #F58220!important;
+}
+.category p.highlight {
+	margin: 5px 0!important;
+}
+p.halfSize {
+	float: left;
+	display: block;
+	width: 45%;
+}
+p.subscribe {
+	display: block;
+	margin: 15px 0;
+}
+p.creds a {
+	display: inline;
+	float: right;
+	margin: 50px 20px 0 0;
+	-moz-opacity:.30; filter:alpha(opacity=30); opacity:.30;
+}
+/*
+============================================== 	
+general type styles						
+============================================== 
+*/
+blockquote {
+	color: #F58220;
+	background: url(/assets/peach/blockquote_bg.png) left no-repeat;
+	background-position: 0 5px;
+	font-size: 13px;
+	padding: 10px 0 10px 50px;
+	min-height: 40px;
+}
+strong {
+	font-weight: bold;
+}
+em {
+}
+cite {
+	background: url(/assets/peach/cite_bg.png) left no-repeat;
+	background-position: -5px 0;
+	color: #834C00;
+	display: block;
+	font-size: 15px;
+	margin-bottom: 20px;
+	padding: 20px 0 0 25px;
+	height: 25px;
+	margin-top: -20px;
+}
+.contentMiddle span {
+	color: #F58220;
+}

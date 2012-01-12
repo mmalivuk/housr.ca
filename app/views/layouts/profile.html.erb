@@ -1,86 +1,564 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title><%= title %></title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= stylesheet_link_tag "bootstrap" %>
-  <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag "bootstrap-alert" %>
-  <%= csrf_meta_tags %>
-    <style type="text/css">
-     body {
-        padding-top: 60px;
-    }
-	.prosidebar ul {
-		list-style: none;
-	}
-    </style>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="" />
+<meta name="author" content="" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+
+
+<meta name="DC.title" content="" />
+<meta name="DC.creator" content="" />
+<meta name="DC.description" content="" />
+<meta name="DC.format" content="text/html" />
+<meta name="DC.language" content="" />
+<meta name="DC.publisher" content="" />
+
+
+
+<title><%= title %></title>
+
+
+
+<!--  
+====================
+select a css style sheet and 
+comment the others out
+====================
+-->
+
+<link href="/assets/peach.css" rel="stylesheet" type="text/css" media="screen, projection" />
+
+
+
+
+<!--  styled PRINT.CSS -->
+<link href="/assets/print.css" rel="stylesheet" type="text/css" media="print" />
+
+<!--[if lt IE 8]>
+<script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE8.js" type="text/javascript"></script>
+<![endif]-->
+
+
+<!-- scripts -->
+<!-- <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script> -->
+<script type="text/javascript" src="/assets/jquery.validate.pack.js"></script>
+<script type="text/javascript" src="/assets/scroll.js"></script>
+<script type="text/javascript" src="/assets/js.js"></script>
+
+
+<!--
+validates the send to friend form
+on submit
+-->
+<script type="text/javascript">
+<!--
+
+function reset() {
+document.tellafriend.name.value="";
+document.tellafriend.email.value="";
+document.tellafriend.friendmail1.value="";
+document.tellafriend.friendmail2.value="";
+document.tellafriend.friendmail3.value="";
+}
+
+function validate() {
+
+
+if (document.tellafriend.name.value.length==0) {
+alert("please enter your name");
+return false;
+}
+
+if (document.tellafriend.email.value.length==0) {
+alert("please enter your email address");
+return false;
+}
+
+if (document.tellafriend.friendmail1.value.length==0) {
+alert("please enter a friend's email address");
+return false;
+}
+
+document.tellafriend.submit()
+return true;
+}
+
+//-->
+</script>
+
 </head>
 <body>
-    <div class="topbar">
-      <div class="fill">
-        <div class="container">
-          <a class="brand" href="/">housr.ca</a>
-          <ul class="nav">
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="/find">Find an Agent</a></li>
-            <li><a href="/agents">Realtor's Section</a></li>
-			<li><a href="/about">About</a></li>
-			<li><a href="/contact">Contact</a></li>
-		  </ul>
-		
-		
-				<% if user_signed_in? %>
-					<ul class="nav secondary-nav">
-					            <li class="dropdown" data-dropdown="dropdown">
-					              <a href="#" class="dropdown-toggle"><%= current_user.email %></a>
-					              <ul class="dropdown-menu">
-					                <li><a href="/cpanel">Control Panel</a></li>
-					                <li><%= link_to "View My Profile", user_path(current_user) %></li>
-					                <li class="divider"></li>
-					                <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-					              </ul>
-					            </li>
-					          </ul>
-			  <% else %>
-			    <ul class="nav secondary-nav"><li><%= link_to "Sign Up", new_user_registration_path %></li> 
-			<li><%= link_to "Sign In", new_user_session_path %></li>
-				</ul>
-			  <% end %></p>
-			
-          
-        </div>
-      </div>
+
+<!--
+the following message is displayed only if browser has
+javascript turned off. you may delete it or leave it intact
+it doesn't affect the site otherwise.
+-->
+<!-- /////////////////////////////////////////this one goes out to all my non-javascript peeps out there. get your script on people. its the two-thousands here ////////////////////////// -->
+<noscript>
+  <div class="wrapper" id="no-js">
+    <div class="javaDouche">
+        <strong class="ayo">A yo! Your browser has javascript disabled.</strong><br/>
+        This site absolutely <span class="ayo">&hearts;</span> javascript. So, ga'head and turn it back on. Seriously! Before I send goons after you.
+        Here are Microsoft's instructions about <a href="http://support.microsoft.com/gp/howtoscript" title="How to enable scripting in your browser">enabling javascript</a>.
+        For all my Safari peeps out there, just go to "Preferences", then "Security", and check "Enable Javascript". <br />
     </div>
+  </div>
+</noscript>
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
-	<div class="container-fluid">
-	      <div class="prosidebar">
-	        <div class="well">
-	          <%= image_tag @user.avatar_url(:thumb) if @user.avatar? %>
-	          <h5>Contact Info</h5>
-	          <ul>
-	            <li>Phone: <%= @user.phone %></li>
-	            <li>Email: <%= mail_to @user.email %></li>
-	          </ul>
-	          <h5>Location</h5>
-	          <ul>
-	            <li>City: <%= @user.city %></li>
-	          </ul>
-	        </div>
-	      </div>
-	      <div class="procontent">
-	        <% if flash[:notice] %>
-				<div class="alert-message warning" data-alert="alert">
-				  <a class="close" href="#">×</a>
-				  <p><%= flash[:notice] %></p>
-				</div>
-			<% end %>
-	        <%= yield %>
+<div class="wrapper everything">
+<!-- ============================================== -->	
+<!-- !                  HEADER                      -->
+<!-- ============================================== -->
+<div id="header">
+	<!--
+    your name and title/ company name goes here
+    -->
+	<h1><a href="/res">Milan Malivuk<br /><span>Realtor</span></a></h1>
+    
+    <ul class="mainNav">
+    
+    	<!--
+        this doesn't validate but it
+        allows for the page to be printed
+        utilizing the print.css
+        ========
+        uncomment if you don't mind the document
+        not fully validating
+        <li>
+        	<form>
+				<input class="printIt" type="button" value="Print" onClick="window.print()" />
+			</form>
+        </li>
+        -->
+        
+    	<li><a href="#none" title="email my r&eacute;sum&eacute;" id="reveal-tellBuddies">Email</a></li>
+    	<li><a href="files/george-g-bear.pdf" title="download my r&eacute;sum&eacute;">Download</a></li>
+    </ul>
+<br class="clearfloat" />
+</div>
+<!-- ============================================== -->	
+<!-- !               MAIN CONTENT                   -->
+<!-- ============================================== -->
+<div class="contentTop">
+    <div class="quoteAvail">
+    
+    	<!-- 	
+        tagline or quote
+        -->
+        <p class="quote dashed">
+        	Etiam rutrum pulvinar leo, at pellentesque ligula tincidunt sit amet. 
+            Sed interdum, nulla laoreet accumsan posuere, lectus turpis rutrum orci, non suscipit diam nisi vitae dui. 
+            Cras venenatis bibendum dapibus. Ut et arcu est.            
+        </p>
+        
+        <div class="availability">
+        	<!--
+            Depending on your availability, remove the class "hidden" from the appropriate state
+            and put it in the other. this hides whichever status should be hidden.
+            =========
+            if you're not available, edit the date when you'll be available to start accepting work.
+            =========
+            this link also reveals the contact form
+            -->
+        
+        	<p class="available">
+            	<a href="#proposal" title="I'm available. Hire me!">I'm Available<br /> <span>contact me now!</span></a>
+            </p>
+            
+            
+        	<p class="notAvailable hidden">
+            	<a href="#proposal" title="Sorry, I'm not current available for hire">Not Available<br /> <span>will be available starting <strong>Feb. 23 2010</strong></span></a>
+            </p>
+            
+            
+        </div>
+        
+    </div>
+</div>
 
-	        <footer>
-	          <p>&copy; housr.ca 2011 by Milan Malivuk</p>
-	        </footer>
-	      </div>
-	</div>
+<div class="contentMiddle">
+    <div class="leftCol">
+    
+    
+        <!-- ============================= -->
+        <!-- ====== GENERAL CONTACT ====== -->	
+        <!-- ============================= -->
+        
+        <!--
+        quick contact form that slides down.
+        configure the mail.php file  with your
+        email address and you're good to go!
+        -->
+
+        <p class="highlight"><a href="#proposal" title="contact me">quick contact</a></p>
+        <form class="genContact"  name="genContact" action="mail.php" method="post" id="genContact">
+        
+            <p>
+                <label for="genName">Name <span>*</span></label>
+                <input type="text" class="input required"  name="genName" id="genName"/>
+            </p>
+            
+            
+            <p>
+                <label for="genEmail">Email <span>*</span></label>
+                <input type="text" class="input required"  name="genEmail" id="genEmail"/>
+            </p>
+            
+            
+            <p>
+                <label for="purpose">Purpose of Contact</label>
+                <select id="purpose" name="purpose">
+                    <option selected="selected">hey, your work rocks!</option>
+                    <option>quote for a project</option>
+                    <option>business proposition</option>
+                    <option>other shenanigans</option>
+                </select>
+            </p>
+             
+
+
+            <p>
+                <label for="genMessage">Message <span>*</span></label>
+                <textarea class="message required" cols="10" rows="5"  name="genMessage" id="genMessage"></textarea>
+            </p>
+            
+            
+            <p>
+            <input type="submit" value="Submit Message" name="submit"/> 
+            </p>
+                            
+            <p class="subscribe">
+                <input type="checkbox" checked="checked" name="newsletter" value="newsletter" />
+                <label>Subscribe to the newsletter</label>
+                <br class="clearfloat" />
+            </p> 
+            
+             
+                                
+        </form>
+        <!-- ============================= -->
+        <!-- ====== WORK EXPERIENCE ====== -->	
+        <!-- ============================= -->
+        <h2>Experience</h2>
+        
+        <h3>Man Bear Pig, Inc.</h3>
+        <p><span>April 2008 - Present</span><br />
+            Creative Director – Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ligula quam, fermentum nec facilisis ac, mollis a turpis. <br />
+            Graphic Designer – Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ligula quam, fermentum nec facilisis ac, mollis a turpis. 
+		</p>
+
+        <h3>Bear Unlimited</h3>
+        <p><span>April 2008 – Sept 2008</span><br /> 
+            Editor – Cut Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ligula quam, fermentum nec facilisis ac, mollis a turpis. 
+		</p>
+
+        <h3>Who Dat Growling Corp.</h3>
+        <p><span>Aug 2004 - Apr 2008</span><br />  
+            Freelance Producer/Editor - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ligula quam, fermentum nec facilisis ac, mollis a turpis.   
+		</p>
+
+        <h3>Geebz Production</h3>
+        <p><span>Nov 2007 – Dec 2007</span><br />
+            Assistant Editor – Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ligula quam, fermentum nec facilisis ac, mollis a turpis. 
+		</p>
+
+        <h3>Grrr! Company</h3>
+        <p><span>Feb 2007 - Aug 2007</span><br />
+            Senior Editor &amp; Creative Designer – Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ligula quam, fermentum nec facilisis ac, mollis a turpis. .
+		</p>
+        
+        
+        
+        
+        <!--
+        this link reveals additional experience, if any, that would make the
+        page toooo long. if you don't have a lot of prior work experience,
+        you might want to delete this section or comment it out altogether.
+        -->
+        
+        <p class="reveal dashed"><a href="#moreWork" id="reveal-work">more work experience...</a></p>
+        
+        <!-- ================= additional work experience too extensive to list above============================= -->	
+        <div class="moreWork"><a name="moreWork"></a>
+        <h2>More Work Experience</h2>
+            
+            <h3>Serbia vs. Hungary</h3>
+            <p>Jr. World Championship Water Polo</p>
+            
+            <h3>MTV Jams Freestyle King Comp.</h3>
+            <p>Corporate Promo - MTV</p>
+            
+            <h3>Little Dream Factory</h3>
+            <p>Reality Pilot – Gosch Productions</p>
+            
+            <h3>Jojo Wright (KIIS 102.7FM)</h3>
+            <p>Professional Reel</p>
+            
+            <h3>Emiliano Diez</h3>
+            <p>Professional Reel</p>
+            
+            <h3>Chevy Thank You</h3>
+            <p>Corporate Promo – Clear Channel</p>
+            
+            <h3>ONSTAR – General Answers <span>*</span></h3>
+            <p>Commercial – BooneWorks Productions</p>
+            
+            <h3>Archstone-Smith New Hire Vid</h3>
+            <p>Corporate Promo – Archstone-Smith</p>
+            
+            <h3>Jordi B – Master Stylist <span>*</span></h3>
+            <p>Professional Reel</p>
+             
+            <h3>KwameWorld	<span>*</span></h3>
+            <p>Comedic Pilot</p>
+            
+            <h3>BWP – Look Closer <span>*</span></h3>
+            <p>Commercial Spot – BooneWorks Productions</p>
+            
+            <h3>Mitsubishi Materials USA<span>*</span></h3>
+            <p>Corporate Promo – BooneWorks Productions</p>
+             
+            <h3>CONSCIOUS, subconscious <span>*</span></h3>
+            <p>Short Film – BooneWorks Productions</p>
+             
+            <h3>Behind a tear <span>*</span></h3>
+      		<p>Short Film - BooneWorks Productionss</p>
+            
+        </div> 
+        <!-- ================= end of (hidden) additional work experience ============================= -->	
+        
+        
+        
+        
+        <!-- ============================= -->
+        <!-- ========= EDUCATION ========= -->	
+        <!-- ============================= -->
+        <h2>Education</h2>
+        
+        <h3>Bearville University</h3>
+        <p>B.F.A. in Film Production, emphasis in writing, directing, and cinematography</p>
+        
+        <h3>University of Bears</h3>
+        <p>Theater studies – directing, minor – film studies.</p>
+        
+
+
+
+
+        <!-- ============================= -->
+        <!-- =========== SKILLS ========== -->	
+        <!-- ============================= -->
+        <h2>Skills</h2>
+        
+        <h3>Film &amp; Video</h3>
+        <p>Avid, Final Cut Studio,  After Effects, Vegas, Flash, Dreamweaver, and many more.</p>
+        
+        <h3>Graphic Design</h3>
+        <p>Photoshop, llustrator, Vegas, Flash, Dreamweaver, and many more, and many more.</p>
+                
+        
+        
+        
+        
+
+        <!-- ============================= -->
+        <!-- ========== REFERENCES ======== -->	
+        <!-- ============================= -->
+        
+        
+        <!--
+        this link reveals the references you might have. i'd advice againts
+        listing your references here though. have people requesting references
+        contact you directly through your contact form
+        -->
+        <p class="reveal"><a href="#" id="reveal-refs">references available upon request</a></p>
+
+
+        <div class="refs"><a name="references"></a>
+        	<p><a href="#proposal">Click here to request references.</a> Thanks.</p>
+        </div>
+
+    </div><!-- END leftCol -->
+
+
+
+
+
+
+
+
+    <div class="rightCol">
+        <div class="infoBlock light">
+        
+        	<!--
+            enter the correct path to your vCard in the link below.
+            -->
+        
+            <p class="botDashed"><a href="files/George G. Bear.vcf"  rel="enclosure" class="vCardDl" title="dowload my vCard">download my vCard</a></p>
+            
+            
+            	<!--
+                vCard contact information.
+                note the classes in the list items
+                give the icon styles you see.
+                -->
+            
+            	<ul class="contactInfo">
+                	<li class="phone">
+                        (714) 555-1234
+                    </li>
+                	<li class="email">
+                        geebz@bearmail.com
+                    </li>
+                	<li class="website">
+                        www.georgebear.com
+                    </li>
+                	<li class="address">
+                        123 Main Street <br />Bearville, CA 92811
+                    </li>
+                </ul>
+        </div>
+
+
+        <!--
+        email to friends form. configure the
+        tellafriend.php file with you email 
+        address and you're good to go!
+        -->
+
+        <div class="infoBlock light" id="tellBuddies">
+            <h2>Email my r&eacute;sum&eacute; to some friends</h2>
+            <form name="tellafriend" class="tellBuddies" action="tellafriend.php" method="post" onsubmit="return checkfields()"> 
+                <p>
+                    <label for="name">your name <span>*</span></label><br />
+                    <input type="text" size="45" name="name" id="name" maxlength="45" />
+                </p>
+                <p>
+                	<label for="email">your email <span>*</span></label><br />
+                	<input type="text" size="45" name="email" id="email" maxlength="45"/>
+                </p>
+                
+                <p class="topDashed">please enter your friend's email addresses:</p>
+                <br />
+    
+                <p>
+                	<label for="friendmail1">email 1 <span>*</span></label><br />
+                	<input type="text" size="45" name="friendmail1" id="friendmail1" maxlength="45"/>
+                </p>
+                <p>
+                	<label for="friendmail2">email 2:</label><br />
+                	<input type="text" size="45" name="friendmail2" id="friendmail2" maxlength="45"/>
+                </p>
+                <p>
+                	<label for="friendmail2">email 3:</label><br />
+                	<input type="text" size="45" name="friendmail3" id="friendmail3" maxlength="45"/>
+                </p>
+                
+                <p class="highlight">Ps, the email will contain your name and email address.</p>
+                <p>
+                	<input onclick="validate();" type="button" value="send to friend"/>
+                </p>
+            </form>
+        </div>
+        
+        
+        
+        
+        <div class="infoBlock">
+            <h2>Bearville, CA</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer aliquet sapien eu nunc placerat luctus quis id orci. Aenean ante lectus, ultricies eu malesuada non, gravida eget quam. Quisque nec diam eget ligula consectetur tempor vel luctus sapien. Praesent elementum dolor eget elit luctus aliquet non quis est. Aliquam posuere tempus mauris in varius. </p>
+            <blockquote>Sed a nisl nec ligula porta convallis. Morbi sit amet ipsum vitae augue porta viverra. Mauris diam enim, tristique vitae.</blockquote>
+            <p>Aenean ante lectus, ultricies eu malesuada non, gravida eget quam. Quisque nec diam eget ligula consectetur tempor vel luctus sapien. Praesent elementum dolor eget elit luctus aliquet non quis est. Aliquam posuere tempus mauris in varius.
+            </p>
+            <p><br />Geebz looks forward to hearing from you!!</p>
+        </div>
+       
+     <br class="clearfloat" />
+    </div><!-- END rightCol -->
+    
+    
+    
+    
+    
+    <!-- 
+    SEARCH FORM
+    the onfocus and onblur values
+    don't allow this search form to
+    validate but it is quite sexy!
+    uncomment if you need it.
+    I doubt though that you'll be needing
+    a search form for a one page document 
+    -->
+     
+     <!--       
+      
+	<div class="searchBlock">
+    	<div class="leftCol">
+        <form method="get" id="searchForm" action="">
+            <input type="text" value="search the site..." onfocus="if(this.value=='search the site...') this.value='';" onblur="if(this.value.length < 1) this.value='search the site...';" />
+            <input type="submit" id="submit" value="Search" />
+        </form>
+        </div>
+        
+        <div class="rightCol">
+        	<p>Lorem Ipsum Dolor</p>
+        </div>	   
+    </div> 
+                   
+	  -->
+
+
+      
+<br class="clearfloat" />
+</div>
+
+<div class="contentBottom"></div>
+
+</div><!-- END: wrapper.everything -->
+
+
+
+
+
+<!-- ============================================== -->	
+<!-- !                 FOOTER                       -->
+<!-- ============================================== -->
+<div class="wrapper footer">
+	<div id="footer">
+        <div class="leftCol">
+        	<h5><a href="#">Milan Malivuk <span>| Realtor</span></a></h5>
+        </div>
+        <div class="rightCol">
+        	<ul class="footerNav">
+            	<li><a href="#">Pages</a></li>
+            	<li><a href="#">Page</a></li>
+            	<li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+<!-- ===========================these doods are super awesome =========================== -->     
+<!--       this is where you show your die hard love for me or alternatively not. delete or leave in place. it's up to you        -->   
+        <p class="creds">
+        	<a href="http://danjoedesign.com" title="Joe Nyaggah | this dood is super awesome!">designed by <strong>Milan Malivuk</strong></a>
+        </p>
+<!-- ============================================================================ -->        
+    </div>
+</div>
+
+
+
+
+
+
+<!-- ============================================== -->	
+<!-- !         tracking and analytics               -->
+<!-- ============================================== -->
+
+
 </body>
 </html>

@@ -1,0 +1,1783 @@
+@charset "UTF-8";
+
+@import url('/assets/resets.css');
+@import url('/assets/colorbox.css');
+/*
+============================================== 	
+my sexy body							
+============================================== 
+*/
+body {
+	font: 12px "HelveticaNeue-Light", HelveticaNeue, "Helvetica Neue", Helvetica, Verdana, Arial, sans-serif;
+	background: #2D0200/*EDF5F6*/;
+	margin: 0;
+	padding: 0;
+	text-align: center; 
+	color: #636467;
+}
+
+/*
+============================================== 	
+wrapper and its classes							
+============================================== 
+*/
+.everything {
+/*
+this div is only there so that on
+short pages, and if your footer doesn't have
+much content, the page doesn't end
+abruptly.
+
+in addition, the body element also gets the
+same background color as the footer so that
+they seemlessly blend together
+*/
+	background: #EDF5F6;
+}
+
+.wrapper {
+	text-align: left;
+	margin: 0 auto;
+	padding: 0;
+	width: 100%;
+	min-width: 1000px;
+	
+	/*border: 1px solid #000;*/
+}
+.header {
+	background: #5B1E00 url(../assets/candy/header.png) top left repeat-x;
+}
+.topSection {
+	background: #7FCEEF url(../assets/candy/topSection.png) top left repeat-x;
+	border-top: 1px solid #F4DCA5;
+}
+
+/*
+topSection:
+left and right Cols
+*/
+.topSection .leftCol,
+.topSection .rightCol {
+	margin: 0;
+	padding: 0;
+}
+.topSection .leftCol {
+	width: 340px;
+}
+.topSection .rightCol {
+	color: #5B1E00!important;
+	float: left;
+	width: 560px;
+	margin-left: 20px;
+	margin-bottom: 120px;
+}
+
+.midSection {
+	background: url(../assets/candy/midSection.png) top left repeat-x;
+	margin-top: -150px;
+}
+
+.content {
+	padding-bottom: 40px;
+}
+
+.footer {
+	background: #EDF5F6 url(../assets/candy/footer.png) top left repeat-x;
+}
+
+/*
+============================================== 	
+structure (IDs named for wrapper classes)							
+============================================== 
+*/
+#header,
+#topSection,
+#midSection,
+#content, 
+#footer {
+	display: table;
+	width: 960px;
+	margin: 0 auto;
+	/*padding: 0 20px;*/
+	
+}
+
+#header,
+#topSection {
+	/*padding: 10px 20px;*/
+	padding: 10px 0;
+}
+.topSection {
+	min-height: 150px!important;
+
+}
+#midSection {
+	background: url(../assets/candy/node_midSection.png) no-repeat;
+	background-position: 255px 0;
+	min-height: 310px;
+}
+
+#footer {
+	background: url(../assets/candy/node_footer.png) no-repeat;
+	background-position: 245px/*265px*/ 0;
+	min-height: 310px;
+	padding-top: 0px;
+}
+
+/*
+============================================== 	
+main nav							
+============================================== 
+*/
+ul.mainNav {
+	float: right;
+	margin-top: 15px;
+	padding: 0;
+	
+	display: table;
+	
+	/*
+	this fixed width is only so that ie7
+	can render the nav nicely. if you don't
+	specify an explicit width, the nav bar
+	floats too far left towards the logomark.
+	*/
+	width: 620px;
+}
+ul.mainNav li{
+	display: table;
+	float: left;
+	font-size: 12px;
+	margin-right: 23px;
+	vertical-align: middle;
+}
+ul.mainNav li a {
+	color: #F4DCA5;
+	text-transform: uppercase;
+	text-decoration: none;
+	vertical-align: middle;
+	transition: all 0.3s ease-in-out; 
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out;
+}
+ul.mainNav li a:hover,
+ul.mainNav li a.active {
+	-webkit-transition-timing-function: ease-out;
+	color: #F26622;
+	border-bottom: 1px dashed #F26622;
+	padding-bottom: 5px;
+}
+
+/*login and register links*/
+ul.mainNav li ul {
+	display: inline;
+	float: right;
+	margin: -5px 0 0 0;
+	padding: 0;
+}
+ul.mainNav li ul li {
+	display: table;
+	float: left;
+	font-size: 13px;
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+}
+ul.mainNav li ul li a {
+	display: block;
+	padding: 5px;
+	-webkit-border-radius:5px; 
+	-moz-border-radius:5px; 
+	border-radius:5px;
+	transition: all 0.3s ease-in-out; 
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out;
+}
+ul.mainNav li ul li a:hover {
+	-webkit-transition-timing-function: ease-out;
+}
+
+/*signin link*/
+ul.mainNav li ul li.signinLink{
+	margin-right: 5px;
+}
+ul.mainNav li ul li.signinLink a {
+	background: #5B1E00;
+	color: #9E4122;
+	border: 3px solid #9E4122;
+}
+ul.mainNav li ul li.signinLink a:hover {
+	background: #9E4122;
+	color: #5B1E00;
+}
+
+/*register link*/
+ul.mainNav li ul li.registerLink a {
+	background: #F26622;
+	color: #F4DCA5;
+	border: 3px solid #C94E1B;
+}
+ul.mainNav li ul li.registerLink a:hover {
+	background: #C94E1B;
+}
+
+/*
+============================================== 	
+TOP NODE							
+============================================== 
+*/
+
+
+/*
+#midSection
+topNode elements
+*/
+.topNode {
+	float: right;
+	margin: 60px 50px 0 0;
+	padding: 0 0 10px 0;
+	width: 510px;
+	min-height: 90px;
+}
+
+.topNode p {
+	text-align:  center;
+}
+
+.topNode p span {
+	display: block;
+	float: left;
+	font-size: 15px;
+	font-weight: bold;
+	margin: 25px 27px 0 25px;
+}
+.topNode p a {
+	color: #EDF5F6;
+	font-size: 26px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+
+/*bigSignUp link*/
+.bigSignUp {
+	background: #2D9E8E url(../assets/candy/whiteStripes.png);
+	display: block;
+	float: left;
+	padding: 20px 10px;
+	width: 200px;
+	-webkit-border-radius:5px; 
+	-moz-border-radius:5px; 
+	border-radius:5px;
+	transition: all 0.3s ease-in-out; 
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out;	
+	border: 3px solid #03978C;
+	
+	box-shadow: 1px 1px 5px #383939;
+	-moz-box-shadow: 1px 1px 5px #383939;
+	-webkit-box-shadow: 1px 1px 5px #383939;
+}
+	
+.bigSignUp:hover {
+	-webkit-transition-timing-function: ease-out;
+	background-color: #03978C;
+}
+
+/*bigArrow link*/
+.bigArrow {
+	background: url(../assets/candy/bigArrow.png) no-repeat;
+	background-position: 0 0;
+	display: block;
+	float: left;
+	font-size: 16px!important;
+	margin-top: 10px;
+	padding: 14px 0 0 0;
+	height: 37px;
+	width: 180px;
+	overflow: hidden;
+	border: 
+}
+.bigArrow:hover {
+	background-position: 0 -50px;
+}
+/*
+============================================== 	
+MAIN FEATURES LIST							
+============================================== 
+*/
+ul.mainFeatures {
+	background: #F4DCA5;
+	display: table;
+	margin-top: 40px;
+	width: 100%;
+	-webkit-border-radius:5px; 
+	-moz-border-radius:5px; 
+	border-radius:5px;
+	border: 1px solid #FFF;
+}
+ul.mainFeatures li {
+	float: left;
+	width: 300px;
+	padding: 6px;
+}
+ul.mainFeatures li.middleFeature {
+	margin: 0 10px;
+	border-left: 1px solid #EDF5F6;
+	border-right: 1px solid #EDF5F6;
+}
+
+
+ul.mainFeatures li h3,
+ul.mainFeatures li p {
+	color: #5B1E00!important;
+	display: table;
+}
+ul.mainFeatures li h3 {
+	font-weight: bold;
+}
+ul.mainFeatures li img {
+	float: left;
+	margin-right: 7px;
+}
+
+/*
+============================================== 	
+MIDSECTION BOTTOM						
+============================================== 
+*/
+/*
+there should be not 
+content in this div.
+just the ribbon image
+with a drop shadow
+*/
+.midSectionBottom {
+	background: url(../assets/candy/midSectionBottom.png) bottom center repeat-x;
+	min-height: 38px!important;
+	padding-top: 20px;
+	position: relative;
+	z-index: 2;
+}
+
+/*
+============================================== 	
+CONTENT						
+============================================== 
+*/
+
+/*
+==========	
+features						
+========== 
+*/
+.featureList {
+	display: table;
+	margin: 20px 0;
+}
+.feature {
+	float: left;
+	width: 228px;
+	min-height: 240px;
+	padding: 0 5px 20px 5px;
+}
+.feature.topDashed {
+	padding-top: 15px;
+	padding-bottom: 0;
+}
+.feature p {
+	/*color: #979A9C;*/
+	line-height: 18px;
+}
+.feature a img {
+	display: block;
+	/*margin: 0 auto;*/
+	margin-bottom: 10px;
+	max-width: 208px!important;
+	max-height:118px!important;
+	border: 3px solid #DCE4E6;
+	-webkit-border-radius:0px; 
+	-moz-border-radius:0px; 
+}
+
+
+
+
+/*
+==========	
+cpanel feature items						
+========== 
+*/
+
+.cpanelitem {
+	float: left;
+	width: 228px;
+	min-height: 75px;
+	padding: 0 5px 20px 5px;
+}
+.cpanelitem.topDashed {
+	padding-top: 15px;
+	padding-bottom: 0;
+}
+.cpanelitem h3 a{
+	color: #000000;
+	text-decoration:underline;
+	font-weight:bold;
+	line-height: 18px;
+}
+.cpanelitem p {
+	color: #979A9C;
+	line-height: 18px;
+}
+.cpanelitem a img {
+	display: block;
+	/*margin: 0 auto;*/
+	margin-bottom: 10px;
+	max-width: 208px!important;
+	max-height:118px!important;
+	border: 3px solid #DCE4E6;
+	-webkit-border-radius:0px; 
+	-moz-border-radius:0px; 
+}
+
+/*
+==========	
+sidebar 
+AND
+main content						
+========== 
+*/
+.sidebar {
+	background: #DCE4E6 url(../assets/candy/sidebarUl_bg.png) bottom left repeat-x;
+	width: 250px;
+	margin: -30px 0 0 0;
+	padding: 30px 0 50px 0;
+	float: left;
+	position: relative;
+	z-index: 1;
+	text-align: center;
+}
+.sidebar ul {
+	float: right;
+	width: 235px;
+}
+.sidebar ul li {
+	display: block;
+	width: 235px;
+	margin: 0;
+	text-align: left;
+	font-size: 20px;
+	font-weight: 100;
+	border-bottom: 1px solid #D2DADC;
+}
+.sidebar ul li a {
+	color: #636467;
+	display: block;
+	margin: 3px 0 3px 20px;
+	padding: 0 0 0 34px;
+} 
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+	background: #EDF5F6;
+	color: #F26622;
+	-moz-border-radius-topleft:5px;
+	-webkit-border-top-left-radius:5px;
+	-moz-border-radius-bottomleft:5px;
+	-webkit-border-bottom-left-radius:5px;
+}
+
+.mainContent {
+	width: 670px;
+	float: right;
+	margin: 0;
+	padding: 0;
+	clear: right;
+}
+
+/*
+mainContent
+feature list
+*/
+.infoBlock {
+	margin: 20px 0;
+	padding: 20px 0;
+	
+	border-top: 1px dashed #CCC;
+}
+/*
+============================================== 	
+pricing page							
+============================================== 
+*/
+.planWrapper {
+	margin-top: 65px;
+	padding: 0 0 50px 65px;
+}
+ul.plans {
+	color: #5B1E00;
+	display: table;
+	float: left;
+	font-size: 13px;
+	width:100%;
+}
+ul.plans li.plan {
+	float: left;
+	width: 200px;
+	margin-right: 8px;
+}
+
+ul.planOptions {
+	padding-left: 6px;
+}
+ul.planOptions li{
+	background: #F4DCA5;
+	padding: 5px 0 0 30px;
+	height: 25px;
+	margin: 0 auto;
+	margin-left: 4px;
+	display: block;
+	width: 151px;
+}
+ul.planOptions li.alt{
+	background-color: none!important;
+}
+ul.planOptions li.yes {
+	background: #F4DCA5 url(../assets/candy/yes.png) top left no-repeat;
+}
+ul.planOptions li.alt.yes {
+	background: url(../assets/candy/yes.png) top left no-repeat;
+}
+li.mostPopular ul.planOptions li.yes {
+	background: #F4DCA5 url(../assets/candy/mostPopYes.png) top left no-repeat;
+}
+li.mostPopular ul.planOptions li.alt.yes {
+	background: url(../assets/candy/mostPopYes.png) top left no-repeat;
+}
+ul.planOptions li.no {
+	background: #F4DCA5 url(../assets/candy/no.png) top left no-repeat;
+}
+ul.planOptions li.alt.no {
+	background: url(../assets/candy/no.png) top left no-repeat;
+}
+li.mostPopular ul.planOptions li.no {
+	background: #F4DCA5 url(../assets/candy/mostPopNo.png) top left no-repeat;
+}
+li.mostPopular ul.planOptions li.alt.no {
+	background: url(../assets/candy/mostPopNo.png) top left no-repeat;
+}
+
+.planTop {
+	height: 30px;
+	text-align: center;
+	color: #FFF;
+	font-weight: bolder;
+	padding-top: 13px;
+	background:url(../assets/candy/plansTop.png) top center no-repeat;
+}
+.planMid {
+	background:url(../assets/candy/plansMid.png) center repeat-y;
+}
+.planBot {
+	background:url(../assets/candy/plansBot.png) bottom center no-repeat;
+	padding-top: 10px;
+	text-align: center;
+}
+li.mostPopular {
+	color: #F26622;
+}
+li.mostPopular .planTop {
+	background:url(../assets/candy/mostPopPlansTop.png) top center no-repeat;
+}
+li.mostPopular .planMid {
+	background:url(../assets/candy/mostPopPlansMid.png) center repeat-y;
+}
+li.mostPopular .planBot {
+	background:url(../assets/candy/mostPopPlansBot.png) bottom center no-repeat;
+}
+.planBot a {
+	background: #5B1E00 url(../assets/candy/whiteStripes.png);
+	color: #FFF!important;
+	font-size: 13;
+	font-weight: bold;
+	display: block;
+	width: 150px;
+	height: 30px;
+	margin: 0 auto;
+	padding-top: 10px;
+	text-align: center;
+	text-transform: uppercase;
+
+	-webkit-border-radius:5px; 
+	-moz-border-radius:5px; 
+	border-radius:5px;
+	transition: all 0.3s ease-in-out; 
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out;	
+	border: 3px solid #5B1E00;
+	
+}
+.planBot a:hover {
+	background-color: #300000;
+}
+
+li.mostPopular .planBot a {
+	background: #F26622 url(../assets/candy/whiteStripes.png);
+	border: 3px solid #F26622;
+}
+li.mostPopular .planBot a:hover {
+	background-color: #C8551A;
+}
+#priceDiv p.mainTag {
+	text-align: center;
+}
+p.planTitle {
+	font-size:22px;
+	font-weight: 300;
+	text-align: center;
+	line-height: 40px;
+}
+p.planPrice {
+	font-size: 34px;
+	text-align: center;
+	font-weight: bold;
+	line-height: 50px;
+}
+/*
+============================================== 	
+FOOTER						
+============================================== 
+*/
+
+#footer {
+	color: #4F2B1B!important;
+}
+
+#footer img.logo {
+	margin-top: -45px;
+}
+
+.footerLinks {
+	width: 960px; 
+	margin: 0 auto;
+	padding: 60px 0 60px 0;
+}
+.footerLinks ul {
+	width:/*30%*/200px;
+	margin: auto;
+	margin-right: 40px;
+	display: inline-block;
+	float: left;
+}
+.footerLinks > ul:nth-child(1) li {
+	text-align: center;
+	border: none;
+}
+.footerLinks > ul:nth-child(4) {/*last unordered list in footer*/
+	margin-right: 20px;
+	float: right;
+}
+.footerLinks ul li {
+	padding: 5px 0 5px 10px;
+	border-bottom: 1px solid #4F2B1B;	
+}
+.footerLinks ul li a{
+	color: #9E7F6F;	
+	display: block;
+}
+.footerLinks ul li a:hover, .footer p a  {
+	color: #5E4C42;	
+}
+.footer p a:hover {
+	color: #4F2B1B;	
+}
+#footer .footerLinks ul li.footerNow {
+	display: table;
+	text-align: center;
+	border: none!important;
+	padding-left: 0;
+}
+.footerLinks ul li.footerNow a {
+	background: #F26622;
+	color: #440D00;
+	display: block;
+	font-size: 17px;
+	margin: 0 auto;
+	min-width: 160px;
+	padding: 10px;
+	-webkit-border-radius:5px; 
+	-moz-border-radius:5px; 
+	border-radius:5px;
+	transition: all 0.3s ease-in-out; 
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out;
+	border: 4px solid #F26622;
+}
+.footerLinks ul li.footerNow a:hover {
+	-webkit-transition-timing-function: ease-out;
+	background: #440D00;
+	color: #F4DCA5;
+	border: 4px solid #440D00;
+}
+.footerLinks ul li.footerCreds {
+	padding-left: 0;
+	border: none;
+}
+
+
+/*...............newsletter form elements..............*/
+form.newsletter {
+	float: left;
+	padding: 30px 0 0 10px;	
+}
+form.newsletter input.input {
+	background: #FFF;
+	color: #939598;
+	float: left;
+	font-size: 11px;
+	font-weight: 100;
+	font-style: italic;
+	min-height: 26px;
+	width: 160px;
+	margin: -5px -107px 0 0;
+	padding: 8px 120px 0 32px;
+	
+	-webkit-border-radius:3px; 
+	-moz-border-radius:3px; 
+	border-radius:3px;
+	border: none;
+	
+}
+form.newsletter label {
+	background: url(../assets/candy/newsletterLabel.png) center no-repeat;
+	background-position: 0 0;
+	display: block;
+	float: left;
+	font-size: 14px;
+	width: 162px;
+	height: 22px;
+	text-shadow: #FFFFFF 1px 1px 0;
+	margin-right: -35px;
+	padding-left: 25px;
+	padding-top: 3px;
+	position: relative;
+	z-index: 2;
+}
+form.newsletter label:hover {
+	background-position: 0 -25px;
+}
+form.newsletter .submit {
+	background: #2D0200;
+	color: #FFF;
+	float: left;
+	text-transform: uppercase;
+	width: 105px;
+	height: 30px;
+	cursor: pointer;
+
+	margin: -3px 0 0 0;
+	-webkit-border-radius:3px; 
+	-moz-border-radius:3px; 
+	border-radius:3px;
+	border: none;
+	
+	
+}
+form.newsletter .submit:hover {
+	background: #F26622;
+}
+
+
+/*
+============================================== 	
+LOGIN AND REGISTER							
+============================================== 
+*/
+
+/*
+hidden login form styles
+*/
+#quickLogin,
+#retrievePassword {
+	text-align: left;
+}
+
+#quickLogin form.loginForm,
+#retrievePassword form.passwordForm  {
+	background: #EDF5F6;
+	color: #636467!important;
+	padding: 20px;
+	width: 295px;
+	height: 320px;
+	-webkit-border-radius:5px; 
+	-moz-border-radius:5px; 
+	border-radius:5px;
+}
+#retrievePassword form.passwordForm input {
+	height: 35px;
+}
+
+#quickLogin form.loginForm input,
+#retrievePassword form.passwordForm input {
+	background: #FFF;
+	display: table;
+	width: 280px;
+	margin-bottom: 0!important;
+	border: 1px solid #CCC;
+}
+#quickLogin form.loginForm p,
+#retrievePassword form.passwordForm p {
+	margin-bottom: 10px;
+}
+#quickLogin form.loginForm label,
+#retrievePassword form.passwordForm label {
+	color: #636467!important;
+	display: block;
+	margin: 0;
+	padding-bottom: 5px;
+}
+
+#quickLogin form.loginForm input.signIn,
+#retrievePassword form.passwordForm input.signIn,
+a.retrieve_password  {
+	background: #5B1E00;
+	color: #9E4122!important;
+	display: block;
+	font-size: 16px;
+	border: 3px solid #9E4122;
+	text-align: center;
+	text-indent: 0;
+	-webkit-border-radius:5px; 
+	-moz-border-radius:5px; 
+	border-radius:5px;
+	transition: all 0.3s ease-in-out; 
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out;
+}
+
+a.retrieve_password {
+	font-size: 16px;
+	padding: 15px 0 0 0;
+	height: 35px;
+}
+#retrievePassword form.passwordForm input.signIn {
+	height: 55px;
+}
+#quickLogin form.loginForm input.signIn:hover,
+#retrievePassword form.passwordForm input.signIn:hover,
+a.retrieve_password:hover {
+	-webkit-transition-timing-function: ease-out;
+	background-color: #9E4122;
+	color: #5B1E00!important;
+}
+
+#quickLogin form.loginForm .asterisk,
+#retrievePassword form.passwordForm .asterisk {
+	color: #F26622;
+}
+
+/*...............login and register forms..............*/
+
+.asterisk {
+	font-size: 21px;
+	font-weight: bold;
+	padding-left: 8px;
+	text-transform: uppercase;
+}
+.loginRegister {
+	display: table;
+	margin: 0 auto;
+}
+
+div.login {
+	float: left;
+	width: 415px;
+	margin-right: -10px;
+}
+div.register {
+	float: left;
+	background: url(../assets/candy/register_bg.png) left top no-repeat;
+	width: 555px;
+	margin-left: -10px;
+}
+
+
+.loginRegister  h1 {
+	float: none!important;
+	display: block!important;
+	padding-left: 0px;
+}
+div.register h1,
+div.register h3 {
+	margin-left: 50px;
+}
+.loginRegister label {
+	font-size: 21px;
+	font-weight: bold;
+	margin-bottom: 5px;
+	text-transform: uppercase;
+}
+
+form.loginForm {
+	background: #5B1E00;
+	padding: 20px 0 20px 25px;
+	-moz-border-radius-topleft:20px;
+	-webkit-border-top-left-radius:10px;
+	-moz-border-radius-bottomleft:10px;
+	-webkit-border-bottom-left-radius:5px;
+}
+
+div.pineapples {
+	background: #5B1E00;
+	padding: 20px 0 20px 25px;
+	-moz-border-radius-topleft:20px;
+	-webkit-border-top-left-radius:10px;
+	-moz-border-radius-bottomleft:10px;
+	-webkit-border-bottom-left-radius:5px;
+}
+
+.pineapples h1{ 
+	display: block;
+	color: #fff;
+}
+
+.pineapples h1:hover{ 
+	display: block;
+	color: #cccccc;
+}
+
+form.loginForm p label{ 
+	display: block;
+	color: #EDF5F6;
+}
+
+form.registerForm p label {
+	color: #A7A9AC;
+	display: block;
+}
+form.loginForm p label.remember, 
+form.registerForm p label.terms {
+	display: inline;
+	color: #EDF5F6;
+	margin-bottom: 0;
+	margin-left: 10px;
+	font-size: 12px;
+	font-weight: 200;
+}
+form.registerForm p label.terms {
+	color: #A7A9AC;
+}
+
+.leadform p label{ 
+	display: block;
+	color: #EDF5F6;
+}
+
+.leadform p label {
+	color: #A7A9AC;
+	display: block;
+}
+.leadform p label.remember, 
+.leadform p label.terms {
+	display: inline;
+	color: #EDF5F6;
+	margin-bottom: 0;
+	margin-left: 10px;
+	font-size: 12px;
+	font-weight: 200;
+}
+.leadform p label.terms {
+	color: #A7A9AC;
+}
+
+form.loginForm input[type="text"], 
+form.loginForm input[type="email"],
+form.loginForm input[type="password"], 
+form.registerForm input[type="text"], 
+form.registerForm input[type="email"],
+form.registerForm input[type="password"] {	
+	width: 355px;
+	height: 35px;
+	background: #FFF!important;
+	border: none;
+	color: #939598;
+	font-weight: 100;
+	font-style: italic;
+	font-size: 14px;
+	margin-bottom: 25px;
+	padding: 8px 5px 0px 5px;
+}
+
+ 
+.leadform input[type="text"], 
+.leadform input[type="email"],
+.leadform input[type="number"],
+.leadform input[type="password"] {	
+	width: 300px;
+	height: 25px;
+	background: #FFF!important;
+	border: 1 1 1 #cccccc;
+	color: #939598;
+	font-weight: 100;
+	font-style: italic;
+	font-size: 14px;
+	margin-bottom: 10px;
+	padding: 5px 5px 0px 5px;
+}
+
+.leadform textarea {	
+	width: 300px;
+	height: 205px;
+	background: #FFF!important;
+	border: 1 1 1 #cccccc;
+	color: #939598;
+	font-weight: 100;
+	font-style: italic;
+	font-size: 14px;
+	margin-bottom: 10px;
+	padding: 5px 5px 0px 5px;
+}
+
+textarea:focus {
+	border: 2px solid #838384!important;
+}
+
+input.leadsubmit {
+	background: #5B1E00;
+	color: #9E4122!important;
+	font-size: 16px;
+	border: 3px solid #9E4122;
+	text-align: center;
+	text-indent: 0;
+	width: 220px;
+	height: 55px;
+	overflow: hidden;
+	cursor: pointer;
+	margin-right: 30px;
+	-webkit-border-radius:5px; 
+	-moz-border-radius:5px; 
+	border-radius:5px;
+	transition: all 0.3s ease-in-out; 
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out;
+}
+input.leadsubmit:hover {
+	-webkit-transition-timing-function: ease-out;
+	background-color: #9E4122;
+	color: #5B1E00!important;
+}
+
+.content input[type="text"]:focus, 
+.content input[type="email"]:focus, 
+.content input[type="number"]:focus, 
+.content input[type="password"]:focus {	
+	border-color: #838384!important;
+}
+
+form.registerForm input[type="text"], 
+form.registerForm input[type="password"] {	
+	width: 490px;
+	border: 1px solid #D1D3D4;
+	background: none;
+}
+
+form.registerForm {
+	padding: 20px 0 20px 55px;
+}
+
+input.signIn {
+	background: #5B1E00;
+	color: #9E4122!important;
+	font-size: 16px;
+	border: 3px solid #9E4122;
+	text-align: center;
+	text-indent: 0;
+	width: 140px;
+	height: 55px;
+	overflow: hidden;
+	cursor: pointer;
+	margin-right: 30px;
+	-webkit-border-radius:5px; 
+	-moz-border-radius:5px; 
+	border-radius:5px;
+	transition: all 0.3s ease-in-out; 
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out;
+}
+input.signIn:hover {
+	-webkit-transition-timing-function: ease-out;
+	background-color: #9E4122;
+	color: #5B1E00!important;
+}
+
+input.register {
+	background: #2D9E8E url(../assets/candy/whiteStripes.png);
+	color: #FFF;
+	display: block;
+	font-size: 25px;
+	margin: 10px 0 20px 0;
+	padding: 20px 10px;
+	width: 100%;
+	-webkit-border-radius:5px; 
+	-moz-border-radius:5px; 
+	border-radius:5px;
+	transition: all 0.3s ease-in-out; 
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out;	
+	border: 3px solid #03978C;
+	
+	box-shadow: 1px 1px 5px #383939;
+	-moz-box-shadow: 1px 1px 5px #383939;
+	-webkit-box-shadow: 1px 1px 5px #383939;
+}
+	
+input.register:hover {
+	-webkit-transition-timing-function: ease-out;
+	background-color: #03978C;
+}
+
+
+/*
+============================================== 	
+general contact form styles							
+============================================== 
+*/
+/*  validation error styles */
+label.error { 
+	color: #E96422!important; 
+	font-size: 12px!important;
+	font-weight: normal!important;
+	text-transform: none!important;
+}
+textarea.error, 
+input.error {
+	border: 1px solid #E96422!important;
+}
+/*end validation error styles */
+form.genContact {
+	width: 399px;
+}
+form.genContact p {
+	display: table;
+	padding-bottom: 20px;
+	width: 100%;
+}
+form.genContact input[type="text"], 
+form.genContact textarea {
+	border: 1px solid #D1D3D4;
+	width:100%;
+	max-width:100%!important;
+	min-height: 43px;
+	color: #636467;
+	line-height: 18px;
+	background: #FFF;
+	/*margin-bottom: 20px;*/
+	padding: 0 5px;
+}
+form.genContact input:focus, 
+form.genContact textarea:focus  {
+	border: 1px solid #636467;
+}
+form.genContact textarea {
+	font: 12px Helvetica, Verdana, Arial, sans-serif;
+	color: #636467;
+	font-weight: lighter;
+	min-height: 100px!important;
+	padding-top: 5px!important;
+}
+form.genContact input[type="submit"] {
+	background: #2D9E8E url(../assets/candy/whiteStripes.png);
+	color: #FFF;
+	display: block;
+	font-size: 25px;
+	margin: 10px 0 20px 0;
+	padding: 20px 10px;
+	width: 100%;
+	-webkit-border-radius:5px; 
+	-moz-border-radius:5px; 
+	border-radius:5px;
+	transition: all 0.3s ease-in-out; 
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out;	
+	border: 3px solid #03978C;
+	
+	box-shadow: 1px 1px 5px #383939;
+	-moz-box-shadow: 1px 1px 5px #383939;
+	-webkit-box-shadow: 1px 1px 5px #383939;
+}
+	
+form.genContact input[type="submit"]:hover {
+	-webkit-transition-timing-function: ease-out;
+	background-color: #03978C;
+}
+form.genContact select {
+	margin-bottom: 20px;
+	width: 100%;
+}
+form.genContact label {
+	color: #A7A9AC;
+	display: block;
+	font-size: 21px;
+	font-weight: bold;
+	margin-bottom: 5px;
+	text-transform: uppercase;
+}
+
+/*------------------firefox specific hack - hacks are wack
+/*========================================================
+for some reason the input, textarea and submit elements 
+don't line up in firefox so we hack em up a bit to match
+==========================================================
+--------------------------------------------------------*/
+@-moz-document url-prefix() { 
+	form.genContact input[type="submit"],
+	form.propForm input[type="submit"] {
+		width: 100%;  
+		margin: 0;
+	}
+	form.genContact input[type="text"], 
+	form.genContact textarea  {
+		width:100%;
+		max-width:100%!important;
+		padding-top: 11px!important;
+		min-height: 33px;
+	}
+	form.genContact textarea {
+		padding-top: 5px!important;
+	}
+}
+/*-------------------------end of firefox specific hack*/
+
+
+
+/*error classes*/
+label.error {
+	color:#FF0000!important;
+	display: block;
+	width: 100%;
+	margin-bottom: 10px;
+}
+input.required.error,
+textarea.required.error {
+	border-color:#FF0000!important;
+}
+
+
+
+/*
+============================================== 	
+thank you page						
+============================================== 
+*/
+.thanks {
+	background: #FFF url(../assets/candy/thanksDood.png) no-repeat;
+	background-position: 10px center;
+	margin: 0 auto;
+	padding: 10px 10px 10px 50px;
+	width: 300px;
+	-webkit-border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	border-radius: 5px;
+}
+p.thanksDood {
+	font-family:Georgia, "Times New Roman", Times, serif;
+	font-style: italic;
+	font-size: 15px;
+	color: #636467;
+	text-transform:lowercase;
+}
+
+
+/*
+============================================== 	
+recent tweet 					
+============================================== 
+*/
+.tweet {
+	background: #FFF;
+	text-align: left;
+	overflow: visible;
+	color: #4B4D4F;
+	display: table;
+	margin-top: 5px;
+	padding: 10px;
+	position: relative;
+	-webkit-border-radius:5px; 
+	-moz-border-radius:5px; 
+	border-radius:5px;
+	border: 1px solid #CCC;
+}
+.tweet span.indicate {
+	background: url(../assets/candy/tweet.png)  center no-repeat;
+	display: block;
+	float: right;
+	height: 41px;
+	width: 70px;
+	margin: 10px -79px 0 0;
+}
+.tweet span {
+	color: #4B4D4F;
+}
+.tweet a.tweet_avatar {
+	display: table;
+	float: left;
+	margin: 0 10px 0 -60px;
+}
+.tweet_avatar img {
+	margin: 0!important;
+	padding: 3px;
+	background: #FFF;
+	border-width: 2px;
+}
+.tweet ul,
+.tweet ol {
+	list-style: none!important;
+}
+.tweet ul li,
+.tweet ol li {
+	list-style-type: none!important;
+}
+li span.tweet_text {
+	display: block;
+	padding: 5px 0;
+	margin-bottom: 10px;
+	/*
+	if you increase the number of tweets shown
+	uncomment this.
+	border-bottom: 1px dashed #C3CBCD;
+	*/
+}
+.tweet li a {
+	color: #F26622;
+}
+
+/*
+============================================== 	
+social links							
+============================================== 
+*/
+ul.socialLinks {
+	display: table;
+	/*margin: 0 auto!important;*/
+}
+
+ul.socialLinks li {
+	display: block;
+	float: left;
+	margin-right: 5px!important;
+}
+ul.socialLinks img {
+	margin: 0;
+}
+/*
+============================================== 	
+img styles						
+============================================== 
+*/ 
+img, object  {
+	border: 5px solid #DCE4E6;
+	-webkit-border-radius:5px; 
+	-moz-border-radius:5px; 
+	border-radius:5px;
+	padding: 4px;
+}
+/*
+any image with a class of "logo"
+should not have the default image
+styles
+*/
+img.logo {
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+object {
+	display: block!important;
+	margin-bottom: 15px;
+}
+.leftCol img {
+	max-width: 466px!important;
+	margin-bottom: 20px;
+}
+
+/*
+remove the default
+border, margin and padding
+around images
+*/
+.topSection img,
+.topSection a img,
+.mainFeatures img,
+.mainFeatures a img {
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+/*
+this is specifically styled like this
+for the fruit image. delete if it doesn't
+work for whatever image you place here
+*/
+.topSection img {
+	margin-top: 0px;
+}
+/*
+============================================== 	
+general links						
+============================================== 
+*/
+a:link, 
+a:visited  { 
+	color: #D84923;
+	text-decoration: none;
+}
+a:hover, 
+a:active { 
+	color: #4A2706;
+	text-decoration: none;
+}
+a img {
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out;
+}
+a img:hover {
+	-webkit-transition-timing-function: ease-out;
+	border-color: #F26622;	
+}
+/*
+============================================== 	
+buttons							
+============================================== 
+*/
+btn, 
+input[type="submit"] {
+	cursor: pointer;
+}
+/*
+============================================== 	
+general classes 						
+============================================== 
+*/
+.leftCol {
+	float: left;
+	margin-top: 10px;
+	width: 340px;
+}
+.rightCol {
+	float: right;
+	width: 560px;
+	margin-top: 10px;
+}
+
+/*
+left and right
+columns in the
+mainContent div
+*/
+.mainContent .leftCol {
+	float: left;
+	width: 260px;
+}
+.mainContent .rightCol {
+	float: right;
+	width: 400px;
+}
+
+.mainContent .leftCol.fltrt {
+	float: right;
+	width: 260px;
+	margin: 0!important;
+}
+.mainContent .rightCol.fltlft {
+	float: left;
+	width: 400px;
+	margin: 0!important;
+}
+
+
+
+/*
+rightCol floated left
+should have a slight
+left margin so it lines
+up with the "nodes"
+*/
+.rightCol.fltlft {
+	margin-left: 20px;
+}
+
+.dashed {
+	padding: 10px 0;
+	border-top: 1px dashed #CCC;
+	border-bottom: 1px dashed #CCC;
+}
+.topDashed {
+	margin-top: 10px;
+	border-top: 1px dashed #CCC;
+}
+.botDashed {
+	margin-bottom: 10px;
+	border-bottom: 1px dashed #CCC;
+}
+.rightDashed {
+	border-right: 1px dashed #CCC;
+}
+.leftDashed {
+	border-left: 1px dashed #CCC;
+}
+
+.brown .botDashed, 
+.brown .topDashed, 
+.brown .dashed  {
+	border-color: #E3DABF!important;
+}
+.fltrt {
+	float: right!important;
+	margin-left: 30px;
+}
+.fltlft { 
+	float: left!important;
+	margin-right: 30px;
+}
+.clearfloat {
+	clear:both;
+    height:0;
+    font-size: 1px;
+    line-height: 0px;
+}
+.hidden {
+	display: none!important;
+}
+.paddington {
+	display: table;
+	padding: 10px; 
+}
+/*
+============================================== 	
+shout out to all my non js peeps!! 						
+============================================== 
+*/
+#no-js{ z-index:999999;padding:0;background:#FFFF00;width:100%!important;min-width:1000px;margin:auto;}
+.javaDouche{width:830px;margin:0 auto;font-size:20px;padding:10px;}
+.javaDouche a, .ayo{color:#F26622;border-bottom:1px dashed #000;}
+.javaDouche a:hover{color:#000;border-bottom:1px dashed #F26622;}
+.ayo{border-bottom:none;}
+
+
+
+
+/*	
+------------------------------------------------
+TYPOGRAPHY STYLES
+------------------------------------------------
+*/
+
+
+/*
+============================================== 	
+logo /					
+============================================== 
+*/
+h1 {
+	float: left;
+	font-size: 30px;
+	font-weight: lighter;
+	padding: 10px 0 0 20px;
+}
+h1 a {
+	color: #F4DCA5!important;
+	transition: all 0.3s ease-in-out; 
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out;
+}
+h1 a:hover {
+	-webkit-transition-timing-function: ease-out;
+	color: #F26622!important;
+}
+
+.mainContent h1 {
+	float: none;
+	margin-bottom: 10px;
+	padding: 0;
+}
+
+/*
+============================================== 	
+headings						
+============================================== 
+*/
+h2, 
+h2 a {
+	color: #343638;
+	font-size: 15px;
+	font-weight: bold;
+	margin: 5px 0;
+	padding-bottom: 6px;
+}
+.topSection h2 {
+	color: #FFF;
+	text-transform: lowercase;
+	font-weight: lighter;
+	font-size: 30px;
+	letter-spacing: 1px;
+}
+h2.pageTitle {
+	padding-top: 50px;
+}
+h3, 
+h3 a {
+	color: #343638!important;
+	font-size: 12px;
+	font-weight: lighter;
+	margin: 2px 0;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+}
+h2 a, 
+h3 a {
+	transition: all 0.3s ease-in-out; 
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out;
+}
+h2 a:hover, 
+h3 a:hover {
+	-webkit-transition-timing-function: ease-out;
+	color: #CC512A!important;
+}
+
+/*
+============================================== 	
+paragraph styles						
+============================================== 
+*/
+p {
+	font-weight: lighter;
+	line-height: 18px;
+	margin-bottom: 5px;
+}
+
+/*
+this is the paragraph
+that syles the brief tagline
+at the top
+*/
+.topSection .rightCol p {
+	font-weight: lighter;
+	font-size: 18px;
+	line-height: 25px;
+}
+/*
+============================================== 	
+general type styles						
+============================================== 
+*/
+blockquote {
+	color: #F26622;
+	background: url(../assets/candy/blockquote_bg.png) left top no-repeat;
+	font-size: 13px;
+	margin: 10px 0;
+	padding: 8px 0 5px 50px;
+	min-height: 40px;
+/*	
+	border-top: 1px dashed #CCC;
+	border-bottom: 1px dashed #CCC;
+	
+*/
+}
+code {
+	background: #FFF;
+	display: block;
+	font-family:"Courier New", Courier, monospace;
+	margin: 5px 0;
+	padding: 10px 5px;
+	border: 1px dashed #CCC;
+}
+cite {
+	display: block;
+	font-weight: bold!important;
+	margin: 10px 0;
+	padding-left: 15px;
+	font-style: italic;
+}
+small {
+	font-size: 11px!important;
+}
+strong {
+	font-weight: bold;
+}
+.cap {
+	text-transform: uppercase;
+}
+/*
+============================================== 	
+nivo slider styles				
+============================================== 
+*/
+#slider {
+	background: #FFF;
+	border: 5px solid #DCE4E6;
+	-webkit-border-radius:5px; 
+	-moz-border-radius:5px; 
+	border-radius:5px;
+	padding: 0;
+}
+#slider a{
+	display:block;
+}
+/*
+============================================== 	
+LEGAL PAGES etc. STYLES	 (list styles)				
+============================================== 
+*/
+body.legalPages {
+	font: 12px Helvetica, Arial, sans-serif;
+	background: #FFF!important;
+	color: #000!important;
+	line-height: 18px;
+	margin: 0;
+	padding: 10px ;
+	text-align: left; 
+	color: #636467;
+}
+body.legalPages ol,
+body.legalPages ul,
+
+.mainContent ol,
+.mainContent ul {
+	list-style: inside;
+	margin: 5px 0;
+}
+body.legalPages ol li,
+
+.mainContent ol li {
+	list-style-type:decimal;
+	margin: 5px 0;
+}
+body.legalPages ul li {
+	list-style-type: lower-roman;
+	margin: 5px 0;
+}
+
+.mainContent ul li {
+	list-style-type: disc;
+	margin: 5px 0;
+}
+
+body.legalPages ul li ul,
+
+.mainContent ul li ul,
+.mainContent ol li ol {
+	margin-left: 10px;
+	margin: 5px 0;
+}
+body.legalPages ul li ul li,
+
+.mainContent ol li ol li {
+	list-style-type: lower-alpha;
+	margin: 5px 0 5px 20px;
+}
+
+.mainContent ul li ul li {
+	list-style-type: circle;
+	margin: 5px 0 5px 20px;
+}

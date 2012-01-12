@@ -1,20 +1,53 @@
-<h1>Control Panel</h1>
-          <p>From here, you can edit your profile, manage your listings as well as track your leads.</p>
-<hr>
-<div class="row">
-  <div class="span5">
-    <h2>Complete your profile</h2>
-    <p>Make sure to fill your Realtor profile with as much information as possible to ensure you get the most from housr.ca as well as uploading a picture of yourself. Clients are around 80% more likely to respond to profiles with an image and a quality "About" posting than a generic page with just an email address and name.</p>
-    <p><a class="btn success" href="<%= edit_user_path(current_user) %>">Edit your profile &raquo;</a></p>
-  </div>
-  <div class="span4">
-    <h2>Listings</h2>
-     <p>Add listings to your profile for potential clients as well as to manage them all from a central location. The best way to manage your business and keep track of the status of your listings as well as provide valuable statistics to help you make the informed decisions about the properties.</p>
-    <p><a class="btn success" href="<%= new_listing_path %>">Add a listing &raquo;</a></p>
- </div>
-  <div class="span5">
-    <h2>Leads</h2>
-    <p>Manage you leads to make sure you don't miss out on potential clients. Keep track of progress and increase your conversion rate by having a thorough history of what your clients need so that you're always one step ahead. Add useful notes to each client to help you be the perfect agent.</p>
-    <p><a class="btn success" href="<%= new_lead_path %>">Add a client &raquo;</a></p>
-  </div>
-</div>
+<h1>Control Panel</h1><br class="clearfloat">
+	<p>From here, you can edit your profile, manage your listings as well as track your leads.</p>
+<br>
+<br>
+
+<div id="features">
+<h2>Manage Profile</h2>
+   <div class="featureList">
+	   <div class="cpanelitem">
+           <h3><%= link_to "View your profile", user_path(current_user) %></h3>
+           <p>Take a look at your profile the way the public sees it.</p>
+       </div>
+    
+        <div class="cpanelitem">
+            <h3><%= link_to "Edit your profile", edit_user_path(current_user) %></h3>
+            <p>Change details, update your information or change your profile picture here. </p>
+        </div>
+    <br class="cleafloat" />
+    </div><!-- /featureList -->
+
+</div><!-- /#features -->
+
+<div id="features">
+<h2>Manage Listings</h2>
+   <div class="featureList">
+	   <div class="cpanelitem">
+           <h3><%= link_to "View your listings", "/manage_listings" %></h3>
+           <p>View an index of all of your listings here.</p>
+       </div>
+    
+        <div class="cpanelitem">
+            <h3><%= link_to "Add a new listing", new_listing_path %></h3>
+            <p>Submit a new listing of yours. Your listings are automatically added to your profile.</p>
+        </div>
+    <br class="cleafloat" />
+    </div><!-- /featureList -->
+
+</div><!-- /#features -->
+
+<div id="features">
+<h2>Manage Clients</h2>
+   <div class="featureList">
+	   <div class="cpanelitem">
+           <h3><%= link_to "View your clients", "/manage_leads" %></h3>
+           <p>Take a look at your list of clients and leads. Manage all of your clients from a central place and keep organized.</p>
+       </div>
+    
+        <div class="cpanelitem">
+            <h3><%= link_to "Add a new client", new_lead_path %></h3>
+            <p>Input a new client or lead.</p>
+        </div>
+    <br class="cleafloat" />
+    </div><!-- /featureList -->

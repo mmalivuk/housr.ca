@@ -1,0 +1,182 @@
+@charset "UTF-8";
+/*	
+-----------------------
+peachGrid		print CSS
+-----------------------
+*/
+/*
+DESIGNED BY:	http://danjoedesign.com
+    ___          ___           ___     
+   /  /\        /  /\         /  /\    
+  /  /:/       /  /::\       /  /:/_   
+ /__/::\      /  /:/\:\     /  /:/ /\  
+ \__\/\:\    /  /:/  \:\   /  /:/ /:/_ 
+    \  \:\  /__/:/ \__\:\ /__/:/ /:/ /\
+     \__\:\ \  \:\ /  /:/ \  \:\/:/ /:/
+     /  /:/  \  \:\  /:/   \  \::/ /:/ 
+    /__/:/    \  \:\/:/     \  \:\/:/  
+    \__\/      \  \::/       \  \::/   
+                \__\/         \__\/
+Version:       1.0													
+Copyright:     (c) 2010 Joe Nyaggah. All rights reserved.				
+
+*/@import url('resets.css');
+
+body, 
+.everything, 
+.footer {
+	background: none;
+	font: 12px "HelveticaNeue-Light", HelveticaNeue, "Helvetica Neue", Helvetica, Verdana, Arial, sans-serif;
+}
+.everything {
+	width: 100%;
+}
+
+
+/*hide these elements*/
+.mainNav,
+.availability,
+.refs,
+.infoBlock#tellBuddies,
+.footerNav,
+
+p.reveal,
+p.creds,
+p.highlight,
+
+a.vCardDl {
+	display: none!important;
+}
+
+
+/* 
+uncomment this if you do
+have additional work experience
+that you want people to be able
+to print. however, if you can get
+by without it, your resume will look 
+so much better.
+
+=======
+
+.moreWork {
+	display: table!important;
+	padding: 10px 0;
+}
+*/
+
+
+.contentTop {
+	color: #F58220;
+}
+.contentMiddle {
+	padding: 10px 0;
+}
+
+p.quote {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-style: italic;
+	font-size: 13px;
+	font-weight: bold;
+	line-height: 20px;
+	padding: 20px 0;
+}
+
+/*vCard contact info style*/
+.contactInfo {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 10px 10px;
+}
+.contactInfo li {
+	margin-bottom: 5px;
+}
+
+
+.contentMiddle span {
+	color: #F58220;
+}
+
+
+
+.infoBlock {
+	padding: 20px 0;
+}
+/*
+============================================== 	
+name (or logo)						
+============================================== 
+*/
+h1 {
+	width: 100%;
+}
+h1 a {
+	font-size: 60px;
+	font-weight: bold;
+	text-transform: capitalize;
+	color: #000!important;
+	display: block;
+}
+h1 a span {
+	font-size: 25px;
+	font-weight: lighter;
+	font-weight: 100;
+	text-transform: lowercase;
+	color: #000;
+}
+/*
+============================================== 	
+headings						
+============================================== 
+*/
+h2 {
+	color: #737576;
+	font-size: 16px;
+	font-weight: lighter;
+	padding-bottom: 10px;
+	border-bottom: 1px dashed #737576;
+}
+
+.infoBlock h2 {
+	margin-bottom: 10px;
+}
+.leftCol h2 {
+	margin-top: 20px;
+}
+.brown h2 {
+	text-shadow: none;
+	color: #FFF;
+	border-bottom: 1px dashed #E3DABF;
+}
+h3 {
+	color: #4B4D4F;
+	text-transform: uppercase;
+	font-weight: bolder;
+	padding-top: 15px;
+}
+.brown h3 {
+	text-shadow: none;
+	color: #FFF;
+}
+h4 {
+}
+
+h5 a {
+	font-size: 15px;
+	font-weight: bold;
+}
+h5 a span {
+	font-size: 12px;
+	font-weight: lighter;
+	font-weight: 100;
+}
+/*
+============================================== 	
+general links styles				
+============================================== 
+*/
+a {
+	color: #F58220;
+	text-decoration: none!important;
+}

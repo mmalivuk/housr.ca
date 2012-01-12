@@ -1,3 +1,5 @@
+<div class="leadform">
+
 <%= form_for(@seller) do |f| %>
   <% if @seller.errors.any? %>
     <div id="error_explanation">
@@ -11,69 +13,71 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <p>
     <%= f.label :first_name %>&nbsp
     <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
+  </p>
+
+  <p>
     <%= f.label :last_name %>&nbsp
     <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %>&nbsp
+  </p>
+  <p>
+    <%= f.label :phone, "Phone number" %>&nbsp
     <%= f.text_field :phone %>
-  </div>
-  <div class="field">
+  </p>
+
+  <p>
     <%= f.label :email %>&nbsp
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
+    <%= f.email_field :email %>
+  </p>
+  <p>
     <%= f.label :property_type %>&nbsp
     <%= f.select :property_type, [['Detached house','Detached House'],['Townhouse','Townhouse'],['Apartment/Condo','Apartment/Condo'],['Rental','Rental'],['Vacation','Vacation'],['Other','Other']] %>
-  </div>
-  <div class="field">
-    <%= f.label :min_price %>&nbsp
+  </p>
+  <p>
+    <%= f.label :min_price, "Price range"%>&nbsp
     <%= f.select :min_price, [['$50,000','$50,000'],['$100,000','$100,000'],['$200,000','$200,000'],['$300,000','$300,000'],['$400,000','$400,000'],['$500,000','$500,000'],['$600,000','$600,000'],['$700,000','$700,000'],['$800,000','$800,000'],['$900,000','$900,000']] %>
-  </div>
-  <div class="field">
-    <%= f.label :max_price %>&nbsp
+to
     <%= f.select :max_price, [['$200,000','$200,000'],['$300,000','$300,000'],['$400,000','$400,000'],['$500,000','$500,000'],['$600,000','$600,000'],['$700,000','$700,000'],['$800,000','$800,000'],['$900,000','$900,000'],['$1,000,000','$1,000,000'],['$1,250,000','$1,250,000'],['$1,500,000+','$1,500,000']] %>
-  </div>
-  <div class="field">
+  </p>
+  <p>
     <%= f.label :bedrooms, "Number of bedrooms" %>&nbsp
-    <%= f.number_field :bedrooms, :class=>"small" %>
-  </div>
-  <div class="field">
+    <%= f.number_field :bedrooms %>
+  </p>
+  <p>
     <%= f.label :bathrooms, "Number of bathrooms" %>&nbsp
-    <%= f.number_field :bathrooms, :class=>"small" %>
-  </div>
-  <div class="field">
+    <%= f.number_field :bathrooms %>
+  </p>
+  <p>
     <%= f.label :street_number %>&nbsp
-    <%= f.number_field :street_number, :class=>"small" %>
-  </div>
-  <div class="field">
+    <%= f.number_field :street_number %>
+  </p>
+  <p>
     <%= f.label :street_name %>&nbsp
     <%= f.text_field :street_name %>
-  </div>
-  <div class="field">
+  </p>
+  <p>
     <%= f.label :postal_code %>&nbsp
     <%= f.text_field :postal_code %>
-  </div>
-  <div class="field">
+  </p>
+  <p>
     <%= f.label :city %>&nbsp
     <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :timeframe, "I'm selling" %>&nbsp
+  </p>
+  <p>
+    <%= f.label :timeframe, "I'm looking to sell" %>&nbsp
 	<%= f.select :timeframe, [['As soon as possible','As soon as possible'],['Within 2 weeks','Within 2 weeks'],['Within 3-4 weeks','Within 3-4 weeks'],['Within 5-7 weeks','Within 5-7 weeks'],['Within 2-4 months','Within 2-4 months'],['More than 5 months from now','More than 5 months from now']] %>
-  </div>
-  <div class="field">
-    <%= f.label :more_info %>&nbsp
-    <%= f.text_area :more_info, :class=>"xxlarge", :rows=>"6" %>
-  </div>
+  </p>
+  <p>
+    <%= f.label :more_info, "More information" %>&nbsp
+    <%= f.text_area :more_info, :rows=>"6" %>
+  </p>
 
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Find me a Realtor!', :class => 'leadsubmit' %>
   </div>
 <% end %>
+</div>
+<br>

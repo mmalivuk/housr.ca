@@ -1,4 +1,5 @@
-<br><br>
+<div class="leadform">
+	<br><br>
 <%= form_for @listing, :html => {:multipart => true} do |f| %>
   <% if @listing.errors.any? %>
     <div id="error_explanation">
@@ -12,74 +13,73 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <p>
     <%= f.label :title %> &nbsp
     <%= f.text_field :title, :style => 'width: 535px' %>
-  </div> <br>
-  <div class="field">
+  </p> <br>
+  <p>
     <%= f.label :street_number %> &nbsp
     <%= f.text_field :street_number %>
-  </div> <br>
-  <div class="field">
+  </p> <br>
+  <p>
     <%= f.label :street_name %> &nbsp
     <%= f.text_field :street_name %>
-  </div> <br>
-  <div class="field">
+  </p> <br>
+  <p>
     <%= f.label :city %> &nbsp
     <%= f.text_field :city %>
-  </div> 
-
+  </p> <br>
 <hr>
-
-	<div class="field">
+	<p>
  	 <%= f.label :img, "Photo upload" %> &nbsp
  	 <%= f.file_field :img %>
-	</div>
-<hr>
-
-  <div class="field">
+	</p>
+	<hr>
+  <br><p>
     <%= f.label :mls_number %> &nbsp
     <%= f.text_field :mls_number %>
-  </div> <br>
-  <div class="field">
+  </p> <br>
+  <p>
     <%= f.label :building_type %> &nbsp
 	<%= f.select :building_type, [['Detached','Detached'],['Semi-Detached','Semi-Detached'],['Townhome','Townhome'],['Apartment','Apartment'],['Other','Other']] %>
-  </div> <br>
-  <div class="field">
+  </p> <br>
+  <p>
     <%= f.label :bedrooms %> &nbsp
-    <%= f.number_field :bedrooms, :class => 'small' %>
-  </div> <br>
-  <div class="field">
+    <%= f.number_field :bedrooms %>
+  </p> <br>
+  <p>
     <%= f.label :bathrooms %> &nbsp
     <%= f.text_field :bathrooms %>
-  </div> <br>
-  <div class="field">
+  </p> <br>
+  <p>
     <%= f.label :sq_ft %> &nbsp
     <%= f.text_field :sq_ft %>
-  </div> <br>
-  <div class="field">
+  </p> <br>
+  <p>
     <%= f.label :asking_price %> &nbsp
     <%= f.text_field :asking_price %>
-  </div> <br>
-  <div class="field">
+  </p> <br>
+  <p>
     <%= f.label :price_sold, "Price sold for" %> &nbsp
     <%= f.text_field :price_sold %>
-  </div> <br>
-  <div class="field">
+  </p> <br>
+  <p>
     <%= f.label :garage_space %> &nbsp
-    <%= f.number_field :garage_space, :class => 'small' %>
-  </div> <br>
-  <div class="field">
+    <%= f.number_field :garage_space %>
+  </p> <br>
+  <p>
     <%= f.label :storeys %> &nbsp
-    <%= f.number_field :storeys, :class => 'small' %>
-  </div> <br>
-  <div class="field">
+    <%= f.number_field :storeys %>
+  </p> <br>
+  <p>
     <%= f.label :description %> &nbsp
-    <%= f.text_area :description, :class => "xxlarge" %>
-  </div> <br>
+    <%= f.text_area :description %>
+  </p> <br>
 
     <%= f.hidden_field :user_id, :value => current_user.id %>
 <br>
-    <%= f.submit %>
-
+    <%= f.submit "Add listing!", :class => "leadsubmit" %>
 <% end %>
+<br class="clearfloat">
+<br>
+</div>

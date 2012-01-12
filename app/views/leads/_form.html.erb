@@ -1,3 +1,4 @@
+<div class="leadform">
 <%= form_for(@lead) do |f| %>
   <% if @lead.errors.any? %>
     <div id="error_explanation">
@@ -11,38 +12,38 @@
     </div>
   <% end %>
 
-  <p><div class="field">
+  <p>
     <%= f.label :first_name %>&nbsp
     <%= f.text_field :first_name %>
-  </div></p>
-  <p><div class="field">
+  </p>
+  <p>
     <%= f.label :last_name %>&nbsp
     <%= f.text_field :last_name %>
-  </div></p>
-  <p><div class="field">
+  </p>
+  <p>
     <%= f.label :status %>&nbsp
 	<%= f.select :status, [['Lead','Lead'],['Client','Client'],['Previous Client','Previous Client']] %>
-  </div></p>
-  <p><div class="field">
+  </p>
+  <p>
     <%= f.label :phone %>&nbsp
     <%= f.text_field :phone %>
-  </div></p>
-  <p><div class="field">
+  </p>
+  <p>
     <%= f.label :email %>&nbsp
     <%= f.text_field :email %>
-  </div></p>
-  <p><div class="field">
+  </p>
+  <p>
     <%= f.label :looking_to %>&nbsp
 	<%= f.select :looking_to, [['Buy','Buy'],['Sell','Sell'],['Rent','Rent'],['Other','Other']] %>
-  </div></p>
-  <p><div class="field">
+  </p>
+  <p>
     <%= f.label :notes %>&nbsp
     <%= f.text_area :notes, :class => "xxlarge", :rows => "7" %>
-  </div></p>
-  <div class="field">
+  </p>
     <%= f.hidden_field :user_id, :value => current_user.id %>
-  </div><br>
+<br>
   
-    <%= f.submit %>
-  
+    <%= f.submit "Add Client", :class => "leadsubmit" %>
 <% end %>
+<br class="clearfloat"><br>
+</div>

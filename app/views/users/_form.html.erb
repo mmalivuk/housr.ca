@@ -1,3 +1,4 @@
+<div class="leadform">
 <%= form_for @user, :html => {:multipart => true} do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -36,18 +37,19 @@
 
   <p>Avatar upload</p> &nbsp
   <%= f.file_field :avatar %>
-
-
+<br class="clearfloat">
+<br>
   <% if action_name == "new" %>
   <p><%= f.label :password, "New password" %> &nbsp
-  <%= f.password_field :password %></p>
+  <%= f.password_field :password, :class => "input required"%></p>
 
   <p><%= f.label :password_confirmation, "Confirm password" %> &nbsp
   <%= f.password_field :password_confirmation %></p>
   <% end %>
 
-
+<br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Update profile!", :class => "leadsubmit" %>
   </div>
 <% end %>
+</div>

@@ -207,8 +207,7 @@ it doesn't affect the site otherwise.
 		<p>
 			
 					<div class="listpic">
-						
-        				<%= link_to image_tag (listing.img_url(:thumb), :width => "100px"), :action => 'show', :controller => 'listings', :id => listing %>
+        				<%= image_tag (listing.img_url(:thumb), :width => "100px") %>
 					</div>
 					
 					<div class="listinfo">

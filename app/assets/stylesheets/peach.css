@@ -1,14 +1,5 @@
 @charset "UTF-8";
-/*
-Theme Name:     peachGrid Freelance resume
-Theme URI:      http://danjoedesign.com/
-Description:    (PEACH) freelancer resume template
-Version:        1.0
-Last Updated:	May 11, 2010
-Copyright:		(c) 2010 Joe Nyaggah. All rights reserved.
-Author:         Joe Nyaggah.
-Author URI:     http://danjoedesign.com/
-*/
+
 @import url('resets.css');
 /*
 ============================================== 	
@@ -189,6 +180,17 @@ ul.contactInfo li {
 .address {
 	background: url(/assets/peach/address_bg.png) left top no-repeat;
 }
+
+.listpic img {
+	float:left;
+	margin-right:10px;
+}
+
+.listinfo p {
+	float:left;
+}
+
+
 /*
 ============================================== 	
 search block							

@@ -44,7 +44,7 @@ comment the others out
 
 
 <!-- scripts -->
-<!-- <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script> -->
+<script type="text/javascript" src="/assets/jquery-1.3.2.min.js"></script>
 <script type="text/javascript" src="/assets/jquery.validate.pack.js"></script>
 <script type="text/javascript" src="/assets/scroll.js"></script>
 <script type="text/javascript" src="/assets/js.js"></script>
@@ -119,7 +119,8 @@ it doesn't affect the site otherwise.
 	<!--
     your name and title/ company name goes here
     -->
-	<h1><a href="/res">Milan Malivuk<br /><span>Realtor</span></a></h1>
+	<h1><a href="/res"><%= @user.first_name %> <%= @user.last_name %><br />
+		<span>I'm a realtor for <strong><%= @user.company %></strong></span></a></h1>
     
     <ul class="mainNav">
     
@@ -137,7 +138,7 @@ it doesn't affect the site otherwise.
         </li>
         -->
         
-    	<li><a href="#none" title="email my r&eacute;sum&eacute;" id="reveal-tellBuddies">Email</a></li>
+    	<li><a href="#none" title="email my r&eacute;sum&eacute;" id="reveal-tellBuddies">housr.ca</a></li>
     	<li><a href="files/george-g-bear.pdf" title="download my r&eacute;sum&eacute;">Download</a></li>
     </ul>
 <br class="clearfloat" />
@@ -186,168 +187,39 @@ it doesn't affect the site otherwise.
     <div class="leftCol">
     
     
-        <!-- ============================= -->
-        <!-- ====== GENERAL CONTACT ====== -->	
-        <!-- ============================= -->
-        
-        <!--
-        quick contact form that slides down.
-        configure the mail.php file  with your
-        email address and you're good to go!
-        -->
 
-        <p class="highlight"><a href="#proposal" title="contact me">quick contact</a></p>
-        <form class="genContact"  name="genContact" action="mail.php" method="post" id="genContact">
-        
-            <p>
-                <label for="genName">Name <span>*</span></label>
-                <input type="text" class="input required"  name="genName" id="genName"/>
-            </p>
-            
-            
-            <p>
-                <label for="genEmail">Email <span>*</span></label>
-                <input type="text" class="input required"  name="genEmail" id="genEmail"/>
-            </p>
-            
-            
-            <p>
-                <label for="purpose">Purpose of Contact</label>
-                <select id="purpose" name="purpose">
-                    <option selected="selected">hey, your work rocks!</option>
-                    <option>quote for a project</option>
-                    <option>business proposition</option>
-                    <option>other shenanigans</option>
-                </select>
-            </p>
-             
-
-
-            <p>
-                <label for="genMessage">Message <span>*</span></label>
-                <textarea class="message required" cols="10" rows="5"  name="genMessage" id="genMessage"></textarea>
-            </p>
-            
-            
-            <p>
-            <input type="submit" value="Submit Message" name="submit"/> 
-            </p>
-                            
-            <p class="subscribe">
-                <input type="checkbox" checked="checked" name="newsletter" value="newsletter" />
-                <label>Subscribe to the newsletter</label>
-                <br class="clearfloat" />
-            </p> 
-            
-             
-                                
-        </form>
         <!-- ============================= -->
         <!-- ====== WORK EXPERIENCE ====== -->	
         <!-- ============================= -->
-        <h2>Experience</h2>
+        <h2>About me</h2>
         
-        <h3>Man Bear Pig, Inc.</h3>
-        <p><span>April 2008 - Present</span><br />
-            Creative Director – Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ligula quam, fermentum nec facilisis ac, mollis a turpis. <br />
-            Graphic Designer – Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ligula quam, fermentum nec facilisis ac, mollis a turpis. 
-		</p>
-
-        <h3>Bear Unlimited</h3>
-        <p><span>April 2008 – Sept 2008</span><br /> 
-            Editor – Cut Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ligula quam, fermentum nec facilisis ac, mollis a turpis. 
-		</p>
-
-        <h3>Who Dat Growling Corp.</h3>
-        <p><span>Aug 2004 - Apr 2008</span><br />  
-            Freelance Producer/Editor - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ligula quam, fermentum nec facilisis ac, mollis a turpis.   
-		</p>
-
-        <h3>Geebz Production</h3>
-        <p><span>Nov 2007 – Dec 2007</span><br />
-            Assistant Editor – Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ligula quam, fermentum nec facilisis ac, mollis a turpis. 
-		</p>
-
-        <h3>Grrr! Company</h3>
-        <p><span>Feb 2007 - Aug 2007</span><br />
-            Senior Editor &amp; Creative Designer – Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ligula quam, fermentum nec facilisis ac, mollis a turpis. .
+        <p><%= simple_format(@user.about) %>
 		</p>
         
         
         
         
-        <!--
-        this link reveals additional experience, if any, that would make the
-        page toooo long. if you don't have a lot of prior work experience,
-        you might want to delete this section or comment it out altogether.
-        -->
+		<h2>Listings</h2>
+		<div class="listing">
+		<% @user = User.find(params[:id]) %>
+		<% @listings = @user.listings %>
+		<% @listings.each do |listing| %>
+		<p>
+			
+					<div class="listpic">
+        				<%= link_to image_tag (listing.img_url(:thumb), :width => "100px"), :action => 'show', :controller => 'listings', :id => listing %>
+					</div>
+					
+					<div class="listinfo">
+						<strong><%= link_to listing.title, listing %></strong><br>
+		    			<%= listing.street_number %> <%= listing.street_name %>, <%= listing.city %><br><br><br>
+		    			<strong><%= link_to number_to_currency(listing.asking_price), listing %></strong>
+					</div>
+		
+		</p><br class="clearfloat"><br>
+		<% end %>
+        </div>
         
-        <p class="reveal dashed"><a href="#moreWork" id="reveal-work">more work experience...</a></p>
-        
-        <!-- ================= additional work experience too extensive to list above============================= -->	
-        <div class="moreWork"><a name="moreWork"></a>
-        <h2>More Work Experience</h2>
-            
-            <h3>Serbia vs. Hungary</h3>
-            <p>Jr. World Championship Water Polo</p>
-            
-            <h3>MTV Jams Freestyle King Comp.</h3>
-            <p>Corporate Promo - MTV</p>
-            
-            <h3>Little Dream Factory</h3>
-            <p>Reality Pilot – Gosch Productions</p>
-            
-            <h3>Jojo Wright (KIIS 102.7FM)</h3>
-            <p>Professional Reel</p>
-            
-            <h3>Emiliano Diez</h3>
-            <p>Professional Reel</p>
-            
-            <h3>Chevy Thank You</h3>
-            <p>Corporate Promo – Clear Channel</p>
-            
-            <h3>ONSTAR – General Answers <span>*</span></h3>
-            <p>Commercial – BooneWorks Productions</p>
-            
-            <h3>Archstone-Smith New Hire Vid</h3>
-            <p>Corporate Promo – Archstone-Smith</p>
-            
-            <h3>Jordi B – Master Stylist <span>*</span></h3>
-            <p>Professional Reel</p>
-             
-            <h3>KwameWorld	<span>*</span></h3>
-            <p>Comedic Pilot</p>
-            
-            <h3>BWP – Look Closer <span>*</span></h3>
-            <p>Commercial Spot – BooneWorks Productions</p>
-            
-            <h3>Mitsubishi Materials USA<span>*</span></h3>
-            <p>Corporate Promo – BooneWorks Productions</p>
-             
-            <h3>CONSCIOUS, subconscious <span>*</span></h3>
-            <p>Short Film – BooneWorks Productions</p>
-             
-            <h3>Behind a tear <span>*</span></h3>
-      		<p>Short Film - BooneWorks Productionss</p>
-            
-        </div> 
-        <!-- ================= end of (hidden) additional work experience ============================= -->	
-        
-        
-        
-        
-        <!-- ============================= -->
-        <!-- ========= EDUCATION ========= -->	
-        <!-- ============================= -->
-        <h2>Education</h2>
-        
-        <h3>Bearville University</h3>
-        <p>B.F.A. in Film Production, emphasis in writing, directing, and cinematography</p>
-        
-        <h3>University of Bears</h3>
-        <p>Theater studies – directing, minor – film studies.</p>
-        
-
 
 
 
@@ -362,28 +234,6 @@ it doesn't affect the site otherwise.
         <h3>Graphic Design</h3>
         <p>Photoshop, llustrator, Vegas, Flash, Dreamweaver, and many more, and many more.</p>
                 
-        
-        
-        
-        
-
-        <!-- ============================= -->
-        <!-- ========== REFERENCES ======== -->	
-        <!-- ============================= -->
-        
-        
-        <!--
-        this link reveals the references you might have. i'd advice againts
-        listing your references here though. have people requesting references
-        contact you directly through your contact form
-        -->
-        <p class="reveal"><a href="#" id="reveal-refs">references available upon request</a></p>
-
-
-        <div class="refs"><a name="references"></a>
-        	<p><a href="#proposal">Click here to request references.</a> Thanks.</p>
-        </div>
-
     </div><!-- END leftCol -->
 
 
@@ -400,7 +250,7 @@ it doesn't affect the site otherwise.
             enter the correct path to your vCard in the link below.
             -->
         
-            <p class="botDashed"><a href="files/George G. Bear.vcf"  rel="enclosure" class="vCardDl" title="dowload my vCard">download my vCard</a></p>
+            
             
             
             	<!--
@@ -410,17 +260,18 @@ it doesn't affect the site otherwise.
                 -->
             
             	<ul class="contactInfo">
+					<%= image_tag @user.avatar_url(:thumb), :width => "315px" %>
                 	<li class="phone">
-                        (714) 555-1234
+                        <%= number_to_phone(@user.phone, :area_code => true) %> 
                     </li>
                 	<li class="email">
-                        geebz@bearmail.com
+                        <%= @user.email %>
                     </li>
                 	<li class="website">
-                        www.georgebear.com
+                        www.housr.ca
                     </li>
                 	<li class="address">
-                        123 Main Street <br />Bearville, CA 92811
+                        <%= @user.city %>, ON
                     </li>
                 </ul>
         </div>
@@ -433,7 +284,7 @@ it doesn't affect the site otherwise.
         -->
 
         <div class="infoBlock light" id="tellBuddies">
-            <h2>Email my r&eacute;sum&eacute; to some friends</h2>
+            <h2>Email my information to a friend</h2>
             <form name="tellafriend" class="tellBuddies" action="tellafriend.php" method="post" onsubmit="return checkfields()"> 
                 <p>
                     <label for="name">your name <span>*</span></label><br />
@@ -444,20 +295,12 @@ it doesn't affect the site otherwise.
                 	<input type="text" size="45" name="email" id="email" maxlength="45"/>
                 </p>
                 
-                <p class="topDashed">please enter your friend's email addresses:</p>
+                <p class="topDashed">please enter your friend's email address:</p>
                 <br />
     
                 <p>
-                	<label for="friendmail1">email 1 <span>*</span></label><br />
+                	<label for="friendmail1">email<span>*</span></label><br />
                 	<input type="text" size="45" name="friendmail1" id="friendmail1" maxlength="45"/>
-                </p>
-                <p>
-                	<label for="friendmail2">email 2:</label><br />
-                	<input type="text" size="45" name="friendmail2" id="friendmail2" maxlength="45"/>
-                </p>
-                <p>
-                	<label for="friendmail2">email 3:</label><br />
-                	<input type="text" size="45" name="friendmail3" id="friendmail3" maxlength="45"/>
                 </p>
                 
                 <p class="highlight">Ps, the email will contain your name and email address.</p>
@@ -465,18 +308,6 @@ it doesn't affect the site otherwise.
                 	<input onclick="validate();" type="button" value="send to friend"/>
                 </p>
             </form>
-        </div>
-        
-        
-        
-        
-        <div class="infoBlock">
-            <h2>Bearville, CA</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer aliquet sapien eu nunc placerat luctus quis id orci. Aenean ante lectus, ultricies eu malesuada non, gravida eget quam. Quisque nec diam eget ligula consectetur tempor vel luctus sapien. Praesent elementum dolor eget elit luctus aliquet non quis est. Aliquam posuere tempus mauris in varius. </p>
-            <blockquote>Sed a nisl nec ligula porta convallis. Morbi sit amet ipsum vitae augue porta viverra. Mauris diam enim, tristique vitae.</blockquote>
-            <p>Aenean ante lectus, ultricies eu malesuada non, gravida eget quam. Quisque nec diam eget ligula consectetur tempor vel luctus sapien. Praesent elementum dolor eget elit luctus aliquet non quis est. Aliquam posuere tempus mauris in varius.
-            </p>
-            <p><br />Geebz looks forward to hearing from you!!</p>
         </div>
        
      <br class="clearfloat" />
@@ -532,19 +363,18 @@ it doesn't affect the site otherwise.
 <div class="wrapper footer">
 	<div id="footer">
         <div class="leftCol">
-        	<h5><a href="#">Milan Malivuk <span>| Realtor</span></a></h5>
+        	<h5><a href="#"><%= @user.first_name %> <%= @user.last_name %> <span>| Realtor in <%= @user.city %></span></a></h5>
         </div>
         <div class="rightCol">
         	<ul class="footerNav">
-            	<li><a href="#">Pages</a></li>
-            	<li><a href="#">Page</a></li>
-            	<li><a href="#">Blog</a></li>
+            	<li><a href="/">Back to housr.ca</a></li>
+
             </ul>
         </div>
 <!-- ===========================these doods are super awesome =========================== -->     
 <!--       this is where you show your die hard love for me or alternatively not. delete or leave in place. it's up to you        -->   
         <p class="creds">
-        	<a href="http://danjoedesign.com" title="Joe Nyaggah | this dood is super awesome!">designed by <strong>Milan Malivuk</strong></a>
+        	<a href="http://housr.ca" title="housr.ca - find a realtor in the greater toronto and kingston areas">copyright <strong>housr.ca</strong></a>
         </p>
 <!-- ============================================================================ -->        
     </div>

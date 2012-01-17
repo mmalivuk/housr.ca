@@ -137,9 +137,12 @@ it doesn't affect the site otherwise.
 			</form>
         </li>
         -->
-        
-    	<li><a href="/" title="back to housr.ca main site">housr.ca</a></li>
-    	<li><a href="files/george-g-bear.pdf" title="download my r&eacute;sum&eacute;">Download</a></li>
+        <% if current_user == @user %>
+    		<li><a href="<%= edit_user_path %>" title="edit my profile">edit</a></li>
+    		<li><a href="/cpanel" title="back to control panel">cpanel</a></li>
+		<% else %>
+			<li><a href="/" title="back to housr.ca main site">housr.ca</a></li>
+		<% end %>
     </ul>
 <br class="clearfloat" />
 </div>
@@ -148,16 +151,14 @@ it doesn't affect the site otherwise.
 <!-- ============================================== -->
 <div class="contentTop">
     <div class="quoteAvail">
-    
+    	<% if @user.quote %>
     	<!-- 	
         tagline or quote
         -->
         <p class="quote dashed">
-        	Etiam rutrum pulvinar leo, at pellentesque ligula tincidunt sit amet. 
-            Sed interdum, nulla laoreet accumsan posuere, lectus turpis rutrum orci, non suscipit diam nisi vitae dui. 
-            Cras venenatis bibendum dapibus. Ut et arcu est.            
+        	<%= @user.quote %>           
         </p>
-        
+        <% end %>
         <div class="availability">
         	<!--
             Depending on your availability, remove the class "hidden" from the appropriate state

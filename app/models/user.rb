@@ -6,9 +6,12 @@ class User < ActiveRecord::Base
          
   has_many :leads, :dependent => :destroy
   has_many :listings, :dependent => :destroy
+  
+  validates :about, :length => { :maximum => 2000 }
+  validates :quote, :length => { :maximum => 225 }
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :first_name, :last_name, :city, :phone, :company, :about, :password, :password_confirmation, :remember_me, :avatar
+  attr_accessible :email, :first_name, :last_name, :city, :phone, :company, :quote, :about, :password, :password_confirmation, :remember_me, :avatar
   mount_uploader :avatar, AvatarUploader
 
 end

@@ -128,6 +128,25 @@ main content
 .quoteAvail {
 	padding: 25px 0 0 0;
 }
+.quoteAvail h1 {
+	float: left;
+	margin-left: 20px;
+	padding-left: 40px;
+	padding-top: 20px;
+	color: #4B4D4F;
+	font-size: 28px;
+	line-height: 40px;
+	font-weight: bold;
+	width: 400px;
+}
+.quoteAvail h3 {
+	clear:both;
+	color: #888888;
+	padding-left: 20px;
+	text-transform: none;
+	font-weight: bolder;
+	font-size:16px;
+}
 .midSection {
 	padding: 50px 50px;
 	margin: 0 -50px;
@@ -660,6 +679,7 @@ h1 a span {
 	text-transform: lowercase;
 	color: #955803;
 }
+
 /*
 ============================================== 	
 headings						

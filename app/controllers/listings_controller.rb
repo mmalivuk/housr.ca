@@ -16,10 +16,7 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @listing }
-    end
+    render :layout => "listing"
   end
 
   # GET /listings/new

@@ -1,7 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-
+<script type="text/javascript" src="/assets/jquery-1.3.2.min.js"></script>
+<%= yield :head %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <meta name="copyright" content="" />
@@ -44,7 +45,7 @@ comment the others out
 
 
 <!-- scripts -->
-<script type="text/javascript" src="/assets/jquery-1.3.2.min.js"></script>
+
 <script type="text/javascript" src="/assets/jquery.validate.pack.js"></script>
 <script type="text/javascript" src="/assets/scroll.js"></script>
 <script type="text/javascript" src="/assets/js.js"></script>
@@ -184,6 +185,13 @@ it doesn't affect the site otherwise.
 		<p><b>Garage Space:</b> <%= @listing.garage_space %></p>
 		<p><b>Storeys:</b> <%= @listing.storeys %></p>
 		
+		<!-- ============================= -->
+        <!-- =========== Map ========== -->	
+        <!-- ============================= -->
+        <h2>Map</h2>
+        
+        <%= gmaps4rails(@json) %>
+		
    <br class="clearfloat"><br>             
     </div><!-- END leftCol -->
 
@@ -308,7 +316,7 @@ it doesn't affect the site otherwise.
 <div class="wrapper footer">
 	<div id="footer">
         <div class="leftCol">
-        	<h5><a href="#">iluliul <span>| Realtor in <%= @listing.city %></span></a></h5>
+        	<h5><a href="#"><%= @listing.street_number %> <%= @listing.street_name %><span> | a listing in <%= @listing.city %></span></a></h5>
         </div>
         <div class="rightCol">
         	<ul class="footerNav">
@@ -333,4 +341,5 @@ it doesn't affect the site otherwise.
 
 
 </body>
+<%= yield :scripts %>
 </html>

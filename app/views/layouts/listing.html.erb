@@ -192,8 +192,11 @@ it doesn't affect the site otherwise.
         <!-- =========== Map ========== -->	
         <!-- ============================= -->
         <h2>Map</h2>
-        
-        <%= gmaps4rails("map_options" => { "auto_adjust" => false}, "markers" => { "data" => @json }) %>
+        <%= gmaps({
+		  "map_options" => {"auto_adjust" => false},
+		  "markers"     => {"data" => @json }
+		 })
+		%>
 		
    <br class="clearfloat"><br>             
     </div><!-- END leftCol -->

@@ -16,3 +16,5 @@
 * //= require gmaps4rails/openlayers.js
 
 * //= require gmaps4rails/all_apis.js
+// 
+//= require gmaps4rails/googlemaps.js.coffee

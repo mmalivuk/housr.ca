@@ -3,7 +3,8 @@ class Listing < ActiveRecord::Base
   acts_as_gmappable
   
   def gmaps4rails_address
-    "76A Gardiner Street, Kingston, ON"
+  #describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
+    "#{self.street_number} #{self.street_name}, #{self.city}, ON" 
   end
   
   validates :title, :length => { :maximum => 70 }

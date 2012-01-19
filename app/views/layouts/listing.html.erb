@@ -194,6 +194,7 @@ it doesn't affect the site otherwise.
         <h2>Map</h2>
         
         <%= gmaps4rails(@json) %>
+
 		
    <br class="clearfloat"><br>             
     </div><!-- END leftCol -->
@@ -241,8 +242,7 @@ it doesn't affect the site otherwise.
 
         <div class="infoBlock light" id="tellBuddies">
             <h2>Email this listing to a friend</h2>
-            <form name="tellafriend" class="tellBuddies" action="tellafriend.php" method="post" onsubmit="return checkfields()">
-	 
+            <form name="tellafriend" class="tellBuddies" action="tellafriend.php" method="post" onsubmit="return checkfields()"> 
                 <p>
                     <label for="name">your name <span>*</span></label><br />
                     <input type="text" size="45" name="name" id="name" maxlength="45" />

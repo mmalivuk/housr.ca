@@ -47,9 +47,6 @@ Boot::Application.routes.draw do
   
   get "leads/manage_leads"
   match "manage_leads" => "leads#manage_leads"
-  
-  match 'contact' => 'contact#new', :as => 'contact', :via => :get
-  match 'contact' => 'contact#create', :as => 'contact', :via => :post
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

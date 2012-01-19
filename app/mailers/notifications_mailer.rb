@@ -1,6 +1,6 @@
 class NotificationsMailer < ActionMailer::Base
-  default :from => Message.your_email
-    default :to => Message.email
+  default :from => "admin@housr.ca"
+    default :to => @message.email
 
     def new_message(message)
       @message = message

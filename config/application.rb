@@ -44,5 +44,19 @@ module Boot
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    
+    config.action_mailer.smtp_settings = {
+      :address              => "smtp.gmail.com",
+      :port                 => 587,
+      :domain               => "housr.ca",
+      :user_name            => "admin@housr.ca",
+      :password             => "milan0022",
+      :authentication       => :plain,
+      :enable_starttls_auto => true
+    }
+
+    config.action_mailer.default_url_options = {
+      :host => "housr.ca"
+    }
   end
 end

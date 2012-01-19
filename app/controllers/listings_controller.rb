@@ -15,7 +15,7 @@ class ListingsController < ApplicationController
   # GET /listings/1.json
   def show
     @listing = Listing.find(params[:id])
-    @json = Listing.all.to_gmaps4rails
+    @json = @listing.to_gmaps4rails
     render :layout => "listing"
   end
 

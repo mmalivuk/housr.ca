@@ -7,6 +7,10 @@ class Listing < ActiveRecord::Base
     "#{self.street_number} #{self.street_name}, #{self.city}, ON" 
   end
   
+  def gmaps4rails_infowindow
+    "<img src=\"#{self.img}\"> #{self.street_number} #{self.street_name}, #{self.city}, ON"
+  end
+  
   validates :title, :length => { :maximum => 70 }
   validates :description, :length => { :maximum => 2000 }
   mount_uploader :img, ImgUploader

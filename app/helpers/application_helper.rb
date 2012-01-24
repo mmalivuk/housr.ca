@@ -1,7 +1,7 @@
 module ApplicationHelper
-  def title
+  def full_title(page_title)
     base_title = "housr.ca - Find a Real Estate Agent in the Greater Toronto and Kingston Areas"
-    if @title.empty?
+    if @title.nil?
       base_title
     else
       "#{base_title} | #{@title}"

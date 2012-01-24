@@ -25,6 +25,7 @@ class BuyersController < ApplicationController
   # GET /buyers/new.json
   def new
     @buyer = Buyer.new
+    @title = "buyers form"
 
     respond_to do |format|
       format.html # new.html.erb

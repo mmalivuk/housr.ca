@@ -19,6 +19,8 @@ gem 'rmagick'
 
 gem 'gmaps4rails', '1.4.2'
 
+gem 'randumb'
+
 gem 'pg'
 
 group :production do

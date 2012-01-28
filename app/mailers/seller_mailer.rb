@@ -3,4 +3,9 @@ class SellerMailer < ActionMailer::Base
     @user = User.random
     mail(:to => seller.email, :subject => "Success! Keep an eye out for proposals.", :from => "admin@housr.ca")
   end
+  
+  def registration_confirmation(buyer)
+    @user = User.random
+    mail(:to => seller.email, :subject => "Success! Keep an eye out for proposals.", :from => "admin@housr.ca")
+  end
 end

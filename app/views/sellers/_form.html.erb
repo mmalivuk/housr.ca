@@ -74,6 +74,8 @@ to
     <%= f.text_area :more_info, :rows=>"6" %>
   </p>
 
+	<%= f.hidden_field :times_forwarded, :value => "0" %>
+
 
   <div class="actions">
     <%= f.submit 'Find me a Realtor!', :class => 'leadsubmit' %>

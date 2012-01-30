@@ -45,7 +45,6 @@ class BuyersController < ApplicationController
 
     respond_to do |format|
       if @buyer.save
-        SellerMailer.registration_confirmation(@buyer).deliver
         format.html { redirect_to @buyer, :notice => 'Buyer was successfully created.' }
         format.json { render :json => @buyer, :status => :created, :location => @buyer }
       else

@@ -41,10 +41,12 @@ class SellersController < ApplicationController
   # POST /sellers.json
   def create
     @seller = Seller.new(params[:seller])
-
     respond_to do |format|
       if @seller.save
-        SellerMailer.registration_confirmation(@seller).deliver
+        until @seller.times_forwarded == 5
+          SellerMailer.registration_confirmation(@seller).deliver
+          @seller.times_forwarded += 5
+        end
         format.html { redirect_to @seller, :notice => 'Seller was successfully created.' }
         format.json { render :json => @seller, :status => :created, :location => @seller }
       else

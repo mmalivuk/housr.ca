@@ -43,9 +43,7 @@ class SellersController < ApplicationController
     @seller = Seller.new(params[:seller])
     respond_to do |format|
       if @seller.save
-        until @seller.times_forwarded == 5
           SellerMailer.registration_confirmation(@seller).deliver
-        end
         format.html { redirect_to @seller, :notice => 'Seller was successfully created.' }
         format.json { render :json => @seller, :status => :created, :location => @seller }
       else

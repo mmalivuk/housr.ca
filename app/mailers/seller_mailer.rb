@@ -4,7 +4,7 @@ class SellerMailer < ActionMailer::Base
     @seller = seller
     
     users.each do |user|
-      mail(:to => user.email, :subject => "Here's your lead.", :from => "admin@housr.ca")
+      mail(:to => user.email, :subject => "You've received a new lead from housr.ca !", :from => "admin@housr.ca")
     end
   end
 end

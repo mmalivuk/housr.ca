@@ -41,9 +41,13 @@ class SellersController < ApplicationController
   # POST /sellers.json
   def create
     @seller = Seller.new(params[:seller])
+    @users = User.random(5)
     respond_to do |format|
       if @seller.save
-        SellerMailer.registration_confirmation(@seller).deliver
+        @users.each do |user|
+          SellerMailer.distribute(@seller).deliver
+          @seller.times_forwarded += 1
+        end
         format.html { redirect_to @seller, :notice => 'Seller was successfully created.' }
         format.json { render :json => @seller, :status => :created, :location => @seller }
       else

@@ -45,7 +45,7 @@ class SellersController < ApplicationController
     respond_to do |format|
       if @seller.save
         @users.each do |user|
-          SellerMailer.distribute(@seller).deliver
+          SellerMailer.registration_welcome(@seller, user).deliver
           @seller.times_forwarded += 1
         end
         format.html { redirect_to @seller, :notice => 'Seller was successfully created.' }

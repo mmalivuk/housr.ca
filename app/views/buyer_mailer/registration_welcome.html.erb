@@ -100,7 +100,7 @@
                                                                 </tr>
                                                                 <tr><td width="210" height="20"></td></tr>
                                                                 <tr>
-                                                                	<td width="210" align="left" style="text-align:left;"><span style="font-family:Arial, Helvetica, sans-serif;font-size:18px;color:#333F44;text-decoration:none;"><%= @seller.first_name %> <%= @seller.last_name %></span></td>
+                                                                	<td width="210" align="left" style="text-align:left;"><span style="font-family:Arial, Helvetica, sans-serif;font-size:18px;color:#333F44;text-decoration:none;"><%= @buyer.first_name %> <%= @buyer.last_name %></span></td>
                                                                 </tr>
                                                                 <tr><td width="210" height="10"></td></tr>
                                                                 <tr>
@@ -112,15 +112,15 @@
 	<!-- Begin lead info -->
 	
 	
-	Is selling a cute little <%= @seller.property_type %> in <%= @seller.city %>.<br>
+	Is selling a cute little <%= @buyer.property_type %> in <%= @buyer.city %>.<br>
 	<br>
 	The home has...
 	<ul>
-		<li><%= @seller.bedrooms %> bedrooms</li>
-		<li><%= @seller.bedrooms %> bathrooms</li>
+		<li><%= @buyer.min_bedrooms %> bedrooms</li>
+		<li><%= @buyer.min_bathrooms %> bathrooms</li>
 	</ul>
 	<br>
-	<%= @seller.first_name %> is looking to sell <%= @seller.timeframe %>.
+	<%= @buyer.first_name %> is looking to sell <%= @buyer.timeframe %>.
 	
 	
 	
@@ -173,14 +173,14 @@
                                                                 <tr>
                                                                 	<td width="210" align="left" style="text-align:left;line-height:18px;"><span style="font-family:Tahoma, Geneva, sans-serif;font-size:12px;color:#333F44;text-decoration:none;">
 	
-	<%= @seller.street_number %> <%= @seller.street_name %>
-	<%= @seller.city %>, ON <%= @seller.postal_code %><br>
+	<%= @buyer.street_number %> <%= @buyer.street_name %>
+	<%= @buyer.city %>, ON <%= @buyer.postal_code %><br>
 	
 	<br><br>
 	
-	Looking to get between <%= @seller.min_price %> to <%= @seller.max_price %>.
+	Looking to get between <%= @buyer.min_price %> to <%= @buyer.max_price %>.
 	
-	Contact at <%= mail_to @seller.email, @seller.email %> or call <%= @seller.phone %>.
+	Contact at <%= mail_to @buyer.email, @buyer.email %> or call <%= @buyer.phone %>.
 	
 	</span></td>
                                                                 </tr>
@@ -211,7 +211,7 @@
                                                         	<table width="209" cellpadding="0" cellspacing="0" border="0">
                                                                 <tr><td width="209" height="20"></td></tr>
                                                                 <tr>
-                                                                	<td width="210" align="left" style="text-align:left;line-height:18px;"><span style="font-family:Tahoma, Geneva, sans-serif;font-size:12px;color:#333F44;text-decoration:none;font-style:italic;">"<%= @seller.more_info %>" - <%= @seller.first_name %> <%= @seller.last_name %></span></td>
+                                                                	<td width="210" align="left" style="text-align:left;line-height:18px;"><span style="font-family:Tahoma, Geneva, sans-serif;font-size:12px;color:#333F44;text-decoration:none;font-style:italic;">"<%= @buyer.more_info %>" - <%= @buyer.first_name %> <%= @buyer.last_name %></span></td>
                                                                 </tr>
                                                             </table>
                                                         </td>

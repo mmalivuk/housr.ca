@@ -42,7 +42,7 @@ class BuyersController < ApplicationController
   # POST /buyers.json
   def create
     @buyer = Buyer.new(params[:buyer])
-
+    @users = User.random(5)
     respond_to do |format|
       if @buyer.save
         @users.each do |user|

@@ -112,12 +112,12 @@
 	<!-- Begin lead info -->
 	
 	
-	Is selling a cute little <%= @buyer.property_type %> in <%= @buyer.city %>.<br>
+	Wants to buy a <%= @buyer.property_type %> in <%= @buyer.city %>.<br>
 	<br>
-	The home has...
+	Wants a home with...
 	<ul>
-		<li><%= @buyer.min_bedrooms %> bedrooms</li>
-		<li><%= @buyer.min_bathrooms %> bathrooms</li>
+		<li><%= @buyer.bedrooms %> bedrooms</li>
+		<li><%= @buyer.bathrooms %> bathrooms</li>
 	</ul>
 	<br>
 	<%= @buyer.first_name %> is looking to sell <%= @buyer.timeframe %>.

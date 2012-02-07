@@ -46,7 +46,7 @@ class SellersController < ApplicationController
       if @seller.save
         @users.each do |user|
           SellerMailer.registration_welcome(@seller, user).deliver
-          @seller.times_forwarded += 1
+          Seller.increment_counter("times_forwarded", @seller.id)
         end
         format.html { redirect_to @seller, :notice => 'Seller was successfully created.' }
         format.json { render :json => @seller, :status => :created, :location => @seller }

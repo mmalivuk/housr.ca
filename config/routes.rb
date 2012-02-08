@@ -1,4 +1,7 @@
 Boot::Application.routes.draw do
+  resources :renters
+  match "rent" => "renters#new"
+
   resources :sellers
   match "sell" => "sellers#new"
   
@@ -19,17 +22,11 @@ Boot::Application.routes.draw do
   get "pages/about"
   match "about" => "pages#about"
 
-  get "pages/buy"
-  match "buy" => "pages#buy"
-
-  get "pages/sell"
-  match "sell" => "pages#sell"
-
-  get "pages/rent"
-  match "rent" => "pages#rent"
-
   get "pages/find"
   match "find" => "pages#find"
+  
+  get "pages/agent"
+  match "realtors" => "pages#agent"
 
   get "pages/contact"
   match "contact" => "pages#contact"

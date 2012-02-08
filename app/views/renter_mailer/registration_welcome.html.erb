@@ -59,7 +59,7 @@
                                     	<!-- EVENTs Start -->
                                     	<tr>
                                         	<td width="20" height="20"></td>
-                                            <td width="250" align="left" style="text-align:left;"><span style="font-family:Tahoma, Geneva, sans-serif;font-size:11px;color:#333F44;text-decoration:none;">Hello,</span></td>
+                                            <td width="250" align="left" style="text-align:left;"><span style="font-family:Tahoma, Geneva, sans-serif;font-size:11px;color:#333F44;text-decoration:none;">Hello, @user.first_name </span></td>
                                             <td width="20"></td>
                                            	<td width="249" align="right" style="text-align:right;"><span style="font-family:Tahoma, Geneva, sans-serif;font-size:11px;color:#333F44;text-decoration:none;"> <a href="http://housr.ca/cpanel" style="font-family:Tahoma, Arial, sans-serif;font-size:11px;color:#333F44;font-weight:normal;text-decoration:underline"><span style="color:#333F44;">View back on housr.ca</span></a></span></td>
                                             <td width="20"></td>
@@ -89,7 +89,7 @@
                                                                 	<td width="210">
                                                                     	<table width="210" cellpadding="0" cellspacing="0" border="0">
             																<tr>
-                                                                            	<td width="50"><span style="font-family:Arial, Helvetica, sans-serif;font-size:38px;color:#333F44;text-decoration:none;font-weight:900;">Buyer</span></td>
+                                                                            	<td width="50"><span style="font-family:Arial, Helvetica, sans-serif;font-size:38px;color:#333F44;text-decoration:none;font-weight:900;">Renter</span></td>
                                                                                 <td width="128"></td>
                                                                                 <!-- EVENTs 1 Clock Start -->
                                                                                 <td width="32" valign="middle"><a href=""><img src="http://housr.ca/images/sellers_email/clock-green.png" alt="" width="32" height="32" border="0" style="display:block;" /></a></td>
@@ -100,7 +100,7 @@
                                                                 </tr>
                                                                 <tr><td width="210" height="20"></td></tr>
                                                                 <tr>
-                                                                	<td width="210" align="left" style="text-align:left;"><span style="font-family:Arial, Helvetica, sans-serif;font-size:18px;color:#333F44;text-decoration:none;"><%= @buyer.first_name %> <%= @buyer.last_name %></span></td>
+                                                                	<td width="210" align="left" style="text-align:left;"><span style="font-family:Arial, Helvetica, sans-serif;font-size:18px;color:#333F44;text-decoration:none;"><%= @renter.first_name %> <%= @renter.last_name %></span></td>
                                                                 </tr>
                                                                 <tr><td width="210" height="10"></td></tr>
                                                                 <tr>
@@ -112,15 +112,15 @@
 	<!-- Begin lead info -->
 	
 	
-	Wants to buy a <%= @buyer.property_type %> in <%= @buyer.city %>.<br>
+	Wants to rent a <%= @renter.property_type.downcase %> in <%= @renter.city %>.<br>
 	<br>
-	Wants a home with...
+	<%= @renter.first_name %> needs a <%= @renter.property_type.downcase %> with...
 	<ul>
-		<li><%= @buyer.bedrooms %> bedrooms</li>
-		<li><%= @buyer.bathrooms %> bathrooms</li>
+		<li><%= @renter.bedrooms %> bedrooms</li>
+		<li><%= @renter.bedrooms %> bathrooms</li>
 	</ul>
 	<br>
-	<%= @buyer.first_name %> is looking to sell <%= @buyer.timeframe %>.
+	and is looking to sell <%= @renter.timeframe.downcase %>.
 	
 	
 	
@@ -173,14 +173,14 @@
                                                                 <tr>
                                                                 	<td width="210" align="left" style="text-align:left;line-height:18px;"><span style="font-family:Tahoma, Geneva, sans-serif;font-size:12px;color:#333F44;text-decoration:none;">
 	
-	<%= @buyer.street_number %> <%= @buyer.street_name %>
-	<%= @buyer.city %>, ON <%= @buyer.postal_code %><br>
+	<%= @renter.street_number %> <%= @renter.street_name %>
+	<%= @renter.city %>, ON <%= @renter.postal_code %><br>
 	
 	<br><br>
 	
-	Looking to get between <%= @buyer.min_price %> to <%= @buyer.max_price %>.
+	Price range is between <%= @renter.min_price %> and <%= @renter.max_price %>.
 	
-	Contact at <%= mail_to @buyer.email, @buyer.email %> or call <%= number_to_phone(@buyer.phone, :area_code => true) %>.
+	Contact at <%= mail_to @renter.email, @renter.email %> or call <%= @renter.phone %>.
 	
 	</span></td>
                                                                 </tr>
@@ -211,7 +211,7 @@
                                                         	<table width="209" cellpadding="0" cellspacing="0" border="0">
                                                                 <tr><td width="209" height="20"></td></tr>
                                                                 <tr>
-                                                                	<td width="210" align="left" style="text-align:left;line-height:18px;"><span style="font-family:Tahoma, Geneva, sans-serif;font-size:12px;color:#333F44;text-decoration:none;font-style:italic;">"<%= @buyer.more_info %>" - <%= @buyer.first_name %> <%= @buyer.last_name %></span></td>
+                                                                	<td width="210" align="left" style="text-align:left;line-height:18px;"><span style="font-family:Tahoma, Geneva, sans-serif;font-size:12px;color:#333F44;text-decoration:none;font-style:italic;">"<%= @renter.more_info %>" - <%= @renter.first_name %> <%= @renter.last_name %></span></td>
                                                                 </tr>
                                                             </table>
                                                         </td>

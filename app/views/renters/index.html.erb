@@ -1,0 +1,53 @@
+<h1>Listing renters</h1>
+
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Property type</th>
+    <th>Min price</th>
+    <th>Max price</th>
+    <th>Bedrooms</th>
+    <th>Bathrooms</th>
+    <th>Street number</th>
+    <th>Street name</th>
+    <th>Postal code</th>
+    <th>City</th>
+    <th>Timeframe</th>
+    <th>More info</th>
+    <th>Times forwarded</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @renters.each do |renter| %>
+  <tr>
+    <td><%= renter.first_name %></td>
+    <td><%= renter.last_name %></td>
+    <td><%= renter.phone %></td>
+    <td><%= renter.email %></td>
+    <td><%= renter.property_type %></td>
+    <td><%= renter.min_price %></td>
+    <td><%= renter.max_price %></td>
+    <td><%= renter.bedrooms %></td>
+    <td><%= renter.bathrooms %></td>
+    <td><%= renter.street_number %></td>
+    <td><%= renter.street_name %></td>
+    <td><%= renter.postal_code %></td>
+    <td><%= renter.city %></td>
+    <td><%= renter.timeframe %></td>
+    <td><%= renter.more_info %></td>
+    <td><%= renter.times_forwarded %></td>
+    <td><%= link_to 'Show', renter %></td>
+    <td><%= link_to 'Edit', edit_renter_path(renter) %></td>
+    <td><%= link_to 'Destroy', renter, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Renter', new_renter_path %>

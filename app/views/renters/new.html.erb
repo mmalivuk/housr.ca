@@ -1,0 +1,7 @@
+<% provide(:title, 'find a realtor to rent a home with') %>
+<h1>Find a Realtor</h1>
+<br class="clearfloat">
+<p>This form is for <strong>renters</strong> <%= link_to "Are you a seller?", new_seller_path %> or <%= link_to "Are you a buyer?", new_buyer_path %></p>
+<br>
+<br>
+<%= render 'form' %>

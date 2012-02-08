@@ -1,0 +1,82 @@
+<div class="leadform">
+<%= form_for(@renter) do |f| %>
+  <% if @renter.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@renter.errors.count, "error") %> prohibited this renter from being saved:</h2>
+
+      <ul>
+      <% @renter.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= f.label :first_name %>&nbsp
+    <%= f.text_field :first_name %>
+  </p>
+
+  <p>
+    <%= f.label :last_name %>&nbsp
+    <%= f.text_field :last_name %>
+  </p>
+  <p>
+    <%= f.label :phone, "Phone number" %>&nbsp
+    <%= f.text_field :phone %>
+  </p>
+
+  <p>
+    <%= f.label :email %>&nbsp
+    <%= f.email_field :email %>
+  </p>
+  <p>
+    <%= f.label :property_type %>&nbsp
+    <%= f.select :property_type, [['Detached house','Detached House'],['Townhouse','Townhouse'],['Apartment/Condo','Apartment/Condo'],['Rental','Rental'],['Vacation','Vacation'],['Other','Other']] %>
+  </p>
+  <p>
+    <%= f.label :min_price, "Price range (monthly)"%>&nbsp
+    <%= f.select :min_price, [['< $600','< $600'],['$900','$900'],['$1,200','$1,200'],['$1,500','$1,500'],['$1,800','$1,800'],['$2,100','$2,100'],['$2,400','$2,400'],['$2,700','$2,700'],['$3,000','$3,000'],['> $3,000','> $3,000']] %>
+to
+    <%= f.select :max_price, [['< $600','< $600'],['$900','$900'],['$1,200','$1,200'],['$1,500','$1,500'],['$1,800','$1,800'],['$2,100','$2,100'],['$2,400','$2,400'],['$2,700','$2,700'],['$3,000','$3,000'],['> $3,000','> $3,000']] %>
+  </p>
+  <p>
+    <%= f.label :bedrooms, "Minimum bedrooms" %>&nbsp
+    <%= f.number_field :bedrooms, :class=>"small" %>
+  </p>
+  <p>
+    <%= f.label :bathrooms, "Minimum bathrooms" %>&nbsp
+    <%= f.number_field :bathrooms, :class=>"small" %>
+  </p>
+  <p>
+    <%= f.label :street_number %>&nbsp
+    <%= f.number_field :street_number, :class=>"small" %>
+  </p>
+  <p>
+    <%= f.label :street_name %>&nbsp
+    <%= f.text_field :street_name %>
+  </p>
+  <p>
+    <%= f.label :postal_code %>&nbsp
+    <%= f.text_field :postal_code %>
+  </p>
+  <p>
+    <%= f.label :city %>&nbsp
+    <%= f.text_field :city %>
+  </p>
+  <p>
+    <%= f.label :timeframe, "I'm renting" %>&nbsp
+	<%= f.select :timeframe, [['As soon as possible','As soon as possible'],['Within 2 weeks','Within 2 weeks'],['Within 3-4 weeks','Within 3-4 weeks'],['Within 5-7 weeks','Within 5-7 weeks'],['Within 2-4 months','Within 2-4 months'],['More than 5 months from now','More than 5 months from now']] %>
+  </p>
+  <p>
+    <%= f.label :more_info, "More information" %>&nbsp
+    <%= f.text_area :more_info, :rows=>"6" %>
+  </p>
+
+	<%= f.hidden_field :times_forwarded, :value => "0" %>
+
+
+  <div class="actions">
+    <%= f.submit 'Find me a Realtor!', :class => 'leadsubmit' %>
+  </div>
+<% end %>
+</div>

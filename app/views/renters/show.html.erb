@@ -1,0 +1,85 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>First name:</b>
+  <%= @renter.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @renter.last_name %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @renter.phone %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @renter.email %>
+</p>
+
+<p>
+  <b>Property type:</b>
+  <%= @renter.property_type %>
+</p>
+
+<p>
+  <b>Min price:</b>
+  <%= @renter.min_price %>
+</p>
+
+<p>
+  <b>Max price:</b>
+  <%= @renter.max_price %>
+</p>
+
+<p>
+  <b>Bedrooms:</b>
+  <%= @renter.bedrooms %>
+</p>
+
+<p>
+  <b>Bathrooms:</b>
+  <%= @renter.bathrooms %>
+</p>
+
+<p>
+  <b>Street number:</b>
+  <%= @renter.street_number %>
+</p>
+
+<p>
+  <b>Street name:</b>
+  <%= @renter.street_name %>
+</p>
+
+<p>
+  <b>Postal code:</b>
+  <%= @renter.postal_code %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @renter.city %>
+</p>
+
+<p>
+  <b>Timeframe:</b>
+  <%= @renter.timeframe %>
+</p>
+
+<p>
+  <b>More info:</b>
+  <%= @renter.more_info %>
+</p>
+
+<p>
+  <b>Times forwarded:</b>
+  <%= @renter.times_forwarded %>
+</p>
+
+
+<%= link_to 'Edit', edit_renter_path(@renter) %> |
+<%= link_to 'Back', renters_path %>

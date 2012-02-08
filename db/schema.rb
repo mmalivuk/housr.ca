@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120208003059) do
+ActiveRecord::Schema.define(:version => 20120208021353) do
 
   create_table "buyers", :force => true do |t|
     t.string   "first_name"
@@ -68,16 +68,6 @@ ActiveRecord::Schema.define(:version => 20120208003059) do
     t.float    "longitude"
     t.float    "latitude"
     t.boolean  "gmaps"
-  end
-
-  create_table "messages", :force => true do |t|
-    t.string   "your_email"
-    t.string   "your_name"
-    t.string   "email"
-    t.string   "subject"
-    t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "renters", :force => true do |t|

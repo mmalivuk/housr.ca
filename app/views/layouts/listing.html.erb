@@ -138,16 +138,17 @@ it doesn't affect the site otherwise.
             =========
             this link also reveals the contact form
             -->
-        
+        <% if @listing.price_sold.empty? %>
         	<p class="available">
-            	<a href="#" title="Contact the listing agent"><%= number_to_currency(@listing.asking_price) %><br><span>contact this listing agent</span></a>
+            	<a href="#" title="Contact the listing agent"><%= number_to_currency(@listing.asking_price) %><br><span>contact this listing 		agent</span></a>
             </p>
-            
-            
-        	<p class="notAvailable hidden">
-            	<a href="#proposal" title="Sold. View Realtor's profile">Sold<br /> <span>view realtor's profile</span></a>
+
+		<% else %>
+		
+			<p class="notAvailable">
+            	<a href="#proposal" title="Sold. View Realtor's profile"><%= number_to_currency(@listing.price_sold) %><br><span>this property is sold</span></a>
             </p>
-            
+		<% end %>       
             
         </div>
 		
@@ -347,4 +348,17 @@ it doesn't affect the site otherwise.
 
 </body>
 <%= yield :scripts %>
+<script type="text/javascript" charset="utf-8">
+  function gmaps4rails_callback() {
+    if (Gmaps4Rails.markers.length == 1) {
+     //only one marker, choose the zoom level you expect
+     Gmaps4Rails.map.setZoom(5);
+    }
+    else{
+     //more than one marker, let's auto_zoom
+     Gmaps4Rails.map_options.auto_zoom = true;
+     Gmaps4Rails.adjust_map_to_bounds();
+    }
+  }
+</script>
 </html>

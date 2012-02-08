@@ -3,6 +3,6 @@ class MessageMailer < ActionMailer::Base
   
   def contact_housr(message)
     @message = message
-    mail(:from => @message.your_email, :subject => @message.subject)
+    mail(:from => @message.your_email, :subject => "Contact Form: #{@message.subject}")
   end
 end

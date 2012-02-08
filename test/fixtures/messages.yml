@@ -1,15 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  your_email: MyString
   your_name: MyString
-  email: MyString
+  your_email: MyString
   subject: MyString
   body: MyText
 
 two:
-  your_email: MyString
   your_name: MyString
-  email: MyString
+  your_email: MyString
   subject: MyString
   body: MyText

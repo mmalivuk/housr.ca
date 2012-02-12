@@ -267,7 +267,7 @@ it doesn't affect the site otherwise.
                         <%= number_to_phone(@user.phone, :area_code => true) %> 
                     </li>
                 	<li class="email">
-                        <%= @user.email %>
+                        <%= mail_to @user.email %>
                     </li>
                 	<li class="website">
                         www.housr.ca

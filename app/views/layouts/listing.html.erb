@@ -233,44 +233,32 @@ it doesn't affect the site otherwise.
                 	<li class="address">
                         <%= @listing.city %>, ON
                     </li>
-					<li class="website">
-                        www.housr.ca
-                    </li>
                 </ul>
         </div>
 
 
         <!--
-        email to friends form. configure the
-        tellafriend.php file with you email 
-        address and you're good to go!
+        Listing agent panel and selection code
         -->
 
+		<% @owner = User.where(:id => @listing.user_id) %>
+		<% @user = @owner.first %><!-- because the previous line is a hash, select one -->
+
         <div class="infoBlock light" id="tellBuddies">
-            <h2>Email this listing to a friend</h2>
-            <form name="tellafriend" class="tellBuddies" action="tellafriend.php" method="post" onsubmit="return checkfields()"> 
-                <p>
-                    <label for="name">your name <span>*</span></label><br />
-                    <input type="text" size="45" name="name" id="name" maxlength="45" />
-                </p>
-                <p>
-                	<label for="email">your email <span>*</span></label><br />
-                	<input type="text" size="45" name="email" id="email" maxlength="45"/>
-                </p>
-                
-                <p class="topDashed">please enter your friend's email address:</p>
-                <br />
-    
-                <p>
-                	<label for="friendmail1">email<span>*</span></label><br />
-                	<input type="text" size="45" name="friendmail1" id="friendmail1" maxlength="45"/>
-                </p>
-                
-                <p class="highlight">Ps, the email will contain your name and email address.</p>
-                <p>
-                	<input onclick="validate();" type="button" value="send to friend"/>
-                </p>
-            </form>
+            <h2>Listing Realtor</h2>
+	
+			<ul class="contactInfo">
+				<a href="<%= user_path(@user) %>"><%= image_tag @user.avatar_url(:thumb), :width => "157px" %></a>
+            	<li class="name">
+                    <h3><%= "#{@user.first_name} #{@user.last_name}" %></h3>
+                </li>
+            	<li class="email">
+                    <%= mail_to @user.email %>
+                </li>
+            	<li class="website">
+                    <%= link_to "View Realtor's Profile", user_path(@user) %>
+                </li>
+            </ul>
         </div>
        
      <br class="clearfloat" />
@@ -356,7 +344,7 @@ it doesn't affect the site otherwise.
   function gmaps4rails_callback() {
     if (Gmaps4Rails.markers.length == 1) {
      //only one marker, choose the zoom level you expect
-     Gmaps4Rails.map.setZoom(15);
+     Gmaps4Rails.map.setZoom(1);
     }
     else{
      //more than one marker, let's auto_zoom

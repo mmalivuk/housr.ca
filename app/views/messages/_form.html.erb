@@ -24,10 +24,11 @@
     <%= f.text_field :subject %>
   </div>
   <div class="field">
-    <%= f.label :body %><br />
+    <%= f.label :body, 'Your message.
+' %><br />
     <%= f.text_area :body %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Send message!', :class => "leadsubmit" %>
   </div>
 <% end %>

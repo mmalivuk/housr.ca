@@ -40,6 +40,12 @@ Boot::Application.routes.draw do
   get "pages/agent"
   match "agents" => "pages#agent"
   
+  get "pages/terms_of_use"
+  match "terms" => "pages#terms_of_use"
+  
+  get "pages/privacy_policy"
+  match "privacy_policy" => "pages#privacy_policy"
+  
   get "users/cpanel"
   match "cpanel" => "users#cpanel", :as => 'user_root'
   

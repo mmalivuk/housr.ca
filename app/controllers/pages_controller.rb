@@ -21,4 +21,10 @@ class PagesController < ApplicationController
   
   def sent_message
   end
+  
+  def privacy_policy
+  end
+  
+  def terms_of_use
+  end
 end

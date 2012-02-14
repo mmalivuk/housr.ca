@@ -15,4 +15,10 @@ class PagesController < ApplicationController
   def agent
     @title = "realtor's section"
   end
+  
+  def submitted
+  end
+  
+  def sent_message
+  end
 end

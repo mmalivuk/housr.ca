@@ -42,14 +42,15 @@ class BuyersController < ApplicationController
   # POST /buyers.json
   def create
     @buyer = Buyer.new(params[:buyer])
-    @users = User.random(5)
+    @locals = User.where(:city => @buyer.city)
+    @users = @locals.random(5)
     respond_to do |format|
       if @buyer.save
         @users.each do |user|
           BuyerMailer.registration_welcome(@buyer, user).deliver
           Buyer.increment_counter("times_forwarded", @buyer.id)
         end
-        format.html { redirect_to @buyer, :notice => 'Buyer was successfully created.' }
+        format.html { redirect_to :submitted_page, :notice => 'Seller was successfully created.' }
         format.json { render :json => @buyer, :status => :created, :location => @buyer }
       else
         format.html { render :action => "new" }

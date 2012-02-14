@@ -49,7 +49,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, :notice => 'You have successfully registered as a Realtor.' }
+        format.html { redirect_to edit_user_path(@user), :notice => 'All signed up. Now you just need to fill out your public profile.' }
         format.json { render :json => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }
@@ -76,7 +76,7 @@ class UsersController < ApplicationController
   
   def cpanel
     render :layout => "cpanel"
-    @title = "Realtor Control Panel"
+    @title = "Realtor control panel"
   end
 
   # DELETE /users/1

@@ -41,14 +41,15 @@ class RentersController < ApplicationController
   # POST /renters.json
   def create
     @renter = Renter.new(params[:renter])
-    @users = User.random(5)
+    @locals = User.where(:city => @buyer.city)
+    @users = @locals.random(5)
     respond_to do |format|
       if @renter.save
         @users.each do |user|
           RenterMailer.registration_welcome(@renter, user).deliver
           Renter.increment_counter("times_forwarded", @renter.id)
         end
-        format.html { redirect_to @renter, :notice => 'Renter was successfully created.' }
+        format.html { redirect_to :submitted_page, :notice => 'Seller was successfully created.' }
         format.json { render :json => @renter, :status => :created, :location => @renter }
       else
         format.html { render :action => "new" }

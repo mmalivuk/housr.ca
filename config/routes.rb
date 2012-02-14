@@ -21,6 +21,9 @@ Boot::Application.routes.draw do
 
   get "pages/index" 
   match "index" => "pages#index"
+  
+  get "pages/submitted"
+  match "submitted" => "pages#submitted", :as => 'submitted_page'
 
   get "pages/about"
   match "about" => "pages#about"
@@ -30,6 +33,9 @@ Boot::Application.routes.draw do
   
   get "pages/agent"
   match "realtors" => "pages#agent"
+  
+  get "pages/sent_message"
+  match "mail_sent" => "pages#sent_message", :as => 'sent_message'
 
   get "pages/agent"
   match "agents" => "pages#agent"

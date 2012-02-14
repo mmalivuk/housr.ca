@@ -45,7 +45,7 @@ class MessagesController < ApplicationController
     respond_to do |format|
       if @message.save
         MessageMailer.contact_housr(@message).deliver
-        format.html { redirect_to @message, :notice => 'Message was successfully created.' }
+        format.html { redirect_to :sent_message, :notice => 'Message was successfully sent.' }
         format.json { render :json => @message, :status => :created, :location => @message }
       else
         format.html { render :action => "new" }

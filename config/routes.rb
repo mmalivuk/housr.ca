@@ -1,4 +1,9 @@
 Boot::Application.routes.draw do
+  
+  namespace 'chargify' do
+    match '/hooks' => "hooks#dispatch_handler", :via => "post"
+  end  
+  
   resources :messages
   match "contact" => "messages#new"
 

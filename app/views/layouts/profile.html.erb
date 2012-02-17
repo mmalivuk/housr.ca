@@ -1,8 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script type="text/javascript" src="/assets/jquery-1.3.2.min.js"></script>
+	<%= javascript_include_tag 'gmaps4rails/gmaps4rails.base' %>
+	<%= javascript_include_tag 'gmaps4rails/gmaps4rails.googlemaps' %>
+	<%= javascript_include_tag 'gmaps4rails/gmaps4rails.openlayers' %>
+	<%= yield :head %>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<%= stylesheet_link_tag "gmaps4rails" %>
 
 <meta name="description" content="housr helps you find a real estate agent in toronto and kingston for free. Also, offers profiles for realtors for free." />
 <meta name="keywords" content="housr, housr.ca, real estate agent, real estate, toronto, mississauga, kingston, GTA, brampton, buy a house, buy a home, home, sell a home, sell a house, find a realtor, find a real estate agent, toronto realtor, kingston real estate agent, toronto real estate agent, mls" />
@@ -96,10 +101,8 @@ return true;
 
 <!--
 the following message is displayed only if browser has
-javascript turned off. you may delete it or leave it intact
-it doesn't affect the site otherwise.
+javascript turned off.
 -->
-<!-- /////////////////////////////////////////this one goes out to all my non-javascript peeps out there. get your script on people. its the two-thousands here ////////////////////////// -->
 <noscript>
   <div class="wrapper" id="no-js">
     <div class="javaDouche">
@@ -117,10 +120,7 @@ it doesn't affect the site otherwise.
 <!-- !                  HEADER                      -->
 <!-- ============================================== -->
 <div id="header">
-	<!--
-    your name and title/ company name goes here
-    -->
-	<h1><a href="/res"><%= @user.first_name %> <%= @user.last_name %><br />
+	<h1><a href="mailto:<%= @user.email %>"><%= @user.first_name %> <%= @user.last_name %><br />
 		<span>I'm a realtor for <strong><%= @user.company %></strong></span></a></h1>
     
     <ul class="mainNav">
@@ -225,17 +225,12 @@ it doesn't affect the site otherwise.
 
 
 
-        <!-- ============================= -->
-        <!-- =========== SKILLS ========== -->	
-        <!-- ============================= -->
-        <h2>Skills</h2>
+         
+        <h2>Map of listings</h2>
         
-        <h3>Film &amp; Video</h3>
-        <p>Avid, Final Cut Studio,  After Effects, Vegas, Flash, Dreamweaver, and many more.</p>
-        
-        <h3>Graphic Design</h3>
-        <p>Photoshop, llustrator, Vegas, Flash, Dreamweaver, and many more, and many more.</p>
-   <br class="clearfloat"><br>             
+        <%= gmaps4rails(@json) %>        
+
+
     </div><!-- END leftCol -->
 
 
@@ -248,21 +243,12 @@ it doesn't affect the site otherwise.
     <div class="rightCol">
         <div class="infoBlock light">
         
-        	<!--
-            enter the correct path to your vCard in the link below.
-            -->
-        
-            
-            
-            
-            	<!--
-                vCard contact information.
-                note the classes in the list items
-                give the icon styles you see.
-                -->
+
             
             	<ul class="contactInfo">
-					<%= image_tag @user.avatar_url(:thumb), :width => "315px" %>
+					
+					<%= image_tag @user.avatar_url(:thumb), :width => "315px" if @user.avatar_url %>
+					
                 	<li class="phone">
                         <%= number_to_phone(@user.phone, :area_code => true) %> 
                     </li>
@@ -278,12 +264,6 @@ it doesn't affect the site otherwise.
                 </ul>
         </div>
 
-
-        <!--
-        email to friends form. configure the
-        tellafriend.php file with you email 
-        address and you're good to go!
-        -->
 
         <div class="infoBlock light" id="tellBuddies">
             <h2>Email my information to a friend</h2>
@@ -316,36 +296,7 @@ it doesn't affect the site otherwise.
     </div><!-- END rightCol -->
     
     
-    
-    
-    
-    <!-- 
-    SEARCH FORM
-    the onfocus and onblur values
-    don't allow this search form to
-    validate but it is quite sexy!
-    uncomment if you need it.
-    I doubt though that you'll be needing
-    a search form for a one page document 
-    -->
-     
-     <!--       
-      
-	<div class="searchBlock">
-    	<div class="leftCol">
-        <form method="get" id="searchForm" action="">
-            <input type="text" value="search the site..." onfocus="if(this.value=='search the site...') this.value='';" onblur="if(this.value.length < 1) this.value='search the site...';" />
-            <input type="submit" id="submit" value="Search" />
-        </form>
-        </div>
-        
-        <div class="rightCol">
-        	<p>Lorem Ipsum Dolor</p>
-        </div>	   
-    </div> 
-                   
-	  -->
-
+  
 
       
 <br class="clearfloat" />
@@ -387,7 +338,20 @@ it doesn't affect the site otherwise.
 <!-- ============================================== -->	
 <!-- !         tracking and analytics               -->
 <!-- ============================================== -->
-
+<%= yield :scripts %>
+<script type="text/javascript" charset="utf-8">
+  function gmaps4rails_callback() {
+    if (Gmaps4Rails.markers.length == 1) {
+     //only one marker, choose the zoom level you expect
+     Gmaps4Rails.map.setZoom(1);
+    }
+    else{
+     //more than one marker, let's auto_zoom
+     Gmaps4Rails.map_options.auto_zoom = true;
+     Gmaps4Rails.adjust_map_to_bounds();
+    }
+  }
+</script>
 
 </body>
 </html>

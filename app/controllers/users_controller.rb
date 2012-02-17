@@ -18,6 +18,8 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    @listings = @user.listings
+    @json = @listings.all.to_gmaps4rails
 
     render :layout => 'profile'
     @title = "realtor profile"

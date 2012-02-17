@@ -8,7 +8,7 @@ class Listing < ActiveRecord::Base
   end
   
   def gmaps4rails_infowindow
-    "<img src=\"#{self.img}\"> #{self.street_number} #{self.street_name}, #{self.city}, ON"
+    "<img src=\"#{self.img}\" width=75px> <br class=\"clearfloat\"> #{self.street_number} #{self.street_name}, #{self.city}, ON"
   end
   
   validates :title, :length => { :maximum => 70 }

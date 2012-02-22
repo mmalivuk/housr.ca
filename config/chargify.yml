@@ -1,0 +1,8 @@
+development:
+  subdomain: housr
+  api_key: EHS2umPRJK7-GGc1pO-8
+  site_key: ydS3AXiJ7sLBF30CUAtS
+production:
+  subdomain: housr
+  api_key: EHS2umPRJK7-GGc1pO-8
+  site_key: ydS3AXiJ7sLBF30CUAtS

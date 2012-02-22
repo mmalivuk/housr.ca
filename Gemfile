@@ -23,6 +23,8 @@ gem 'randumb'
 
 gem 'pg'
 
+gem 'chargify_api_ares'
+
 group :production do
   gem 'therubyracer-heroku', '0.8.1.pre3' # you will need this too
 end

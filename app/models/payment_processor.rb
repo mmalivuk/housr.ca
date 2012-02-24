@@ -1,8 +1,8 @@
 class PaymentProcessor
   
   # used for the initial signup flow
-  def self.hosted_signup_page_for(plan, user)
-    "https://#{self.subdomain}.chargify.com/h/#{self.product_id(plan)}/subscriptions/new?first_name=#{user.first_name}&last_name=#{user.last_name}&email=#{user.email}&reference=#{user.token}"
+  def self.hosted_signup_page_for(account_type, user)
+    "https://#{self.subdomain}.chargify.com/h/#{self.product_id(account_type)}/subscriptions/new?first_name=#{user.first_name}&last_name=#{user.last_name}&email=#{user.email}&reference=#{user.id}"
   end
   
   # used to send a user to their unique payment page in
@@ -26,8 +26,15 @@ private
     self.chargify_config[Rails.env]['subdomain']
   end
   
-  def self.product_id(plan)
-    # your own logic to retrieve the Chargify product ID for
-    # the plan in question (hint: I store mine in the DB)
+  def self.product_id(account_type)
+    if account_type = "monthly"
+      103279
+    elsif account_type = "annual"
+      "annualid"
+    elsif account_type = "lifetime"
+      "lifetime"
+    elsif account_type = "free"
+      "free"
+    end
   end
 end

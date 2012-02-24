@@ -1,5 +1,5 @@
 Boot::Application.routes.draw do
-  
+
   namespace 'chargify' do
     match '/hooks' => "hooks#dispatch_handler", :via => "post"
   end  
@@ -20,7 +20,7 @@ Boot::Application.routes.draw do
 
   resources :leads
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
   
   resources :users
 

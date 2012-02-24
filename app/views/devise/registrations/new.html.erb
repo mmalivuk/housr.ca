@@ -23,7 +23,7 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "registerForm" }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field"><p><%= f.label :email %><%= @account_type %></p>
+  <div class="field"><p><%= f.label :email %></p>
   <%= f.text_field :email %></div><br>
 
   <div class="field"><p><%= f.label :password %></p>

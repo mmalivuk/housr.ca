@@ -27,14 +27,14 @@ private
   end
   
   def self.product_id(account_type)
-    if account_type = "monthly"
+    if account_type == "monthly"
       103279
-    elsif account_type = "annual"
-      "annualid"
-    elsif account_type = "lifetime"
-      "lifetime"
-    elsif account_type = "free"
-      "free"
+    elsif account_type == "annual"
+      107396
+    elsif account_type == "lifetime"
+      107415
+    elsif account_type == "free"
+      107395
     end
   end
 end

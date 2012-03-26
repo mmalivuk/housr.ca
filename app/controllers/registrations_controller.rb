@@ -19,7 +19,7 @@ class RegistrationsController < Devise::RegistrationsController
             @user.reload.create_subscription_and_setup_account!(@account_type)
             set_flash_message :notice, :signed_up if is_navigational_format?
             sign_in(resource_name, resource)
-          else
+          elseston 
             # redirect to http://chargify.com ================>
             redirect_to PaymentProcessor.hosted_signup_page_for(@account_type, @user)
           end

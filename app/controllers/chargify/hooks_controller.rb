@@ -17,7 +17,6 @@ class Chargify::HooksController < ApplicationController
 			convert_payload
 			self.send event
 		rescue Exception => e
-			notify_hoptoad(e) #If you use hoptoad...
 		  render :nothing => true, :status => 422 and return
 		end
 	end

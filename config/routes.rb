@@ -36,6 +36,7 @@ Boot::Application.routes.draw do
   get "pages/find"
   match "find" => "pages#find"
   match "locatearealtor" => "pages#find"
+  match "locate-a-realtor" => "pages#find"
   
   get "pages/agent"
   match "realtors" => "pages#agent"

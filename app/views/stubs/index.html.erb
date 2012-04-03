@@ -1,0 +1,34 @@
+<h1>Realtors in Toronto, Mississauga, Brampton and Kingston</h1><br class="clearfloat">
+<br>
+<br>
+<%= paginate @stubs %>
+<br>
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Company</th>
+    <th>City</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @stubs.each do |stub| %>
+  <tr>
+    <td><%= stub.first_name %></td>
+    <td><%= stub.last_name %></td>
+    <td><%= stub.company %></td>
+    <td><%= stub.city %></td>
+    <td><%= stub.email %></td>
+    <td><%= stub.phone %></td>
+    <td><%= link_to 'Show', stub %></td>
+  </tr>
+<% end %>
+</table>
+<br>
+<%= paginate @stubs %>
+
+<br />

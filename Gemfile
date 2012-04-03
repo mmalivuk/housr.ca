@@ -21,12 +21,17 @@ gem 'gmaps4rails', '1.4.2'
 
 gem 'randumb'
 
-gem 'pg'
-
 gem 'chargify_api_ares'
+
+gem 'nokogiri'
+
+gem 'mechanize'
+
+gem 'kaminari'
 
 group :production do
   gem 'therubyracer-heroku', '0.8.1.pre3' # you will need this too
+  gem 'pg'
 end
 
 # Gems used only for assets and not required

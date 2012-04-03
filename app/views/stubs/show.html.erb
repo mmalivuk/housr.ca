@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>First name:</b>
+  <%= @stub.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @stub.last_name %>
+</p>
+
+<p>
+  <b>Company:</b>
+  <%= @stub.company %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @stub.city %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @stub.email %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @stub.phone %>
+</p>
+
+
+<%= link_to 'Edit', edit_stub_path(@stub) %> |
+<%= link_to 'Back', stubs_path %>

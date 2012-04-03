@@ -1,5 +1,7 @@
 Boot::Application.routes.draw do
 
+  resources :stubs
+
   namespace 'chargify' do
     match '/hooks' => "hooks#dispatch_handler", :via => "post"
   end  
@@ -35,8 +37,7 @@ Boot::Application.routes.draw do
 
   get "pages/find"
   match "find" => "pages#find"
-  match "locatearealtor" => "pages#find"
-  match "locate-a-realtor" => "pages#find"
+  match "find-a-realtor" => "pages#find"
   
   get "pages/agent"
   match "realtors" => "pages#agent"
